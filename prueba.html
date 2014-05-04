@@ -2,33 +2,49 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
     	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    	<script src="../MYCANVAS/lib/Snap.svg-0.2.0/dist/snap.svg-min.js"></script>
+
+		<script>
+			window.onload = function(){
+				var s = Snap(490,490);
+	            Snap.load("prueba_1_app.svg", function (f) {
+	                var circuloSuperiorSup = f.select("path[id='circuloSuperiorSup']"),
+	                	lineaAmarillaInf = f.select("path[id='lineaAmarillaInf']"),
+	                	lineaVerdeInf = f.select("path[id='lineaVerdeInf']"),
+	                	bordeExteriorInf = f.select("path[id='bordeExteriorInf']"),
+	                	circuloSuperiorInf = f.select("path[id='circuloSuperiorInf']"),
+	                	separadorInf = f.select("path[id='separadorInf']"),
+	                	bola = f.select("path[id='bola']"),
+	                	lineaVerdeSup = f.select("path[id='lineaVerdeSup']"),
+	                	bordeExteriorSup = f.select("path[id='bordeExteriorSup']"),
+	                	separadorSup = f.select("path[id='separadorSup']");
+
+
+	                // Punto de inicio
+	                circuloSuperiorSup.attr({d:"M245,355.02 c-1.331,0-2.41,0.646-2.41,1.442c0,0.797,1.079,1.442,2.41,1.442c1.331,0,2.41-0.646,2.41-1.442 C247.41,355.666,246.331,355.02,245,355.02z"});
+	               	lineaAmarillaInf.attr({d:"M245.5,355c-13.531,0-25-16.664-25-7.356 C220.5,363,227,369.5,245,369.5c17.5,0,24.5-7.544,24.5-16.852C269.5,332.5,259.031,355,245.5,355z"});
+
+	                // Movimiento Cirulo Rojo
+	                circuloSuperiorSup.animate({d:"M245,341.797 c-13.531,0-24.5,6.566-24.5,14.666s10.969,14.665,24.5,14.665s24.5-6.565,24.5-14.665S258.531,341.797,245,341.797z M245,364.462c-8.469,0-15.334-3.581-15.334-7.999c0-4.419,6.865-8,15.334-8s15.334,3.581,15.334,8 C260.334,360.881,253.469,364.462,245,364.462z"},250);
+	               	circuloSuperiorSup.animate({d:"M245,228.732 c-13.531,0-24.5,6.567-24.5,14.667c0,8.103,10.969,14.669,24.5,14.669s24.5-6.566,24.5-14.669 C269.5,235.299,258.531,228.732,245,228.732z M245,251.401c-8.469,0-15.334-3.583-15.334-8.002s6.865-8,15.334-8 s15.334,3.581,15.334,8S253.469,251.401,245,251.401z"},500);
+
+	               	// Pintamos circulo
+	                s.append(circuloSuperiorSup);
+
+	               	//var clonLineaAmarillaInf = f.select("path[id='lineaAmarillaInf']");
+
+	                // Punto de inicio
+
+	                // Movimiento Linea Amarilla
+	               	//clonLineaAmarillaInf.animate({d:"M258.197,258.057v108.138c0,0-37.698,7.633-37.697-13.935c0-10.445,0-104.843,0-104.843L258.197,258.057z"},500);
+
+	               	// Pintamos clonLineaAmarillaInf
+	                //s.append(clonLineaAmarillaInf);
+
+	            });
+			}                      
+        </script>
 	</head>
 	<body>
-		<div style="width:100%;height:100%">
-			<svg xmlns:x="http://ns.adobe.com/Extensibility/1.0/" xmlns:i="http://ns.adobe.com/AdobeIllustrator/10.0/" xmlns:graph="http://ns.adobe.com/Graphs/1.0/" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" width="490px" height="490px" viewBox="0 0 490 490" enable-background="new 0 0 490 490" xml:space="preserve" xmlns:xml="http://www.w3.org/XML/1998/namespace">
-			<switch>
-				<g i:extraneous="self">
-					<g id="Capa_2">
-						<rect fill="#5DA6C3" width="490" height="490"/>
-						<g>
-							<polygon fill="#5DA6C3" points="255.98,240.566 256.293,366.529 264.491,362.728 268.425,358.151 268.425,354.571       269.5,233.416 264.581,236.343     "/>
-							<path fill="#EFCA30" d="M224.066,235.073l9.786,4.836l7.316,1.463h7.499l7.312-0.806l0.312,125.963l-2.846,1.081l-7.522,0.896      c0,0-5.213,0.34-11.158-0.766c-3.232-0.602-9.44-5.707-9.44-5.707l-4.448-5.615l0.72-123.003"/>
-							<path fill="none" stroke="#330000" stroke-width="3" stroke-miterlimit="10" d="M246.557,238.788      c-17.048,0.388-26.057-8-26.057-8v123.053c0,8.1,10.969,14.666,24.5,14.666s24.5-6.566,24.5-14.666V229.788      C269.5,229.788,261.224,238.454,246.557,238.788z"/>
-							<path fill="#6BE898" stroke="#330000" stroke-width="3" stroke-miterlimit="10" d="M245,212.787      c-13.531,0-24.5,6.566-24.5,14.667s10.969,14.667,24.5,14.667s24.5-6.566,24.5-14.667S258.531,212.787,245,212.787z       M245,235.453c-8.469,0-15.334-3.582-15.334-8s6.865-8,15.334-8s15.334,3.582,15.334,8S253.469,235.453,245,235.453z"/>
-							<rect x="254.247" y="240.641" fill="#330000" width="3.043" height="125.888"/>
-						</g>
-						<circle fill="#FFFFFF" stroke="#330000" stroke-width="3" stroke-miterlimit="10" cx="245" cy="202.564" r="13.627"/>
-						<g>
-							<polygon fill="#5DA6C3" points="255.98,166.451 256.293,187.354 264.491,183.553 268.425,178.977 268.425,175.397       269.5,159.301 264.581,162.228     "/>
-							<path fill="#EFCA30" d="M224.066,160.958l9.786,4.836l7.316,1.463h7.499l7.312-0.806l0.312,20.903l-2.846,1.082l-7.522,0.896      c0,0-5.213,0.34-11.158-0.766c-3.232-0.601-9.44-5.707-9.44-5.707l-4.448-5.616l0.72-17.943"/>
-							<path fill="none" stroke="#330000" stroke-width="3" stroke-miterlimit="10" d="M246.557,164.672      c-17.048,0.388-26.057-8-26.057-8v17.993c0,8.1,10.969,14.667,24.5,14.667s24.5-6.566,24.5-14.667v-18.993      C269.5,155.673,261.224,164.339,246.557,164.672z"/>
-							<path fill="#F05B30" stroke="#330000" stroke-width="3" stroke-miterlimit="10" d="M245,138.671      c-13.531,0-24.5,6.566-24.5,14.667s10.969,14.667,24.5,14.667s24.5-6.566,24.5-14.667S258.531,138.671,245,138.671z       M245,161.338c-8.469,0-15.334-3.582-15.334-8s6.865-8,15.334-8s15.334,3.582,15.334,8S253.469,161.338,245,161.338z"/>
-							<rect x="254.247" y="166.526" fill="#330000" width="3.043" height="20.829"/>
-						</g>
-					</g>
-				</g>
-			</switch>
-			</svg>
-		</div> 
 	</body>
 </html>
