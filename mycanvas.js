@@ -49,13 +49,13 @@ window.onload = function(){
         }
 
         function cierre(){
-            lineaAzulSup.attr({points:"257.98,156.451 258.293,177.354 266.491,173.553 270.425,168.977 270.425,165.397 271.5,149.301 266.581,152.228"});
-            lineaAmarillaSup.attr({d:"M246.557,160.368 c-17.048,0.388-26.057-6.778-26.057-6.778v23.138c0,8.096,10.969,14.659,24.5,14.659s24.5-6.563,24.5-14.659v-23.805 C269.5,160.924,261.224,160.034,246.557,160.368z"});
+            //lineaAzulSup.attr({points:"257.98,156.451 258.293,177.354 266.491,173.553 270.425,168.977 270.425,165.397 271.5,149.301 266.581,152.228"});
+            //lineaAmarillaSup.attr({d:"M246.557,160.368 c-17.048,0.388-26.057-6.778-26.057-6.778v23.138c0,8.096,10.969,14.659,24.5,14.659s24.5-6.563,24.5-14.659v-23.805 C269.5,160.924,261.224,160.034,246.557,160.368z"});
             
-            lineaAmarillaSup.animate({transform:"s-0"},1000);
+            //lineaAmarillaSup.animate({transform:"s-0"},1000);
 
-            s.append(lineaAmarillaSup);
-            s.append(lineaAzulSup);
+            //s.append(lineaAmarillaSup);
+            //s.append(lineaAzulSup);
         }
 
         s.append(fondo);
