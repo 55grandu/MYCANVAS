@@ -14,22 +14,35 @@ window.onload = function(){
         	bordeExteriorSup = f.select("path[id='bordeExteriorSup']"),
         	separadorSup = f.select("rect[id='separadorSup']");
         var groupInf, groupSup;
+        var rectSup, rectInf;
 
             // Punto de inicio
         circuloSuperiorSup.attr({d:"M245,355.02"});
         bola.attr({cy:"353.064", cx:"245"});
 
         circuloSuperiorSup.animate({d:"M245,341.797 c-13.531,0-24.5,6.566-24.5,14.666s10.969,14.665,24.5,14.665s24.5-6.565,24.5-14.665S258.531,341.797,245,341.797z M245,364.462c-8.469,0-15.334-3.581-15.334-7.999c0-4.419,6.865-8,15.334-8s15.334,3.581,15.334,8 C260.334,360.881,253.469,364.462,245,364.462z"},350, function(){
+            rectInf = s.rect(216,160,56,210);
+            rectInf.attr({fill:"#5DA6C3"});
+            rectInf.after(circuloSuperiorSup);
+
             circuloSuperiorSup.animate({transform:"t0 -127"},600);
+            rectInf.animate({transform:"t0 -127"},600);
 
             bola.animate({cy:"-15"},950, function(){
                 bola.attr({cy:"510"});   
                 bola.animate({cy:"203.967"},1200,mina.elastic, cilindros());
             });
+            s.append(lineaAzulInf);
+            s.append(lineaAmarillaInf);
+            s.append(separadorInf);
+            s.append(bordeExteriorInf);
+            s.append(rectInf);
+            s.append(circuloSuperiorSup);
             s.append(bola);
         });
 
         function cilindros(){
+            rectInf.attr({display:"none"});
             //Cilindro Inferior
             groupInf = s.group(lineaAzulInf,lineaAmarillaInf,bordeExteriorInf,separadorInf,circuloSuperiorInf);
             groupInf.animate({transform:"t0 10"},1000,mina.elastic);
@@ -49,13 +62,43 @@ window.onload = function(){
         }
 
         function cierre(){
-            //lineaAzulSup.attr({points:"257.98,156.451 258.293,177.354 266.491,173.553 270.425,168.977 270.425,165.397 271.5,149.301 266.581,152.228"});
-            //lineaAmarillaSup.attr({d:"M246.557,160.368 c-17.048,0.388-26.057-6.778-26.057-6.778v23.138c0,8.096,10.969,14.659,24.5,14.659s24.5-6.563,24.5-14.659v-23.805 C269.5,160.924,261.224,160.034,246.557,160.368z"});
-            
-            //lineaAmarillaSup.animate({transform:"s-0"},1000);
+            rectSup = s.rect(218,185,54,52);
+            rectSup.attr({fill:"#5DA6C3"});
+            groupSup.append(rectSup);
+            groupSup.select("path[id='circuloSuperiorSup']").before(rectSup);
+            groupSup.select("rect[id='separadorSup']").animate({transform:"t-37 -28"},700);
+            groupSup.select("polygon[id='lineaAzulSup']").animate({transform:"t-55 -24"},1000);
+            groupSup.select("path[id='bordeExteriorSup']").animate({transform:"t0 -24"},700);
+            groupSup.select("path[id='lineaAmarillaSup']").animate({transform:"t0 -24"},700);
 
-            //s.append(lineaAmarillaSup);
-            //s.append(lineaAzulSup);
+            rectInf = s.rect(216,24,56,210);
+            rectInf.attr({fill:"#5DA6C3"});
+            rectInf.after(groupSup);
+            groupInf.after(groupSup);
+            groupInf.after(bola);
+            groupInf.append(rectInf);
+            groupInf.select("path[id='circuloSuperiorInf']").before(rectInf);
+            groupInf.select("rect[id='separadorInf']").animate({transform:"t-37 -135"},700);
+            groupInf.select("polygon[id='lineaAzulInf']").animate({transform:"t-55 -135"},1000,cerrar);
+            groupInf.select("path[id='bordeExteriorInf']").animate({transform:"t0 -135"},700);
+            groupInf.select("path[id='lineaAmarillaInf']").animate({transform:"t0 -135"},700);
+        }
+
+        function cerrar(){
+            groupSup.select("rect[id='separadorSup']").attr({display:"none"});
+            groupSup.select("polygon[id='lineaAzulSup']").attr({display:"none"});
+            groupSup.select("path[id='bordeExteriorSup']").attr({display:"none"});
+            groupSup.select("path[id='lineaAmarillaSup']").attr({display:"none"});
+            groupSup.select("path[id='circuloSuperiorSup']").animate({transform:"t0 -115 s0"},1000);
+
+
+            groupInf.select("rect[id='separadorInf']").attr({display:"none"});
+            groupInf.select("polygon[id='lineaAzulInf']").attr({display:"none"});
+            groupInf.select("path[id='bordeExteriorInf']").attr({display:"none"});
+            groupInf.select("path[id='lineaAmarillaInf']").attr({display:"none"});
+            groupInf.select("path[id='circuloSuperiorInf']").animate({transform:"t0 -115 s0"},1000);
+
+            bola.animate({transform:"t0 -115 s0"},1500);
         }
 
         s.append(fondo);
