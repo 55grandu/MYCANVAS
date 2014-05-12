@@ -26,7 +26,7 @@ window.onload = function(){
             rectInf.after(circuloSuperiorSup);
 
             circuloSuperiorSup.animate({transform:"t0 -127"},600);
-            rectInf.animate({transform:"t0 -127"},600);
+            rectInf.animate({transform:"t0 -135"},600);
 
             bola.animate({cy:"-15"},950, function(){
                 bola.attr({cy:"510"});   
@@ -79,13 +79,19 @@ window.onload = function(){
             groupInf.append(rectInf);
             groupInf.select("path[id='circuloSuperiorInf']").before(rectInf);
             groupInf.select("rect[id='separadorInf']").animate({transform:"t-37 -135"},700);
-            groupInf.select("polygon[id='lineaAzulInf']").animate({transform:"t-55 -135"},1000,cerrar);
+            groupInf.select("polygon[id='lineaAzulInf']").animate({transform:"t-55 -135"},1000);
             groupInf.select("path[id='bordeExteriorInf']").animate({transform:"t0 -135"},700);
             groupInf.select("path[id='lineaAmarillaInf']").animate({transform:"t0 -135"},700);
+
+            groupSup.animate({transform:"t0 -85 s0"},1000, mina.easeout);
+
+            groupInf.animate({transform:"t0 0 s0"},1000, mina.easeout);
+
+            bola.animate({transform:"t-10 -85 s0"},1000, mina.easeout);
         }
 
         function cerrar(){
-            groupSup.select("rect[id='separadorSup']").attr({display:"none"});
+            /*groupSup.select("rect[id='separadorSup']").attr({display:"none"});
             groupSup.select("polygon[id='lineaAzulSup']").attr({display:"none"});
             groupSup.select("path[id='bordeExteriorSup']").attr({display:"none"});
             groupSup.select("path[id='lineaAmarillaSup']").attr({display:"none"});
@@ -98,7 +104,7 @@ window.onload = function(){
             groupInf.select("path[id='lineaAmarillaInf']").attr({display:"none"});
             groupInf.select("path[id='circuloSuperiorInf']").animate({transform:"t0 -115 s0"},1000);
 
-            bola.animate({transform:"t0 -115 s0"},1500);
+            bola.animate({transform:"t0 -115 s0"},1500);*/
         }
 
         s.append(fondo);
