@@ -83,28 +83,18 @@ window.onload = function(){
             groupInf.select("path[id='bordeExteriorInf']").animate({transform:"t0 -135"},700);
             groupInf.select("path[id='lineaAmarillaInf']").animate({transform:"t0 -135"},700);
 
-            groupSup.animate({transform:"t0 -85 s0"},1000, mina.easeout);
+            groupSup.animate({transform:"t0 -85"},1000, mina.easein, function(){
+                groupSup.animate({transform:"t0 -85 s0"},250);
+            });
 
-            groupInf.animate({transform:"t0 0 s0"},1000, mina.easeout);
+            groupInf.animate({transform:"t0 -85"},1000, mina.easein, function(){
+                groupInf.animate({transform:"t0 0 s0"},250);
+            });
 
-            bola.animate({transform:"t-10 -85 s0"},1000, mina.easeout);
+            bola.animate({transform:"t-10 -85 s0"},1250, mina.easein);
         }
 
         function cerrar(){
-            /*groupSup.select("rect[id='separadorSup']").attr({display:"none"});
-            groupSup.select("polygon[id='lineaAzulSup']").attr({display:"none"});
-            groupSup.select("path[id='bordeExteriorSup']").attr({display:"none"});
-            groupSup.select("path[id='lineaAmarillaSup']").attr({display:"none"});
-            groupSup.select("path[id='circuloSuperiorSup']").animate({transform:"t0 -115 s0"},1000);
-
-
-            groupInf.select("rect[id='separadorInf']").attr({display:"none"});
-            groupInf.select("polygon[id='lineaAzulInf']").attr({display:"none"});
-            groupInf.select("path[id='bordeExteriorInf']").attr({display:"none"});
-            groupInf.select("path[id='lineaAmarillaInf']").attr({display:"none"});
-            groupInf.select("path[id='circuloSuperiorInf']").animate({transform:"t0 -115 s0"},1000);
-
-            bola.animate({transform:"t0 -115 s0"},1500);*/
         }
 
         s.append(fondo);
