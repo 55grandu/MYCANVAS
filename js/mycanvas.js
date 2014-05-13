@@ -12,6 +12,7 @@ window.onload = function(){
 
         // Seleccionamos la flecha
         var flecha = PANTALLA_1.select("path[id='FLECHA']");
+        var flecha2 = PANTALLA_2.select("path[id='FLECHA_1']");
 
         // Si se pone el raton encima agrandamos y si se pone el raton fuera, se vuelve a su sitio
         flecha.hover(
@@ -32,6 +33,27 @@ window.onload = function(){
             function(){
                 flecha.animate({transform:"t0 0 s1"},100);
         });
+
+        // Si se pone el raton encima agrandamos y si se pone el raton fuera, se vuelve a su sitio
+        flecha2.hover(
+            // Agrandamos
+            function(){
+                flecha2.animate({transform:"t0 0 s2"},100,
+                    // Al finalizar el evento de agrandar registramos el click
+                    function(){
+                        flecha2.click(
+                            // Mostramos el segundo grupo
+                            function(){
+                                PANTALLA_2.animate({transform:"t0 780"},950);
+                                PANTALLA_1.animate({transform:"t0 768"},750);
+                        })
+                });
+        }, 
+            // Empequeñecemos
+            function(){
+                flecha2.animate({transform:"t0 0 s1"},100);
+        });
+
 
         s.append(PANTALLA_1);
         s.append(PANTALLA_2);
