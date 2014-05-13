@@ -1,7 +1,12 @@
 window.onload = function(){
 	var s = Snap("#demo");
+<<<<<<< HEAD
     Snap.load("img/prueba_2_app.svg", function (f) {
     //Snap.load("prueba_2_app.svg", function (f) {
+=======
+    //Snap.load("img/prueba_1_app.svg", function (f) {
+    Snap.load("prueba_2_app.svg", function (f) {
+>>>>>>> 0b8cddc6a54e59d8428975a65e33d54166f6a1ae
         var fondo = f.select("rect[id='fondo']"),
         	circuloSuperiorSup = f.select("path[id='circuloSuperiorSup']"),
         	lineaAmarillaInf = f.select("path[id='lineaAmarillaInf']"),

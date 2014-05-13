@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generator: Adobe Illustrator 16.0.0  SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   x="0px"
+   y="0px"
+   width="490px"
+   height="490px"
+   viewBox="0 0 490 490"
+   enable-background="new 0 0 490 490"
+   xml:space="preserve"
+   id="svg3010"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="prueba_1_app.svg"><metadata
+   id="metadata3033"><rdf:RDF><cc:Work
+       rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+         rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
+   id="defs3031" /><sodipodi:namedview
+   pagecolor="#ffffff"
+   bordercolor="#666666"
+   borderopacity="1"
+   objecttolerance="10"
+   gridtolerance="10"
+   guidetolerance="10"
+   inkscape:pageopacity="0"
+   inkscape:pageshadow="2"
+   inkscape:window-width="1842"
+   inkscape:window-height="1057"
+   id="namedview3029"
+   showgrid="false"
+   inkscape:snap-nodes="true"
+   inkscape:snap-midpoints="true"
+   inkscape:zoom="1.3622629"
+   inkscape:cx="246.25359"
+   inkscape:cy="226.18544"
+   inkscape:window-x="-8"
+   inkscape:window-y="-8"
+   inkscape:window-maximized="1"
+   inkscape:current-layer="Capa_2" />
+	<g
+   id="Capa_2">
+		<rect
+   id="fondo"
+   fill="#5DA6C3"
+   width="490"
+   height="490" />
+		<g
+   id="g3014">
+			<polygon
+   id="lineaAzulInf"
+   points="255.98 240.566 256.293 366.529 264.491 362.728 268.425 358.151 268.425 354.571 269.5 233.416 264.581 236.343"
+   fill="#5DA6C3" />
+			<path
+   id="lineaAmarillaInf"
+   d="m 225.32195,235.073 13.6401,4.836 10.19732,1.463 6.60912,-0.73099 13.27201,-9.76151 -0.6155,125.4815 -1.967,6.0785 -10.67093,6.0665 c 0,0 -7.26608,0.34 -15.55245,-0.766 -4.50488,-0.602 -13.15783,-5.707 -13.15783,-5.707 l -6.19979,-5.615 1.00356,-123.003"
+   inkscape:connector-curvature="0"
+   style="fill:#efca30"
+   sodipodi:nodetypes="cccccccccccc" />
+			<path
+   id="bordeExteriorInf"
+   stroke-miterlimit="10"
+   d="M246.557 238.788 c -17.048 0.388 -26.057 -8 -26.057 -8 v 123.053 c 0 8.1   10.969  14.666  24.5 14.666 s 24.5 -6.566 24.5 -14.666 V 229.788 C 269.5 229.788 261.224 238.454 246.557 238.788z"
+   stroke-width="3"
+   stroke="#330000"
+   fill="none" />
+			<path
+   id="circuloSuperiorInf"
+   stroke-miterlimit="10"
+   d="M245 212.787 c-13.531 0 -24.5 6.566 -24.5 14.667 s 10.969 14.667 24.5 14.667 s 24.5-6.566 24.5-14.667 S 258.531 212.787 245 212.787z M245 235.453 c -8.469 0 -15.334 -3.582 -15.334 -8 s 6.865 -8 15.334 -8 s 15.334 3.582 15.334 8 S 253.469 235.453 245 235.453z"
+   stroke-width="3"
+   stroke="#330000"
+   fill="#6BE898" />
+			<rect
+   id="separadorInf"
+   x="254.247"
+   y="240.641"
+   width="3.043"
+   height="125.888"
+   fill="#330000" />
+		</g>
+		<circle
+   id="bola"
+   fill="#FFFFFF"
+   stroke="#330000"
+   stroke-width="3"
+   stroke-miterlimit="10"
+   cx="245"
+   cy="202.564"
+   r="13.627" />
+		<g
+   id="g3022">
+			<polygon
+   id="lineaAzulSup"
+   fill="#5DA6C3"
+   points="255.98 166.451 256.293 187.354 264.491 183.553 268.425 178.977 268.425 175.397 269.5 159.301 264.581 162.228" />
+			<path
+   id="lineaAmarillaSup"
+   d="m 224.066,160.958 9.786,4.836 7.316,1.463 7.499,0 20.3735,-14.4925 -0.6155,28.4225 -14.98,7.249 -7.522,0.896 c 0,0 -5.213,0.34 -11.158,-0.766 -3.232,-0.601 -9.44,-5.707 -9.44,-5.707 l -4.448,-5.616 0.72,-17.943"
+   inkscape:connector-curvature="0"
+   style="fill:#efca30"
+   sodipodi:nodetypes="cccccccccccc" />
+			<path
+   id="bordeExteriorSup"
+   fill="none"
+   stroke="#330000"
+   stroke-width="3"
+   stroke-miterlimit="10"
+   d="M246.557 164.672 c -17.048 0.388 -26.057 -8 -26.057 -8 v 17.993 c 0 8.1 10.969 14.667 24.5 14.667 s 24.5 -6.566 24.5 -14.667 v -18.993 C 269.5 155.673 261.224 164.339 246.557 164.672z" />
+			<path
+   id="circuloSuperiorSup"
+   fill="#F05B30"
+   stroke="#330000"
+   stroke-width="3"
+   stroke-miterlimit="10"
+   d="M245 138.671 c -13.531 0 -24.5 6.566 -24.5 14.667 s 10.969 14.667 24.5 14.667 s 24.5 -6.566 24.5 -14.667 S 258.531 138.671 245 138.671z M245 161.338 c -8.469 0 -15.334 -3.582-15.334-8s6.865-8 15.334 -8 s 15.334 3.582 15.334 8 S 253.469 161.338 245 161.338z" />
+			<rect
+   id="separadorSup"
+   x="254.247"
+   y="166.526"
+   fill="#330000"
+   width="3.043"
+   height="20.829" />
+		</g>
+	</g>
+</svg>
