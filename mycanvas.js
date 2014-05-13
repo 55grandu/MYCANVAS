@@ -1,6 +1,7 @@
 window.onload = function(){
 	var s = Snap("#demo");
-    Snap.load("img/prueba_1_app.svg", function (f) {
+    Snap.load("img/prueba_2_app.svg", function (f) {
+    //Snap.load("prueba_2_app.svg", function (f) {
         var fondo = f.select("rect[id='fondo']"),
         	circuloSuperiorSup = f.select("path[id='circuloSuperiorSup']"),
         	lineaAmarillaInf = f.select("path[id='lineaAmarillaInf']"),
@@ -18,6 +19,9 @@ window.onload = function(){
 
             // Punto de inicio
         circuloSuperiorSup.attr({d:"M245,355.02"});
+        lineaAzulInf.attr({transform:"t-35 0"});
+        separadorInf.attr({transform:"t-35 0"});
+        lineaAzulInf.after(lineaAmarillaInf);
         bola.attr({cy:"353.064", cx:"245"});
 
         circuloSuperiorSup.animate({d:"M245,341.797 c-13.531,0-24.5,6.566-24.5,14.666s10.969,14.665,24.5,14.665s24.5-6.565,24.5-14.665S258.531,341.797,245,341.797z M245,364.462c-8.469,0-15.334-3.581-15.334-7.999c0-4.419,6.865-8,15.334-8s15.334,3.581,15.334,8 C260.334,360.881,253.469,364.462,245,364.462z"},350, function(){
@@ -27,13 +31,15 @@ window.onload = function(){
 
             circuloSuperiorSup.animate({transform:"t0 -127"},600);
             rectInf.animate({transform:"t0 -135"},600);
+            lineaAzulInf.animate({transform:"t0 0"},600);
+            separadorInf.animate({transform:"t0 0"},600);
 
             bola.animate({cy:"-15"},950, function(){
                 bola.attr({cy:"510"});   
                 bola.animate({cy:"203.967"},1200,mina.elastic, cilindros());
             });
-            s.append(lineaAzulInf);
             s.append(lineaAmarillaInf);
+            s.append(lineaAzulInf);
             s.append(separadorInf);
             s.append(bordeExteriorInf);
             s.append(rectInf);
@@ -44,7 +50,7 @@ window.onload = function(){
         function cilindros(){
             rectInf.attr({display:"none"});
             //Cilindro Inferior
-            groupInf = s.group(lineaAzulInf,lineaAmarillaInf,bordeExteriorInf,separadorInf,circuloSuperiorInf);
+            groupInf = s.group(lineaAmarillaInf,lineaAzulInf,bordeExteriorInf,separadorInf,circuloSuperiorInf);
             groupInf.animate({transform:"t0 10"},1000,mina.elastic);
             
             //Cilindro superior
@@ -83,28 +89,18 @@ window.onload = function(){
             groupInf.select("path[id='bordeExteriorInf']").animate({transform:"t0 -135"},700);
             groupInf.select("path[id='lineaAmarillaInf']").animate({transform:"t0 -135"},700);
 
-            groupSup.animate({transform:"t0 -85 s0"},1000, mina.easeout);
+            groupSup.animate({transform:"t0 -85"},1000, mina.easein, function(){
+                groupSup.animate({transform:"t0 -85 s0"},250);
+            });
 
-            groupInf.animate({transform:"t0 0 s0"},1000, mina.easeout);
+            groupInf.animate({transform:"t0 -85"},1000, mina.easein, function(){
+                groupInf.animate({transform:"t0 0 s0"},250);
+            });
 
-            bola.animate({transform:"t-10 -85 s0"},1000, mina.easeout);
+            bola.animate({transform:"t-10 -85 s0"},1250, mina.easein);
         }
 
         function cerrar(){
-            /*groupSup.select("rect[id='separadorSup']").attr({display:"none"});
-            groupSup.select("polygon[id='lineaAzulSup']").attr({display:"none"});
-            groupSup.select("path[id='bordeExteriorSup']").attr({display:"none"});
-            groupSup.select("path[id='lineaAmarillaSup']").attr({display:"none"});
-            groupSup.select("path[id='circuloSuperiorSup']").animate({transform:"t0 -115 s0"},1000);
-
-
-            groupInf.select("rect[id='separadorInf']").attr({display:"none"});
-            groupInf.select("polygon[id='lineaAzulInf']").attr({display:"none"});
-            groupInf.select("path[id='bordeExteriorInf']").attr({display:"none"});
-            groupInf.select("path[id='lineaAmarillaInf']").attr({display:"none"});
-            groupInf.select("path[id='circuloSuperiorInf']").animate({transform:"t0 -115 s0"},1000);
-
-            bola.animate({transform:"t0 -115 s0"},1500);*/
         }
 
         s.append(fondo);
