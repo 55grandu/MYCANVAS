@@ -1,93 +1,16 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 	<head>
-    	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    	<script src="./lib/Snap.svg-0.2.0/dist/snap.svg-min.js"></script>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>MyCanvas</title>
 
-		<script>
-			window.onload = function(){
-				var s = Snap(490,490);
-	            Snap.load("prueba_1_app.svg", function (f) {
-	                var fondo = f.select("rect[id='fondo']");
-	                	circuloSuperiorSup = f.select("path[id='circuloSuperiorSup']"),
-	                	lineaAmarillaInf = f.select("path[id='lineaAmarillaInf']"),
-	                	lineaVerdeInf = f.select("polygon[id='lineaVerdeInf']"),
-	                	bordeExteriorInf = f.select("path[id='bordeExteriorInf']"),
-	                	circuloSuperiorInf = f.select("path[id='circuloSuperiorInf']"),
-	                	separadorInf = f.select("rect[id='separadorInf']"),
-	                	bola = f.select("circle[id='bola']"),
-	                	lineaVerdeSup = f.select("polygon[id='lineaVerdeSup']"),
-	                	lineaAmarillaSup = f.select("path[id='lineaAmarillaSup']"),
-	                	bordeExteriorSup = f.select("path[id='bordeExteriorSup']"),
-	                	separadorSup = f.select("rect[id='separadorSup']");
+		<script type="text/javascript" src="lib/Snap.svg-0.2.0/dist/snap.svg-min.js"></script>
+		<script type="text/javascript" src="js/test.js"></script>
 
-	                s.append(fondo);
-
-	                // Punto de inicio
-	                circuloSuperiorSup.attr({d:"M245,355.02 c-1.331,0-2.41,0.646-2.41,1.442c0,0.797,1.079,1.442,2.41,1.442c1.331,0,2.41-0.646,2.41-1.442 C247.41,355.666,246.331,355.02,245,355.02z"});
-	               	bola.attr({cy:"353.064", cx:"245"});    
-
-	                // Movimiento Inicial, hasta que la bola vuelve al centro
-	                circuloSuperiorSup.animate({d:"M245,341.797 c-13.531,0-24.5,6.566-24.5,14.666s10.969,14.665,24.5,14.665s24.5-6.565,24.5-14.665S258.531,341.797,245,341.797z M245,364.462c-8.469,0-15.334-3.581-15.334-7.999c0-4.419,6.865-8,15.334-8s15.334,3.581,15.334,8 C260.334,360.881,253.469,364.462,245,364.462z"},250, function(){
-	                		circuloSuperiorSup.animate({d:"M245,228.732 c-13.531,0-24.5,6.567-24.5,14.667c0,8.103,10.969,14.669,24.5,14.669s24.5-6.566,24.5-14.669 C269.5,235.299,258.531,228.732,245,228.732z M245,251.401c-8.469,0-15.334-3.583-15.334-8.002s6.865-8,15.334-8 s15.334,3.581,15.334,8S253.469,251.401,245,251.401z"},500);
-	                		var clonParteInferiorAmarilla = s.path("M245,341.797 c-13.531,0-24.5,6.566-24.5,14.666s10.969,14.665,24.5,14.665s24.5-6.565,24.5-14.665S258.531,341.797,245,341.797z ");
-	                		clonParteInferiorAmarilla.attr({fill:"#EFCA30",stroke:"#1B1819",strokeWidth:"3"});
-	                		clonParteInferiorAmarilla.animate({d:"M246.557,252.782 c-17.048,0.388-26.057-6.781-26.057-6.781v107.84c0,8.1,10.969,14.666,24.5,14.666s24.5-6.566,24.5-14.666V245.334"},500);
-	                		var clonParteInferiorAzul = s.poligon("255.98,240.566 256.293,366.529 264.491,362.728 268.425,358.151 268.425,354.571 269.5,233.416 264.581,236.343 				 ");
-	                		clonParteInferiorAzul.attr({fill:"#5DA6C3"});
-	                		clonParteInferiorAzul.animate({points:"255.98,240.566 256.293,366.529 264.491,362.728 268.425,358.151 268.425,354.571 269.5,233.416 264.581,236.343 				"},500);
-	                		bola.animate({cy:"-15"},700, function(){
-	               				bola.attr({cy:"510"});   
-	               				bola.animate({cy:"203.967"},1200,mina.elastic, cilindros());
-	                		});
-	                		s.append(clonParteInferiorAzul);
-	                		s.append(clonParteInferiorAmarilla);
-			            	s.append(circuloSuperiorSup);
-	                		s.append(bola);
-	                });
-
-	               	// Pintamos circulo
-	                s.append(circuloSuperiorSup);
-
-					function cilindros(){
-						/*//Cilindro Inferior
-						circuloSuperiorInf.attr({d:"M245,341.797 c-13.531,0-24.5,6.566-24.5,14.666s10.969,14.665,24.5,14.665s24.5-6.565,24.5-14.665S258.531,341.797,245,341.797z M245,364.462c-8.469,0-15.334-3.581-15.334-7.999c0-4.419,6.865-8,15.334-8s15.334,3.581,15.334,8 C260.334,360.881,253.469,364.462,245,364.462z"});
-						circuloSuperiorInf.animate({d:"M245,228.732 c-13.531,0-24.5,6.567-24.5,14.667c0,8.103,10.969,14.669,24.5,14.669s24.5-6.566,24.5-14.669 C269.5,235.299,258.531,228.732,245,228.732z M245,251.401c-8.469,0-15.334-3.583-15.334-8.002s6.865-8,15.334-8 s15.334,3.581,15.334,8S253.469,251.401,245,251.401z"},1250,mina.elastic);
-						
-						//Cilindro superior
-						lineaAmarillaSup.attr({d:"M246.557,214.368 c-17.048,0.388-26.057-6.778-26.057-6.778v23.138c0,8.096,10.969,14.659,24.5,14.659s24.5-6.563,24.5-14.659v-23.805 C269.5,206.924,261.224,214.034,246.557,214.368z"});
-						lineaVerdeSup.attr({d:""});
-						bordeExteriorSup.attr({d:"M246.557,164.672 c-17.048,0.388-26.057-8-26.057-8v17.993c0,8.1,10.969,14.667,24.5,14.667s24.5-6.566,24.5-14.667v-18.993 C269.5,155.673,261.224,164.339,246.557,164.672z"});
-						bordeExteriorSup.animate({d:"M246.557,148.324 c-17.048,0.388-26.057-6.778-26.057-6.778v23.138c0,8.096,10.969,14.659,24.5,14.659s24.5-6.563,24.5-14.659V140.88 C269.5,140.88,261.224,147.99,246.557,148.324z"},1000,mina.elastic);
-						separadorSup.attr({x:"257.453",y:"243.076"});
-						separadorSup.animate({x:"257.453",y:"151.285",height:"26.041"},1000,mina.elastic);
-						lineaAmarillaSup.animate({d:"M258.394,153.095l-0.196,23.937c0,0-37.698,7.631-37.697-13.928c0-10.44,0-20.143,0-20.143 L258.394,153.095z"},1000,mina.elastic);
-			            circuloSuperiorSup.animate({d:"M245,124.278 c-13.531,0-24.5,6.567-24.5,14.667c0,8.1,10.969,14.663,24.5,14.663s24.5-6.563,24.5-14.663 C269.5,130.845,258.531,124.278,245,124.278z M245,146.944c-8.469,0-15.334-3.581-15.334-7.999c0-4.419,6.865-8,15.334-8 s15.334,3.581,15.334,8C260.334,143.363,253.469,146.944,245,146.944z"},1000,mina.elastic,cierre);
-			            circuloSuperiorSup.attr({});
-			            s.append(circuloSuperiorInf);
-			            s.append(lineaAmarillaSup);
-			            s.append(bordeExteriorSup);
-			            s.append(separadorSup);
-	                	s.append(circuloSuperiorSup);*/
-					}
-
-					function cierre(){
-						/*circuloSuperiorSup.animate({d:"M245,124.278c-1.331,0-2.41,0.646-2.41,1.442c0,0.797,1.079,1.442,2.41,1.442c1.331,0,2.41-0.646,2.41-1.442 "},500, function(){
-							circuloSuperiorSup.attr({display:"none"});
-						});
-						lineaAmarillaSup.animate({d:"M245,124.278c-1.331,0-2.41,0.646-2.41,1.442c0,0.797,1.079,1.442,2.41,1.442c1.331,0,2.41-0.646,2.41-1.442 "},500, function(){
-							circuloSuperiorSup.attr({display:"none"});
-						});
-						circuloSuperiorInf.animate({d:"M245,124.278c-1.331,0-2.41,0.646-2.41,1.442c0,0.797,1.079,1.442,2.41,1.442c1.331,0,2.41-0.646,2.41-1.442 "},450, function(){
-							bola.attr({display:"none"});   
-							circuloSuperiorInf.attr({display:"none"});
-							lineaAmarillaSup.attr({display:"none"});
-						});*/
-					}
-	            });
-			}			
-        </script>
 	</head>
 	<body>
+		<svg id="demo" version="1.1" xmlns:x="&ns_extend;" xmlns:i="&ns_ai;" xmlns:graph="&ns_graphs;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="490px" height="490px" viewBox="0 0 490 490" enable-background="new 0 0 490 490" xml:space="preserve">
+		</svg>
 	</body>
 </html>
