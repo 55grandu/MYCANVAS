@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" [
+	<!ENTITY ns_extend "http://ns.adobe.com/Extensibility/1.0/">
+	<!ENTITY ns_ai "http://ns.adobe.com/AdobeIllustrator/10.0/">
+	<!ENTITY ns_graphs "http://ns.adobe.com/Graphs/1.0/">
+	<!ENTITY ns_vars "http://ns.adobe.com/Variables/1.0/">
+	<!ENTITY ns_imrep "http://ns.adobe.com/ImageReplacement/1.0/">
+	<!ENTITY ns_sfw "http://ns.adobe.com/SaveForWeb/1.0/">
+	<!ENTITY ns_custom "http://ns.adobe.com/GenericCustomNamespace/1.0/">
+	<!ENTITY ns_adobe_xpath "http://ns.adobe.com/XPath/1.0/">
+]>
+<svg version="1.1" id="Capa_1" xmlns:x="&ns_extend;" xmlns:i="&ns_ai;" xmlns:graph="&ns_graphs;"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1280px" height="768px"
+	 viewBox="0 0 1280 768" enable-background="new 0 0 1280 768" xml:space="preserve">
+<switch>
+	<foreignObject requiredExtensions="&ns_ai;" x="0" y="0" width="1" height="1">
+		<i:pgfRef  xlink:href="#adobe_illustrator_pgf">
+		</i:pgfRef>
+	</foreignObject>
+	<g i:extraneous="self">
+		<g id="PANTALLA_2">
+			<rect fill="#FFCF48" width="1280" height="768"/>
+			<linearGradient id="DEGRADADO_1_" gradientUnits="userSpaceOnUse" x1="-1" y1="384" x2="1279" y2="384">
+				<stop  offset="0.2159" style="stop-color:#1CA9C9"/>
+				<stop  offset="0.3002" style="stop-color:#21AAC6"/>
+				<stop  offset="0.4042" style="stop-color:#30ACBD"/>
+				<stop  offset="0.5184" style="stop-color:#49B1AF"/>
+				<stop  offset="0.6401" style="stop-color:#6CB69B"/>
+				<stop  offset="0.7676" style="stop-color:#99BE82"/>
+				<stop  offset="0.8981" style="stop-color:#CFC763"/>
+				<stop  offset="1" style="stop-color:#FFCF48"/>
+			</linearGradient>
+			<polygon id="DEGRADADO" fill="url(#DEGRADADO_1_)" points="1279,768 -1,768 -1,254.147 260.108,0 1279,0 			"/>
+			<rect x="80.054" y="287.734" fill="none" width="477.341" height="506.904"/>
+			<text id="DESCRIPCION" transform="matrix(1 0 0 1 80.0537 311.7109)"><tspan x="0" y="0" fill="#FFFFFF" font-family="'Lato-Black'" font-size="32">London Type</tspan><tspan x="0" y="29.883" fill="#FFFFFF" font-family="'Lato-Regular'" font-size="24.9018">Es un proyecto colaborativo que busca </tspan><tspan x="0" y="59.764" fill="#FFFFFF" font-family="'Lato-Regular'" font-size="24.9018">explorar los limites de la tecnología aplicada </tspan><tspan x="0" y="89.646" fill="#FFFFFF" font-family="'Lato-Regular'" font-size="24.9018">al área visual y movil.</tspan><tspan x="0" y="149.41" fill="#FFFFFF" font-family="'Lato-Regular'" font-size="24.9018">Gracias a la intervención de diferentes </tspan><tspan x="0" y="179.293" fill="#FFFFFF" font-family="'Lato-Regular'" font-size="24.9018">artistas visuales y desarrolladores, hemos </tspan><tspan x="0" y="209.176" fill="#FFFFFF" font-family="'Lato-Regular'" font-size="24.9018">utilizado HTML y librerias de Paper.js para </tspan><tspan x="0" y="239.057" fill="#FFFFFF" font-family="'Lato-Regular'" font-size="24.9018">crear un experiencia de usuario interactiva </tspan><tspan x="0" y="268.939" fill="#FFFFFF" font-family="'Lato-Regular'" font-size="24.9018">e innovadora.</tspan><tspan x="0" y="358.586" fill="#FFFFFF" font-family="'Lato-Black'" font-size="24.9018">Contacto</tspan><tspan x="0" y="388.468" fill="#FFFFFF" font-family="'Lato-Regular'" font-size="24.9018">hi@londontypes.com</tspan></text>
+			<g id="CREDITOS">
+				<rect x="793.87" y="52.607" fill="none" width="424.896" height="246.393"/>
+				<text transform="matrix(1 0 0 1 793.8701 76.5752)"><tspan x="0" y="0" fill="#FFFFFF" font-family="'Lato-Black'" font-size="32">Designers</tspan><tspan x="339.982" y="59.765" fill="#FFFFFF" font-family="'Lato-Regular'" font-size="24.9018">Velckro</tspan><tspan x="281.887" y="89.646" fill="#FFFFFF" font-family="'Lato-Regular'" font-size="24.9018">MAST Studio</tspan><tspan x="295.358" y="119.528" fill="#FFFFFF" font-family="'Lato-Regular'" font-size="24.9018">Pedro Cobo</tspan><tspan x="300.713" y="149.411" fill="#FFFFFF" font-family="'Lato-Regular'" font-size="24.9018">Pablo Abad</tspan><tspan x="144.806" y="179.293" fill="#FFFFFF" font-family="'Lato-Regular'" font-size="24.9018">Attitude Visual Art Studio</tspan></text>
+				<rect x="793.87" y="302" fill="none" width="424.896" height="304.158"/>
+				<text transform="matrix(1 0 0 1 793.8701 325.9688)"><tspan x="0" y="0" fill="#FFFFFF" font-family="'Lato-Black'" font-size="32">Developers</tspan><tspan x="291.351" y="59.764" fill="#FFFFFF" font-family="'Lato-Regular'" font-size="24.9018">Javier Pérez</tspan><tspan x="257.583" y="89.646" fill="#FFFFFF" font-family="'Lato-Regular'" font-size="24.9018">Monica Lirugyli</tspan><tspan x="155.588" y="119.527" fill="#FFFFFF" font-family="'Lato-Regular'" font-size="24.9018">David Gonzalez Vaquero</tspan><tspan x="97.742" y="149.41" fill="#FFFFFF" font-family="'Lato-Regular'" font-size="24.9018">Manuel Jesús Dávila González</tspan><tspan x="286.644" y="179.293" fill="#FFFFFF" font-family="'Lato-Regular'" font-size="24.9018">Rennie Scott</tspan></text>
+				<line fill="none" stroke="#FFFFFF" stroke-width="2" stroke-miterlimit="10" x1="794" y1="100" x2="1219" y2="100"/>
+				<line fill="none" stroke="#FFFFFF" stroke-width="2" stroke-miterlimit="10" x1="794" y1="348" x2="1219" y2="348"/>
+				<rect x="793.87" y="559" fill="none" width="424.896" height="170"/>
+				<text transform="matrix(1 0 0 1 793.8701 582.9688)"><tspan x="0" y="0" fill="#FFFFFF" font-family="'Lato-Black'" font-size="32">Special thanks</tspan><tspan x="255.566" y="59.764" fill="#FFFFFF" font-family="'Lato-Regular'" font-size="24.9018">Luis Hernandez</tspan><tspan x="300.688" y="89.646" fill="#FFFFFF" font-family="'Lato-Regular'" font-size="24.9018">The Feelms</tspan><tspan x="239.654" y="119.527" fill="#FFFFFF" font-family="'Lato-Regular'" font-size="24.9018">Alvaro Cuadrado</tspan></text>
+				<line fill="none" stroke="#FFFFFF" stroke-width="2" stroke-miterlimit="10" x1="794" y1="605" x2="1219" y2="605"/>
+			</g>
+			<polygon id="ESQUINA" fill="#C83759" points="260.107,0 -1,254.147 -1,0 			"/>
+		</g>
+		<g id="PANTALLA_1">
+			<linearGradient id="DEGRADADO_2_1_" gradientUnits="userSpaceOnUse" x1="260.1074" y1="-384" x2="1280" y2="-384">
+				<stop offset="0" style="stop-color: #FFCF48" class="yellow">
+				</stop>
+				<stop offset="0" style="stop-color: #1CA9C9" class="blue">
+				   <animate attributeName="offset" values="0;0;0.33;0.66" dur="15s" repeatCount="indefinite" />
+				</stop>
+				<stop offset="0" style="stop-color: #FFCF48" class="yellow">
+				   <animate attributeName="offset" values="0;0.33;0.66;1" dur="15s" repeatCount="indefinite" />
+				</stop>
+				<stop offset="0.66" style="stop-color: #1CA9C9" class="blue">
+				  <animate attributeName="offset" values="0.66;1;1;1;" dur="15s" repeatCount="indefinite" />
+				</stop>
+				<stop offset="1" style="stop-color: #FFCF48" class="yellow">
+				</stop>
+			</linearGradient>
+			<polygon id="DEGRADADO_2" fill="url(#DEGRADADO_2_1_)" points="1280,0 260.107,0 1024.198,-768 1280,-768 			"/>
+			<linearGradient id="DEGRADADO_1_1_" gradientUnits="userSpaceOnUse" x1="0" y1="-384" x2="1024.1982" y2="-384">
+				<stop offset="0" style="stop-color: #C83759" class="darkPurple">
+				</stop>
+				<stop offset="0" style="stop-color: #C73959" class="purple">
+				   <animate attributeName="offset" values="0;0;0;0;0.1627" dur="15s" repeatCount="indefinite" />
+				</stop>
+				<stop offset="0" style="stop-color: #AE7E4C" class="brown">
+				   <animate attributeName="offset" values="0;0;0;0.1627;0.5253" dur="15s" repeatCount="indefinite" />
+				</stop>
+				<stop offset="0" style="stop-color: #9BB441" class="green">
+				   <animate attributeName="offset" values="0;0;0;0.1627;0.5253;0.8453" dur="15s" repeatCount="indefinite" />
+				</stop>
+				<stop offset="0" style="stop-color: #9BB441" class="lightGreen">
+				   <animate attributeName="offset" values="0;0;0.1627;0.5253;0.8453;1" dur="15s" repeatCount="indefinite" />
+				</stop>
+				<stop offset="0" style="stop-color: #C83759" class="darkPurple">
+				   <animate attributeName="offset" values="0;0.1627;0.5253;0.8453;1;1" dur="15s" repeatCount="indefinite" />
+				</stop>
+				<stop offset="0" style="stop-color: #C73959" class="purple">
+				   <animate attributeName="offset" values="0.1627;0.5253;0.8453;1;1;1" dur="15s" repeatCount="indefinite" />
+				</stop>
+				<stop offset="0" style="stop-color: #AE7E4C" class="brown">
+				   <animate attributeName="offset" values="0.5253;0.8453;1;1;1;1" dur="15s" repeatCount="indefinite" />
+				</stop>
+				<stop offset="0" style="stop-color: #9BB441" class="green">
+				   <animate attributeName="offset" values="0.8453;1;1;1;1;1" dur="15s" repeatCount="indefinite" />
+				</stop>
+				<stop offset="0" style="stop-color: #9BB441" class="lightGreen">
+				   <animate attributeName="offset" values="1;1;1;1;1;1" dur="15s" repeatCount="indefinite" />
+				</stop>
+				<stop offset="1" style="stop-color: #C83759" class="darkPurple">
+				</stop>				
+			</linearGradient>
+			<polygon id="DEGRADADO_1" fill="url(#DEGRADADO_1_1_)" points="0,0 0,-768 1024.198,-768 260.107,0 			"/>
+			<path id="FLECHA" fill="#FFFFFF" d="M640.556-39.123l15.196-15.195c0.414-0.412,0.414-1.081,0-1.493
+				c-0.411-0.413-1.08-0.413-1.492,0l-14.45,14.449l-14.068-14.069c-0.412-0.412-1.081-0.412-1.493,0
+				c-0.207,0.207-0.311,0.477-0.311,0.746c0,0.271,0.104,0.541,0.311,0.747l14.814,14.815
+				C639.476-38.71,640.145-38.71,640.556-39.123z"/>
+			<path id="LOGOTIPO" fill="#FFFFFF" d="M553.661-474.226v22.392h7.673v3.701h-11.61v-26.093H553.661z M625.464-470.728
+				c-2.658-2.66-5.847-3.989-9.566-3.989c-3.762,0-6.985,1.319-9.666,3.955c-2.693,2.636-4.04,5.791-4.04,9.464
+				c0,4.18,1.477,7.559,4.428,10.139c2.683,2.332,5.708,3.499,9.076,3.499c3.808,0,7.058-1.313,9.751-3.938
+				c2.682-2.614,4.023-5.797,4.023-9.548C629.469-464.875,628.134-468.069,625.464-470.728z M622.675-454.199
+				c-1.881,1.892-4.191,2.839-6.93,2.839c-2.523,0-4.749-0.929-6.675-2.789c-1.938-1.856-2.907-4.226-2.907-7.11
+				c0-2.743,0.936-5.053,2.806-6.922c1.871-1.89,4.163-2.834,6.878-2.834c2.727,0,5.014,0.944,6.861,2.834
+				c1.858,1.881,2.789,4.214,2.789,6.99C625.498-458.442,624.557-456.112,622.675-454.199z M659.284-448.133V-476l19.028,19.907
+				v-18.133h3.938v27.682l-19.028-19.857v18.268H659.284z M727.677-433.007v22.392h-3.937v-22.392h-6v-3.701h15.92v3.701H727.677z
+				 M566.038-413.993c-1.329-1.215-2.812-2.078-4.445-2.584c-1.521-0.519-3.593-0.778-6.219-0.778h-5.475v26.094h5.408
+				c2.647,0,4.692-0.242,6.134-0.727c1.543-0.484,3.02-1.347,4.428-2.586c2.806-2.479,4.208-5.723,4.208-9.734
+				C570.077-408.309,568.73-411.537,566.038-413.993z M563.198-397.396c-0.946,0.856-2.005,1.481-3.177,1.876
+				c-1.172,0.372-2.642,0.558-4.411,0.558h-1.775v-18.692h1.775c3.357,0,5.898,0.795,7.622,2.384c1.916,1.779,2.873,4.1,2.873,6.962
+				C566.105-401.47,565.136-399.166,563.198-397.396z M625.464-413.857c-2.658-2.658-5.847-3.989-9.566-3.989
+				c-3.762,0-6.985,1.319-9.666,3.955c-2.693,2.636-4.04,5.791-4.04,9.464c0,4.18,1.477,7.561,4.428,10.14
+				c2.683,2.333,5.708,3.498,9.076,3.498c3.808,0,7.058-1.313,9.751-3.938c2.682-2.614,4.023-5.796,4.023-9.548
+				C629.469-408.004,628.134-411.199,625.464-413.857z M622.675-397.326c-1.881,1.892-4.191,2.835-6.93,2.835
+				c-2.523,0-4.749-0.926-6.675-2.785c-1.938-1.86-2.907-4.228-2.907-7.111c0-2.746,0.936-5.052,2.806-6.922
+				c1.871-1.894,4.163-2.837,6.878-2.837c2.727,0,5.014,0.944,6.861,2.837c1.858,1.882,2.789,4.211,2.789,6.99
+				C625.498-401.571,624.557-399.241,622.675-397.326z M673.049-361.458l-8.518-14.821h4.529l5.966,10.427l5.983-10.427h4.529
+				l-8.551,14.821v11.271h-3.939V-361.458z M731.869-374.1c-0.856-0.845-1.848-1.419-2.975-1.724
+				c-1.115-0.304-2.767-0.456-4.952-0.456h-4.462v26.092h3.939v-10.595h1.823c2.717,0,4.874-0.698,6.474-2.096s2.4-3.291,2.4-5.679
+				C734.117-370.787,733.368-372.635,731.869-374.1z M724.889-364.433h-1.469v-8.214h1.301c3.729,0,5.593,1.348,5.593,4.04
+				C730.313-365.824,728.506-364.433,724.889-364.433z M549.414-330.838v-27.868l19.029,19.909v-18.134h3.938v27.682l-19.03-19.856
+				v18.268H549.414z M624.992-312.153h-10.461v6.271h10.157v3.7h-10.157v8.722h10.461v3.701h-14.398v-26.094h14.398V-312.153z
+				 M682.823-311.982l-3.194,1.892c-0.598-1.037-1.166-1.712-1.706-2.028c-0.564-0.36-1.291-0.54-2.18-0.54
+				c-1.094,0-2,0.31-2.722,0.932c-0.722,0.608-1.082,1.375-1.082,2.298c0,1.273,0.947,2.3,2.839,3.076l2.603,1.068
+				c2.119,0.856,3.668,1.901,4.647,3.134c0.98,1.238,1.472,2.75,1.472,4.545c0,2.401-0.801,4.385-2.4,5.95
+				c-1.611,1.58-3.611,2.369-5.999,2.369c-2.267,0-4.136-0.674-5.611-2.02c-1.453-1.346-2.36-3.236-2.722-5.669l3.989-0.88
+				c0.18,1.532,0.496,2.591,0.946,3.178c0.812,1.127,1.994,1.689,3.549,1.689c1.228,0,2.248-0.41,3.059-1.23
+				c0.812-0.823,1.218-1.865,1.218-3.126c0-0.507-0.068-0.97-0.208-1.392c-0.143-0.423-0.362-0.812-0.66-1.167
+				c-0.299-0.354-0.688-0.687-1.16-0.997c-0.474-0.311-1.037-0.605-1.691-0.888l-2.518-1.044c-3.571-1.509-5.357-3.719-5.357-6.623
+				c0-1.957,0.749-3.596,2.248-4.914c1.499-1.326,3.363-1.991,5.596-1.991C678.784-316.36,681.133-314.902,682.823-311.982z
+				 M714.586-293.582h19.57v3.549h-19.57V-293.582z M735.006-474.696l-1.019-1.019l-185.285,185.28l1.021,1.019L735.006-474.696z"/>
+		</g>
+	</g>
+</switch>
+</svg>
