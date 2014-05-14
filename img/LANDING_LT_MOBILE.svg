@@ -21,8 +21,19 @@
 	<g i:extraneous="self">
 		<g id="PANTALLA_2">
 			<linearGradient id="BG_1_" gradientUnits="userSpaceOnUse" x1="0" y1="659.5" x2="320" y2="659.5">
-				<stop  offset="0.2814" style="stop-color:#1CA9C9"/>
-				<stop  offset="1" style="stop-color:#FFCF48"/>
+				<stop offset="0" style="stop-color: #FFCF48" class="yellow">
+				</stop>
+				<stop offset="0" style="stop-color: #1CA9C9" class="blue">
+				   <animate attributeName="offset" values="0;0;0.33;0.66" dur="30s" repeatCount="indefinite" />
+				</stop>
+				<stop offset="0" style="stop-color: #FFCF48" class="yellow">
+				   <animate attributeName="offset" values="0;0.33;0.66;1" dur="30s" repeatCount="indefinite" />
+				</stop>
+				<stop offset="0.66" style="stop-color: #1CA9C9" class="blue">
+				  <animate attributeName="offset" values="0.66;1;1;1;" dur="30s" repeatCount="indefinite" />
+				</stop>
+				<stop offset="1" style="stop-color: #FFCF48" class="yellow">
+				</stop>
 			</linearGradient>
 			<rect id="BG" y="439" fill="url(#BG_1_)" width="320" height="441"/>
 			<path id="FLECHA_1_" fill="#FFFFFF" d="M166.196,453.938l-12.012,12.012c-0.327,0.326-0.327,0.854,0,1.18
@@ -51,13 +62,53 @@
 		</g>
 		<g id="PANTALLA_1">
 			<linearGradient id="DEGRADADO_2_1_" gradientUnits="userSpaceOnUse" x1="0" y1="245.5977" x2="320" y2="245.5977">
-				<stop  offset="0.2814" style="stop-color:#1CA9C9"/>
-				<stop  offset="1" style="stop-color:#FFCF48"/>
+				<stop offset="0" style="stop-color: #FFCF48" class="yellow">
+				</stop>
+				<stop offset="0" style="stop-color: #1CA9C9" class="blue">
+				   <animate attributeName="offset" values="0;0;0.33;0.66" dur="30s" repeatCount="indefinite" />
+				</stop>
+				<stop offset="0" style="stop-color: #FFCF48" class="yellow">
+				   <animate attributeName="offset" values="0;0.33;0.66;1" dur="30s" repeatCount="indefinite" />
+				</stop>
+				<stop offset="0.66" style="stop-color: #1CA9C9" class="blue">
+				  <animate attributeName="offset" values="0.66;1;1;1;" dur="30s" repeatCount="indefinite" />
+				</stop>
+				<stop offset="1" style="stop-color: #FFCF48" class="yellow">
+				</stop>
 			</linearGradient>
 			<polygon id="DEGRADADO_2" fill="url(#DEGRADADO_2_1_)" points="320,440 0,440 0,373.271 320,51.195 			"/>
 			<linearGradient id="DEGRADADO_1_1_" gradientUnits="userSpaceOnUse" x1="0" y1="186.1353" x2="320" y2="186.1353">
-				<stop  offset="0" style="stop-color:#C83759"/>
-				<stop  offset="1" style="stop-color:#93C93D"/>
+				<stop offset="0" style="stop-color: #C83759" class="darkPurple">
+				</stop>
+				<stop offset="0" style="stop-color: #C73959" class="purple">
+				   <animate attributeName="offset" values="0;0;0;0;0.1627" dur="30s" repeatCount="indefinite" />
+				</stop>
+				<stop offset="0" style="stop-color: #AE7E4C" class="brown">
+				   <animate attributeName="offset" values="0;0;0;0.1627;0.5253" dur="30s" repeatCount="indefinite" />
+				</stop>
+				<stop offset="0" style="stop-color: #9BB441" class="green">
+				   <animate attributeName="offset" values="0;0;0;0.1627;0.5253;0.8453" dur="30s" repeatCount="indefinite" />
+				</stop>
+				<stop offset="0" style="stop-color: #9BB441" class="lightGreen">
+				   <animate attributeName="offset" values="0;0;0.1627;0.5253;0.8453;1" dur="30s" repeatCount="indefinite" />
+				</stop>
+				<stop offset="0" style="stop-color: #C83759" class="darkPurple">
+				   <animate attributeName="offset" values="0;0.1627;0.5253;0.8453;1;1" dur="30s" repeatCount="indefinite" />
+				</stop>
+				<stop offset="0" style="stop-color: #C73959" class="purple">
+				   <animate attributeName="offset" values="0.1627;0.5253;0.8453;1;1;1" dur="30s" repeatCount="indefinite" />
+				</stop>
+				<stop offset="0" style="stop-color: #AE7E4C" class="brown">
+				   <animate attributeName="offset" values="0.5253;0.8453;1;1;1;1" dur="30s" repeatCount="indefinite" />
+				</stop>
+				<stop offset="0" style="stop-color: #9BB441" class="green">
+				   <animate attributeName="offset" values="0.8453;1;1;1;1;1" dur="30s" repeatCount="indefinite" />
+				</stop>
+				<stop offset="0" style="stop-color: #9BB441" class="lightGreen">
+				   <animate attributeName="offset" values="1;1;1;1;1;1" dur="30s" repeatCount="indefinite" />
+				</stop>
+				<stop offset="1" style="stop-color: #C83759" class="darkPurple">
+				</stop>				
 			</linearGradient>
 			<polygon id="DEGRADADO_1" fill="url(#DEGRADADO_1_1_)" points="0,-1 320,-1 320,51.195 0,373.271 			"/>
 			<path id="LOGOTIPO" fill="#FFFFFF" d="M95.369,150.714v15.68h5.373v2.592h-8.13v-18.272H95.369z M145.65,153.165

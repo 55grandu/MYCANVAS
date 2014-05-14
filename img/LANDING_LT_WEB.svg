@@ -13,11 +13,7 @@
 <svg version="1.1" id="Capa_1" xmlns:x="&ns_extend;" xmlns:i="&ns_ai;" xmlns:graph="&ns_graphs;"
 	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1280px" height="768px"
 	 viewBox="0 0 1280 768" enable-background="new 0 0 1280 768" xml:space="preserve">
-<switch>
-	<foreignObject requiredExtensions="&ns_ai;" x="0" y="0" width="1" height="1">
-		<i:pgfRef  xlink:href="#adobe_illustrator_pgf">
-		</i:pgfRef>
-	</foreignObject>
+
 	<g i:extraneous="self">
 		<g id="PANTALLA_2">
 			<rect fill="#FFCF48" width="1280" height="768"/>
@@ -176,5 +172,4 @@
 				 M714.586-293.582h19.57v3.549h-19.57V-293.582z M735.006-474.696l-1.019-1.019l-185.285,185.28l1.021,1.019L735.006-474.696z"/>
 		</g>
 	</g>
-</switch>
 </svg>
