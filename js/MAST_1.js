@@ -31,25 +31,25 @@ window.onload = function(){
         setTimeout(animacionGrupoBolaAmarilla,1);
 
         // Grupo Bola Verde, empieza en el instante 1,5s
-        setTimeout(animacionGrupoBolaVerde,1500);
+        setTimeout(animacionGrupoBolaVerde,1300);
 
         // Circulo Azul, empieza en el instante 3,5s
-        setTimeout(animacionCirculoAzul,3500);
+        setTimeout(animacionCirculoAzul,3300);
 
         // Circulo Blanco, empieza en el instante 4s
-        setTimeout(animacionCirculoBlanco,3500);
+        setTimeout(animacionCirculoBlanco,3300);
 
         // Cierre Circulo Azul, empieza en el instante 8s
-        setTimeout(cierreCirculoBlanco,4000);
+        setTimeout(cierreCirculoBlanco,5300);
 
         // Cierre Circulo Azul, empieza en el instante 8s
-        setTimeout(cierreCirculoAzul,4000);
+        setTimeout(cierreCirculoAzul,5300);
 
         // Cierre Circulo Azul, empieza en el instante 8s
-        setTimeout(cierreGrupoBolaVerde,6000);
+        setTimeout(cierreGrupoBolaVerde,7600);
 
         // Cierre Circulo Azul, empieza en el instante 8s
-        setTimeout(cierreGrupoBolaAmarilla,7500);
+        setTimeout(cierreGrupoBolaAmarilla,8600);
 
 
         function animacionGrupoBolaAmarilla(){            
@@ -69,9 +69,11 @@ window.onload = function(){
         }
 
         function animacionCirculoAzul(){
+            //alert(circuloAzul.getTotalLength());
+            //alert(contornoCirculoAzul.getTotalLength());
             // Añadimos los atributos strokeDasharray y strokeDashoffset a los componentes del circulo azul
-            contornoCirculoAzul.attr({strokeDasharray:"895.2478637695312 895.2478637695312", strokeDashoffset: "895.2478637695312"});
-            circuloAzul.attr({strokeDasharray:"894.4448852539062 894.4448852539062", strokeDashoffset: "894.4448852539062"});
+            contornoCirculoAzul.attr({strokeDasharray:"671.430419921875 671.430419921875", strokeDashoffset: "671.430419921875"});
+            circuloAzul.attr({strokeDasharray:"670.62744140625 670.62744140625", strokeDashoffset: "670.62744140625"});
 
             s.append(contornoCirculoAzul);
             s.append(circuloAzul);
@@ -80,32 +82,44 @@ window.onload = function(){
             s.append(groupBolaVerde);
             s.append(groupBolaAmarrilla);
 
-            circuloAzul.animate({strokeDashoffset:"0"},2030);
+            circuloAzul.animate({strokeDashoffset:"0"},2010);
             contornoCirculoAzul.animate({strokeDashoffset:"0"},2000);
         }
 
         function animacionCirculoBlanco(){
+            //alert(rellenoCirculoBlanco.getTotalLength());
+            //alert(bordeCirculoBlanco.getTotalLength());
             // Añadimos los atributos strokeDasharray y strokeDashoffset a los componentes del circulo azul
-            bordeCirculoBlanco.attr({strokeDasharray:"870.1499633789062 870.1499633789062", strokeDashoffset:"870.1499633789062"});
-            rellenoCirculoBlanco.attr({strokeDasharray:"867.3594360351562 867.3594360351562", strokeDashoffset:"867.3594360351562"});
+            bordeCirculoBlanco.attr({strokeDasharray:"671.430419921875 671.430419921875", strokeDashoffset:"671.430419921875"});
+            rellenoCirculoBlanco.attr({strokeDasharray:"665.4508056640625 665.4508056640625", strokeDashoffset:"665.4508056640625"});
 
             s.append(bordeCirculoBlanco);
             s.append(rellenoCirculoBlanco);
             s.append(groupBolaVerde);
             s.append(groupBolaAmarrilla);
 
-            rellenoCirculoBlanco.animate({strokeDashoffset:"0"},2030, mina.linear);
+            rellenoCirculoBlanco.animate({strokeDashoffset:"0"},2010, mina.linear);
             bordeCirculoBlanco.animate({strokeDashoffset:"0"},2000, mina.linear);
         }
 
         function cierreCirculoBlanco(){
-            bordeCirculoBlanco.animate({strokeDashoffset:"-870.1499633789062"},2000);
-            rellenoCirculoBlanco.animate({strokeDashoffset:"-867.3594360351562"},1970);
+            bordeCirculoBlanco.animate({transform:"t0,0 r-90"},1000, function(){
+                bordeCirculoBlanco.animate({strokeDashoffset:"-671.430419921875"},1000);
+            });
+            rellenoCirculoBlanco.animate({transform:"t0,0 r-90"},990, function(){
+                rellenoCirculoBlanco.animate({strokeDashoffset:"-665.4508056640625"},990);
+            });
         }
 
         function cierreCirculoAzul(){
-            contornoCirculoAzul.animate({strokeDashoffset:"-895.2478637695312"},2000);
-            circuloAzul.animate({strokeDashoffset:"-894.4448852539062"},1970);
+            //alert(circuloAzul.getTotalLength());
+            //alert(contornoCirculoAzul.getTotalLength());
+            contornoCirculoAzul.animate({transform:"t0,0 r90"},1000, function(){
+                contornoCirculoAzul.animate({strokeDashoffset:"-671.430419921875"},1000);
+            });
+            circuloAzul.animate({transform:"t0,0 r90"},990, function(){
+                circuloAzul.animate({strokeDashoffset:"-670.62744140625"},990);
+            });
         }
 
         function cierreGrupoBolaVerde(){
@@ -114,7 +128,18 @@ window.onload = function(){
             groupBolaVerde.select("path[id='bordeBrilloBolaVerde']").animate({d:"M198.047,220.616"},2000);
         }
         function cierreGrupoBolaAmarilla(){
-            groupBolaAmarrilla.select("circle[id='bolaAmarilla']").animate({r:0},2000);
+            //groupBolaAmarrilla.select("circle[id='bolaAmarilla']").animate({r:0},2000);
+            //groupBolaAmarrilla.select("circle[id='bolaAmarilla']").attr({class:"animated bounceOut"});
+            TweenLite.to(groupBolaAmarrilla.select("circle[id='bolaAmarilla']"), 3, {
+                raphael: {
+                    fill: '#00f',
+                    x: 198.047,
+                    y: 220.616,
+                    width: 0,
+                    height: 0
+                },
+                ease: Bounce.easeOut
+            });
             groupBolaAmarrilla.select("path[id='rellenoBrilloBolaAmarilla']").animate({d:"M198.047,220.616"},2000);
             groupBolaAmarrilla.select("path[id='bordeBrilloBolaAmarilla']").animate({d:"M198.047,220.616"},2000);
         }
