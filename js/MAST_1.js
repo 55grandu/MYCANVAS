@@ -15,7 +15,6 @@ window.onload = function(){
             groupBolaAmarrilla = s.group(bolaAmarilla,rellenoBrilloBolaAmarilla,bordeBrilloBolaAmarilla),
             groupBolaVerde = s.group(bolaVerde,rellenoBrilloBolaVerde,bordeBrilloBolaVerde);
 
-
         // Agrupamos los elementos de la bola amarilla y los inicializamos al centro
         groupBolaAmarrilla.select("circle[id='bolaAmarilla']").attr({r:0});
         groupBolaAmarrilla.select("path[id='rellenoBrilloBolaAmarilla']").attr({d:"M198.047,220.616"});
@@ -38,19 +37,19 @@ window.onload = function(){
         setTimeout(animacionCirculoAzul,3500);
 
         // Circulo Blanco, empieza en el instante 4s
-        setTimeout(animacionCirculoBlanco,4000);
+        setTimeout(animacionCirculoBlanco,3500);
 
         // Cierre Circulo Azul, empieza en el instante 8s
-        setTimeout(cierreCirculoBlanco,8000);
+        setTimeout(cierreCirculoBlanco,4000);
 
         // Cierre Circulo Azul, empieza en el instante 8s
-        setTimeout(cierreCirculoAzul,8500);
+        setTimeout(cierreCirculoAzul,4000);
 
         // Cierre Circulo Azul, empieza en el instante 8s
-        setTimeout(cierreGrupoBolaVerde,10500);
+        setTimeout(cierreGrupoBolaVerde,6000);
 
         // Cierre Circulo Azul, empieza en el instante 8s
-        setTimeout(cierreGrupoBolaAmarilla,12000);
+        setTimeout(cierreGrupoBolaAmarilla,7500);
 
 
         function animacionGrupoBolaAmarilla(){            
@@ -71,11 +70,13 @@ window.onload = function(){
 
         function animacionCirculoAzul(){
             // Añadimos los atributos strokeDasharray y strokeDashoffset a los componentes del circulo azul
-            contornoCirculoAzul.attr({strokeDasharray:"1414.460693359375 1414.460693359375", strokeDashoffset: "1414.460693359375"});
-            circuloAzul.attr({strokeDasharray:"1414.460693359375 1414.460693359375", strokeDashoffset: "1414.460693359375"});
+            contornoCirculoAzul.attr({strokeDasharray:"895.2478637695312 895.2478637695312", strokeDashoffset: "895.2478637695312"});
+            circuloAzul.attr({strokeDasharray:"894.4448852539062 894.4448852539062", strokeDashoffset: "894.4448852539062"});
 
             s.append(contornoCirculoAzul);
             s.append(circuloAzul);
+            s.append(bordeCirculoBlanco);
+            s.append(rellenoCirculoBlanco);
             s.append(groupBolaVerde);
             s.append(groupBolaAmarrilla);
 
@@ -85,28 +86,26 @@ window.onload = function(){
 
         function animacionCirculoBlanco(){
             // Añadimos los atributos strokeDasharray y strokeDashoffset a los componentes del circulo azul
-            bordeCirculoBlanco.attr({strokeDasharray:"665.4508056640625 665.4508056640625", strokeDashoffset:"665.4508056640625"});
-            rellenoCirculoBlanco.attr({strokeDasharray:"662.66015625 662.66015625", strokeDashoffset:"662.66015625"});
+            bordeCirculoBlanco.attr({strokeDasharray:"870.1499633789062 870.1499633789062", strokeDashoffset:"870.1499633789062"});
+            rellenoCirculoBlanco.attr({strokeDasharray:"867.3594360351562 867.3594360351562", strokeDashoffset:"867.3594360351562"});
 
-            s.append(contornoCirculoAzul);
-            s.append(circuloAzul);
             s.append(bordeCirculoBlanco);
             s.append(rellenoCirculoBlanco);
             s.append(groupBolaVerde);
             s.append(groupBolaAmarrilla);
 
-            rellenoCirculoBlanco.animate({strokeDashoffset:"0"},2030);
-            bordeCirculoBlanco.animate({strokeDashoffset:"0"},2000);
+            rellenoCirculoBlanco.animate({strokeDashoffset:"0"},2030, mina.linear);
+            bordeCirculoBlanco.animate({strokeDashoffset:"0"},2000, mina.linear);
         }
 
         function cierreCirculoBlanco(){
-            bordeCirculoBlanco.animate({strokeDashoffset:"665.4508056640625"},2000);
-            rellenoCirculoBlanco.animate({strokeDashoffset:"662.66015625"},1970);
+            bordeCirculoBlanco.animate({strokeDashoffset:"-870.1499633789062"},2000);
+            rellenoCirculoBlanco.animate({strokeDashoffset:"-867.3594360351562"},1970);
         }
 
         function cierreCirculoAzul(){
-            contornoCirculoAzul.animate({strokeDashoffset:"1414.460693359375"},2000);
-            circuloAzul.animate({strokeDashoffset:"1414.460693359375"},1970);
+            contornoCirculoAzul.animate({strokeDashoffset:"-895.2478637695312"},2000);
+            circuloAzul.animate({strokeDashoffset:"-894.4448852539062"},1970);
         }
 
         function cierreGrupoBolaVerde(){
