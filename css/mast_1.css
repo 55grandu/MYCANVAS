@@ -38,4 +38,8 @@
 .bounceOut { 
     -webkit-animation-name: bounceOut; 
     animation-name: bounceOut; 
+    -webkit-animation:bounceOut 2s; /* Chrome, Safari, Opera */
+    transform-origin:198.047px 220.616px;
+    -ms-transform-origin:198.047px 220.616px; /* IE 9 */
+    -webkit-transform-origin:198.047px 220.616px; /* Chrome, Safari, Opera */
 }

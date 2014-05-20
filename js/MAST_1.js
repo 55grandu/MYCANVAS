@@ -13,7 +13,8 @@ window.onload = function(){
             rellenoBrilloBolaVerde = f.select("path[id='rellenoBrilloBolaVerde']"),
             bordeBrilloBolaVerde = f.select("path[id='bordeBrilloBolaVerde']"),
             groupBolaAmarrilla = s.group(bolaAmarilla,rellenoBrilloBolaAmarilla,bordeBrilloBolaAmarilla),
-            groupBolaVerde = s.group(bolaVerde,rellenoBrilloBolaVerde,bordeBrilloBolaVerde);
+            groupBolaVerde = s.group(bolaVerde,rellenoBrilloBolaVerde,bordeBrilloBolaVerde),
+            lengthCirculoAzul,lengthContornoCirculoAzul,lengthBordeCirculoBlanco,lengthRellenoCirculoBlanco;
 
         // Agrupamos los elementos de la bola amarilla y los inicializamos al centro
         groupBolaAmarrilla.select("circle[id='bolaAmarilla']").attr({r:0});
@@ -69,8 +70,8 @@ window.onload = function(){
         }
 
         function animacionCirculoAzul(){
-            //alert(circuloAzul.getTotalLength());
-            //alert(contornoCirculoAzul.getTotalLength());
+            lengthCirculoAzul = circuloAzul.getTotalLength();
+            lengthContornoCirculoAzul = contornoCirculoAzul.getTotalLength();
             // Añadimos los atributos strokeDasharray y strokeDashoffset a los componentes del circulo azul
             contornoCirculoAzul.attr({strokeDasharray:"671.430419921875 671.430419921875", strokeDashoffset: "671.430419921875"});
             circuloAzul.attr({strokeDasharray:"670.62744140625 670.62744140625", strokeDashoffset: "670.62744140625"});
@@ -87,8 +88,8 @@ window.onload = function(){
         }
 
         function animacionCirculoBlanco(){
-            //alert(rellenoCirculoBlanco.getTotalLength());
-            //alert(bordeCirculoBlanco.getTotalLength());
+            lengthRellenoCirculoBlanco = rellenoCirculoBlanco.getTotalLength();
+            lengthBordeCirculoBlanco = bordeCirculoBlanco.getTotalLength();
             // Añadimos los atributos strokeDasharray y strokeDashoffset a los componentes del circulo azul
             bordeCirculoBlanco.attr({strokeDasharray:"671.430419921875 671.430419921875", strokeDashoffset:"671.430419921875"});
             rellenoCirculoBlanco.attr({strokeDasharray:"665.4508056640625 665.4508056640625", strokeDashoffset:"665.4508056640625"});
@@ -108,7 +109,7 @@ window.onload = function(){
             });
             rellenoCirculoBlanco.animate({transform:"t0,0 r-90"},990, function(){
                 rellenoCirculoBlanco.animate({strokeDashoffset:"-665.4508056640625"},990);
-            });
+            }); 
         }
 
         function cierreCirculoAzul(){
@@ -123,25 +124,15 @@ window.onload = function(){
         }
 
         function cierreGrupoBolaVerde(){
-            groupBolaVerde.select("circle[id='bolaVerde']").animate({cx:198.047, cy:220.616, r:0},2000);
-            groupBolaVerde.select("path[id='rellenoBrilloBolaVerde']").animate({d:"M198.047,220.616"},2000);
-            groupBolaVerde.select("path[id='bordeBrilloBolaVerde']").animate({d:"M198.047,220.616"},2000);
+            groupBolaVerde.select("circle[id='bolaVerde']").attr({class:"animated bounceOut"});
+            groupBolaVerde.select("path[id='rellenoBrilloBolaVerde']").attr({class:"animated bounceOut"});
+            groupBolaVerde.select("path[id='bordeBrilloBolaVerde']").attr({class:"animated bounceOut"});
         }
         function cierreGrupoBolaAmarilla(){
-            //groupBolaAmarrilla.select("circle[id='bolaAmarilla']").animate({r:0},2000);
-            //groupBolaAmarrilla.select("circle[id='bolaAmarilla']").attr({class:"animated bounceOut"});
-            TweenLite.to(groupBolaAmarrilla.select("circle[id='bolaAmarilla']"), 3, {
-                raphael: {
-                    fill: '#00f',
-                    x: 198.047,
-                    y: 220.616,
-                    width: 0,
-                    height: 0
-                },
-                ease: Bounce.easeOut
-            });
-            groupBolaAmarrilla.select("path[id='rellenoBrilloBolaAmarilla']").animate({d:"M198.047,220.616"},2000);
-            groupBolaAmarrilla.select("path[id='bordeBrilloBolaAmarilla']").animate({d:"M198.047,220.616"},2000);
+            //groupBolaAmarrilla.select("circle[id='bolaAmarilla']").animate({r:0},2000,mina.bounce);
+            groupBolaAmarrilla.select("circle[id='bolaAmarilla']").attr({class:"animated bounceOut "});
+            groupBolaAmarrilla.select("path[id='rellenoBrilloBolaAmarilla']").attr({class:"animated bounceOut"});
+            groupBolaAmarrilla.select("path[id='bordeBrilloBolaAmarilla']").attr({class:"animated bounceOut"});
         }
 
 /*
