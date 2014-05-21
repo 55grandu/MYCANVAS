@@ -19,14 +19,13 @@ window.onload = function(){
 		lineaNegra.attr({strokeDasharray:lengthLineaNegra+" "+lengthLineaNegra, strokeDashoffset:lengthLineaNegra});
 
 		var groupRomboRojo = s.group(romboRojo1,romboRojo2);
-		//var groupRomboAmarillo = s.group(romboAmarillo1,romboAmarillo2);
+		var groupRomboAmarillo = s.group(romboAmarillo1,romboAmarillo2);
 		//groupRomboRojo.select("rect[id='romboRojo1']").attr({x:"265.485", y:"316.636"});
 		//groupRomboRojo.select("rect[id='romboRojo2']").attr({x:"265.485", y:"316.636"});
-		groupRomboRojo.attr({transform:"t265.485,316.636 s0"});
+		groupRomboRojo.attr({transform:"t253,305 s0"});
+		groupRomboAmarillo.attr({transform:"t0,0 s0"});
 
-		s.append(groupRomboRojo);
-
-		groupRomboRojo.animate({transform:"t265.485,316.636 s1"},1500);
+		groupRomboRojo.animate({transform:"t253,305 s1"},1500);
 
 	    //lineaAzul.animate({strokeDashoffset:"0"},2000);
 
