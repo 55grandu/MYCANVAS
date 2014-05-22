@@ -10,7 +10,7 @@ window.onload = function(){
 		    bordeNegro = s.path({id:"bordeNegro", d:"m 287.078,339 c 0,0 -7.768,-118.845 -127.078,-154.692 C 49.359,154.152 32.922,32 32.922,32", stroke:"#000000", fill:"none", strokeWidth:"65", strokeLinecap:"none", strokeLinejoin:"none", strokeMiterlimit:"10"});
 	    
 		lineaAzul.attr({d:"m 287.078,339 c 0,0 -7.768,-118.845 -127.078,-154.692 C 49.359,154.152 32.922,32 32.922,32", stroke:"#1CA9C9", fill:"none", strokeWidth:"55", strokeLinecap:"none", strokeLinejoin:"none", strokeMiterlimit:"10"});
-		lineaNegra.attr({d:"m 287.078,307.691 c 0,0 -7.768,-88.307 -127.078,-122.154 C 49.359,154.152 32.922,63.843 32.922,63.843"});
+		lineaNegra.attr({d:"m 287.078,307.691 c 0,0 -7.768,-88.307 -127.078,-122.154 C 49.359,154.152 32.922,63.843 32.922,63.843", display:"none"});
 
 		lineaAzul.attr({strokeDasharray:"425.87506103515625 425.87506103515625", strokeDashoffset:"425.87506103515625"});
 		bordeNegro.attr({strokeDasharray:"425.87506103515625 425.87506103515625", strokeDashoffset:"425.87506103515625"});
@@ -38,6 +38,7 @@ window.onload = function(){
         }
 
         function animacionTranslateRomboRojo(){
+        	lineaNegra.attr({display:"inline"});
 			groupRomboAmarillo.attr({transform:"t0,0 s1"});
         	groupRomboAmarillo.after(groupRomboRojo);
 
@@ -90,6 +91,8 @@ window.onload = function(){
         }
 
         function animacionRomboAmarillo(){
+        	lineaNegra.attr({display:"none"});
+
 			groupRomboRojo.attr({transform:"t0,0 s0"});
 			groupRomboAmarillo.attr({transform:"t-253,-305 "});
 			groupRomboAmarillo.animate({transform:"t-253,-305 s0"},1500);
