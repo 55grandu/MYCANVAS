@@ -1,0 +1,120 @@
+.animated { 
+   -webkit-animation-fill-mode: both; 
+   animation-fill-mode: both; 
+   -webkit-animation-timing-function: linear; 
+   animation-timing-function: linear; 
+} 
+
+@-webkit-keyframes translateRomboRojo { 
+   0% { 
+       -webkit-transform: translate(253px,305px); 
+   } 
+   25% { 
+       -webkit-transform: translate(230.14px,218px); 
+   } 
+   50% { 
+       -webkit-transform: translate(160px,170px); 
+   } 
+   75% { 
+       -webkit-transform: translate(49.359px,154.152px); 
+   } 
+   100% { 
+       -webkit-transform: translate(0px,0px); 
+   } 
+} 
+@keyframes translateRomboRojo { 
+   0% { 
+       transform: translate(253px,305px); 
+   } 
+   25% { 
+       transform: translate(230.14px,218px); 
+   } 
+   50% { 
+       transform: translate(160px,170px); 
+   } 
+   75% { 
+       transform: translate(49.359px,154.152px); 
+   } 
+   100% { 
+       transform: translate(0px,0px); 
+   } 
+} 
+
+@-webkit-keyframes translateRomboAmarillo { 
+   0% { 
+       -webkit-transform: translate(0px,0px); 
+   } 
+   25% { 
+       -webkit-transform: translate(-22.86px,-87px); 
+   } 
+   50% { 
+       -webkit-transform: translate(-93px,-135px); 
+   } 
+   75% { 
+       -webkit-transform: translate(-203.641px,-150.848px); 
+   } 
+   100% { 
+       -webkit-transform: translate(-253px,-305px); 
+   } 
+} 
+@keyframes translateRomboAmarillo { 
+   0% { 
+       transform: translate(0px,0px);
+   } 
+   25% { 
+       transform: translate(-22.86px,-87px); 
+   } 
+   50% { 
+       transform: translate(-93px,-135px); 
+   } 
+   75% { 
+       transform: translate(-203.641px,-150.848px); 
+   } 
+   100% { 
+       transform: translate(-253px,-305px); 
+   } 
+} 
+
+@-webkit-keyframes scaleRombo { 
+   0% { 
+       -webkit-transform: scale(1); 
+   } 
+   100% { 
+       -webkit-transform: scale(0); 
+   } 
+} 
+@keyframes scaleRombo { 
+   0% { 
+       transform: scale(1); 
+   } 
+   100% { 
+       transform: scale(0); 
+   } 
+} 
+
+.translateRomboRojo { 
+   -webkit-animation-name: translateRomboRojo; 
+   animation-name: translateRomboRojo; 
+   -webkit-animation:translateRomboRojo 2s; /* Chrome, Safari, Opera */
+   -webkit-animation-duration: 2s; 
+   animation-duration: 2s; 
+}
+
+.translateRomboAmarillo { 
+   -webkit-animation-name: translateRomboAmarillo; 
+   animation-name: translateRomboAmarillo; 
+   -webkit-animation:translateRomboAmarillo 2s; /* Chrome, Safari, Opera */
+   -webkit-animation-duration: 2s; 
+   animation-duration: 2s; 
+}
+
+.scaleRombo { 
+   -webkit-animation-name: scaleRombo; 
+   animation-name: scaleRombo; 
+   -webkit-animation:scaleRombo 1.5s; /* Chrome, Safari, Opera */
+   transform-origin:0px 0px;
+   -ms-transform-origin:0px 0px; /* IE 9 */
+   -webkit-transform-origin:0px 0px; /* Chrome, Safari, Opera */
+   -webkit-animation-duration: 1.5s; 
+   animation-duration: 1.5s; 
+}

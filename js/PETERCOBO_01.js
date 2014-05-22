@@ -7,67 +7,102 @@ window.onload = function(){
 		    romboRojo2 = f.select("rect[id='romboRojo2']"),
 		    lineaAzul = f.select("path[id='lineaAzul']"),
 		    lineaNegra = f.select("path[id='lineaNegra']")
-		    bordeNegro = s.path({id:"bordeNegro", d:"M32.922,33.305 c0,0,7.768,118.845,127.078,154.691c110.641,31.385,127.078,121.694,127.078,152.232", stroke:"#000000", fill:"none", strokeWidth:"65", strokeLinecap:"none", strokeLinejoin:"none", strokeMiterlimit:"10"});
+		    bordeNegro = s.path({id:"bordeNegro", d:"m 287.078,339 c 0,0 -7.768,-118.845 -127.078,-154.692 C 49.359,154.152 32.922,32 32.922,32", stroke:"#000000", fill:"none", strokeWidth:"65", strokeLinecap:"none", strokeLinejoin:"none", strokeMiterlimit:"10"});
 	    
-		lineaAzul.attr({id:"lineaAzul", d:"M32.922,33.305 c0,0,7.768,118.845,127.078,154.691c110.641,31.385,127.078,121.694,127.078,152.232", stroke:"#1CA9C9", fill:"none", strokeWidth:"55", strokeLinecap:"none", strokeLinejoin:"none", strokeMiterlimit:"10"});
+		lineaAzul.attr({d:"m 287.078,339 c 0,0 -7.768,-118.845 -127.078,-154.692 C 49.359,154.152 32.922,32 32.922,32", stroke:"#1CA9C9", fill:"none", strokeWidth:"55", strokeLinecap:"none", strokeLinejoin:"none", strokeMiterlimit:"10"});
+		lineaNegra.attr({d:"m 287.078,307.691 c 0,0 -7.768,-88.307 -127.078,-122.154 C 49.359,154.152 32.922,63.843 32.922,63.843"});
 
-	    var lengthLineaAzul = lineaAzul.getTotalLength();
-	    var lengthLineaNegra = lineaNegra.getTotalLength();
-
-		lineaAzul.attr({strokeDasharray:lengthLineaAzul+" "+lengthLineaAzul, strokeDashoffset:lengthLineaAzul});
-		bordeNegro.attr({strokeDasharray:"425.6034240722656 425.6034240722656", strokeDashoffset:"425.6034240722656"});
-		lineaNegra.attr({strokeDasharray:lengthLineaNegra+" "+lengthLineaNegra, strokeDashoffset:lengthLineaNegra});
+		lineaAzul.attr({strokeDasharray:"425.87506103515625 425.87506103515625", strokeDashoffset:"425.87506103515625"});
+		bordeNegro.attr({strokeDasharray:"425.87506103515625 425.87506103515625", strokeDashoffset:"425.87506103515625"});
+		lineaNegra.attr({strokeDasharray:"425.87506103515625 425.87506103515625", strokeDashoffset:"425.87506103515625"});
 
 		var groupRomboRojo = s.group(romboRojo1,romboRojo2);
 		var groupRomboAmarillo = s.group(romboAmarillo1,romboAmarillo2);
-		//groupRomboRojo.select("rect[id='romboRojo1']").attr({x:"265.485", y:"316.636"});
-		//groupRomboRojo.select("rect[id='romboRojo2']").attr({x:"265.485", y:"316.636"});
+
 		groupRomboRojo.attr({transform:"t253,305 s0"});
 		groupRomboAmarillo.attr({transform:"t0,0 s0"});
 
-		groupRomboRojo.animate({transform:"t253,305 s1"},1500);
+        setTimeout(animacionRomboRojo,1);
 
-	    //lineaAzul.animate({strokeDashoffset:"0"},2000);
+        setTimeout(animacionTranslateRomboRojo,1500);
 
-/*		s.append(bordeNegro);
+        setTimeout(animacionTranslateRomboAmarillo,4000);
+
+        setTimeout(animacionRomboAmarillo,6200);
+
+        function animacionRomboRojo(){
+			groupRomboRojo.animate({transform:"t253,305 s1"},1500);
+        	groupRomboRojo.before(bordeNegro);
+        	groupRomboRojo.before(lineaAzul);
+        	groupRomboRojo.before(lineaNegra);
+        }
+
+        function animacionTranslateRomboRojo(){
+			groupRomboAmarillo.attr({transform:"t0,0 s1"});
+        	groupRomboAmarillo.after(groupRomboRojo);
+
+        	groupRomboAmarillo.before(bordeNegro);
+        	groupRomboAmarillo.before(lineaAzul);
+        	groupRomboAmarillo.before(lineaNegra);
+
+			//groupRomboRojo.attr({class:"animated translateRomboRojo"});
+
+		    bordeNegro.animate({strokeDashoffset:"0"},2200);
+		    lineaAzul.animate({strokeDashoffset:"0"},2200);
+	    	lineaNegra.animate({strokeDashoffset:"0"},2500);
+
+        	Snap.animate(0, "425.87506103515625", function( value ) {
+		        //alert(value);
+		        var movePoint = lineaAzul.getPointAtLength( value );
+				var movePointPrevious = lineaAzul.getPointAtLength(value-1);
+
+				var x1 = movePoint.y - movePointPrevious.y;
+				var x2 = movePoint.x - movePointPrevious.x;
+				var angle = Math.atan(x1/x2)*(180/Math.PI);
+		      
+		        groupRomboRojo.transform( 't' + parseInt(movePoint.x -30) + ',' + parseInt( movePoint.y -28) + 'r' + parseInt(angle));
+		    
+		    }, 2170);
+
+        }
+
+        function animacionTranslateRomboAmarillo(){
+        	groupRomboAmarillo.before(groupRomboRojo);
+
+//			groupRomboAmarillo.attr({class:"animated translateRomboAmarillo"});
+
+		    bordeNegro.animate({strokeDashoffset:"-425.87506103515625"},2200);
+		    lineaAzul.animate({strokeDashoffset:"-425.87506103515625"},2200);
+	    	lineaNegra.animate({strokeDashoffset:"-425.87506103515625"},2200);
+
+        	Snap.animate(0,"425.87506103515625", function( value ) {
+		        //alert(value);
+		        var movePoint = lineaAzul.getPointAtLength( value );
+				var movePointPrevious = lineaAzul.getPointAtLength(value-1);
+
+				var x1 = movePoint.y - movePointPrevious.y;
+				var x2 = movePoint.x - movePointPrevious.x;
+				var angle = Math.atan(x1/x2)*(180/Math.PI);
+		      
+		        groupRomboAmarillo.transform( 't' +  -(parseInt(287.078) - parseInt(movePoint.x)) + ',' + -(parseInt(336) - parseInt( movePoint.y)) + 'r' + parseInt(angle));
+		    
+		    }, 2170);
+        }
+
+        function animacionRomboAmarillo(){
+			groupRomboRojo.attr({transform:"t0,0 s0"});
+			groupRomboAmarillo.attr({transform:"t-253,-305 "});
+			groupRomboAmarillo.animate({transform:"t-253,-305 s0"},1500);
+        }
+
+		s.append(bordeNegro);
 		s.append(lineaAzul);
-		s.append(romboAmarillo1);
-		s.append(romboAmarillo2);
-		s.append(romboRojo1);
-		s.append(romboRojo2);
 		s.append(lineaNegra);
-
-
-	    var lengthLinea = linea.getTotalLength();
-	    linea.attr({strokeDasharray:lengthLinea+" "+lengthLinea, strokeDashoffset:lengthLinea});
-
-	    rayoAmarillo.attr({transform:"t-222,0"});
-	    rayoRojo.attr({transform:"t-222,0"});
-
-	    linea.before(panelOculto);
-	    panelOculto.before(rayoAmarillo);
-	    panelOculto.before(rayoRojo);
-
-        setTimeout(animacionLinea,1);
-
-        setTimeout(animacionRayoAmarillo,1900);
-
-        setTimeout(animacionRayoRojo,3250);
-
-        function animacionLinea(){
-	    	linea.animate({strokeDashoffset:"0"},2000);
-	    }
-
-        function animacionRayoAmarillo(){
-	    	rayoAmarillo.animate({transform:"t0,0"},2000);
-	    }
-
-        function animacionRayoRojo(){
-	    	rayoRojo.animate({transform:"t0,0"},1500);	    	
-	    }
-
-*/
-	    //alert(lengthLinea);
     });
 }
+
+
+
+
+
 
