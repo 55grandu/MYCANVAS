@@ -1,7 +1,7 @@
 var animation = {};
 
 window.onload = function () {
-    var s = new Snap("#petercobo_01"), romboAmarillo1, romboAmarillo2, romboRojo1, romboRojo2, lineaAzul, lineaNegra, bordeNegro, groupRomboRojo, groupRomboAmarillo, len_Dasharray=425.87506103515625, timerFunction = null;
+    var s = new Snap("#petercobo_01"), romboAmarillo1, romboAmarillo2, romboRojo1, romboRojo2, lineaAzul, lineaNegra, bordeNegro, groupRomboRojo, groupRomboAmarillo, len_Dasharray=425.87506103515625;
     
     // Carga del SVG PETERCOBO
     Snap.load("img/PETERCOBO_01.svg", function (f) {
@@ -73,7 +73,7 @@ window.onload = function () {
         
         // Continuar con la animación
         animation.resume = function() {
-        	this.timestapInit = new Date().getTime();
+        	this.timestapInit = new Date().getTime();               
             this.animacionRomboRojo(animation.timeConsumed > 1?1: 500 - animation.timeConsumed);
             this.animacionTranslateRomboRojo(animation.timeConsumed > 500?1: 1300 - animation.timeConsumed);
             this.animacionTranslateRomboAmarillo(animation.timeConsumed > 1300?1: 2100 - animation.timeConsumed);
@@ -161,6 +161,7 @@ window.onload = function () {
                 groupRomboAmarillo.animate({transform: "t-253,-305 s0"}, ms);
             },2100);
        }
+        
         
  /*               
         function animacionRomboRojo() {
@@ -318,7 +319,7 @@ window.onload = function () {
         
 	    // Funciones de las animaciones
 	    document.getElementById('play').onclick=function(){animation.play();};
-	    document.getElementById('pause').onclick=function(){animation.pause();};
-	    document.getElementById('resume').onclick=function(){animation.resume();};
+	    //document.getElementById('pause').onclick=function(){animation.pause();};
+	    //document.getElementById('resume').onclick=function(){animation.resume();};
     });
 };
