@@ -11,13 +11,12 @@ window.onload = function () {
         romboRojo1 = f.select("rect[id='romboRojo1']");
         romboRojo2 = f.select("rect[id='romboRojo2']");
         lineaAzul = f.select("path[id='lineaAzul']");
+        bordeNegro = f.select("path[id='bordeNegro']");
         lineaNegra = f.select("path[id='lineaNegra']");
-
-        // Modificamos los componentes para que sean una sola linea
-        bordeNegro = s.path({id: "bordeNegro", d: "m 287.078,339 c 0,0 -7.768,-118.845 -127.078,-154.692 C 49.359,154.152 32,33 32,33", stroke: "#000000", fill: "none", strokeWidth: "65", strokeLinecap: "none", strokeLinejoin: "none", strokeMiterlimit: "10"});
-        lineaAzul.attr({d: "m 287.078,339 c 0,0 -7.768,-118.845 -127.078,-154.692 C 49.359,154.152 32,33 32,33", stroke: "#1CA9C9", fill: "none", strokeWidth: "55", strokeLinecap: "none", strokeLinejoin: "none", strokeMiterlimit: "10"});
-        lineaNegra.attr({d: "m 287.078,307.691 c 0,0 -7.768,-88.307 -127.078,-122.154 C 49.359,154.152 32.922,63.843 32.922,63.843", display: "none"});
-
+        
+        // Ocultamos la linea negra
+        lineaNegra.attr({display: "none"});
+        
         // Creamos los grupos de los rombos rojo y amarillo
         groupRomboRojo = s.group(romboRojo1,romboRojo2);
         groupRomboAmarillo = s.group(romboAmarillo1,romboAmarillo2);
@@ -96,20 +95,29 @@ window.onload = function () {
         animation.animacionTranslateRomboRojo = function (ms) {
             // Esperamos 0,5 seg hasta que termine la animación del bounce
             setTimeout(function(){
+                // Mostramos la linea negra
                 lineaNegra.attr({display: "inline"});
+                
+                // Ponemos visible (detras del romo rojo) el rombo amarillo 
                 groupRomboAmarillo.attr({transform: "t0,0 s1"});
+                
+                // Situamos al rombo amarillo detrás del rombo rojo
                 groupRomboAmarillo.after(groupRomboRojo);
-
+                
+                // Situamos al rombo amarillo delante de los componentes de la linea azul (el borde y la linea negra)
                 groupRomboAmarillo.before(bordeNegro);
                 groupRomboAmarillo.before(lineaAzul);
                 groupRomboAmarillo.before(lineaNegra);
 
-                //groupRomboRojo.attr({class:"animated translateRomboRojo"});
-
+                // Animamos los componentes de la linea azul, para que se desplacen a su posición final
                 bordeNegro.animate({strokeDashoffset: "0"}, ms);
                 lineaAzul.animate({strokeDashoffset: "0"}, ms);
                 lineaNegra.animate({strokeDashoffset: "0"}, ms + 100);
+                //bordeNegro.attr({class: "animatedCreciente"});
+                //lineaAzul.attr({class: "animatedCreciente"});
+                //lineaNegra.attr({class: "animatedCreciente"});
 
+                // Animamos el rombo rojo para que se mueva x el mismo camino que la linea azul
                 Snap.animate(0, len_Dasharray, function (value) {
                     //alert(value);
                     var movePoint = lineaAzul.getPointAtLength(value),
@@ -127,11 +135,18 @@ window.onload = function () {
         animation.animacionTranslateRomboAmarillo = function(ms) {
             // Esperamos 1,3 seg hasta que terminen las animaciones anteriores
             setTimeout(function(){
+                // Situamos al rombo amarillo delante del rombo rojo
                 groupRomboAmarillo.before(groupRomboRojo);
+                
+                // Animamos los componentes de la linea azul, para que se cierre sobre la posición del rombo rojo
                 bordeNegro.animate({strokeDashoffset: -len_Dasharray}, ms);
                 lineaAzul.animate({strokeDashoffset: -len_Dasharray}, ms);
                 lineaNegra.animate({strokeDashoffset: -len_Dasharray}, ms);
+                //bordeNegro.attr({class: "animatedDecreciente"});
+                //lineaAzul.attr({class: "animatedDecreciente"});
+                //lineaNegra.attr({class: "animatedDecreciente"});
 
+                // Animamos el rombo amarillo para que se mueva x el mismo camino que la linea azul
                 Snap.animate(0,len_Dasharray, function(value) {
                     //alert(value);
                     var movePoint = lineaAzul.getPointAtLength(value),
@@ -143,12 +158,13 @@ window.onload = function () {
                     groupRomboAmarillo.transform('t' +  -(parseInt(287.078) - parseInt(movePoint.x)) + ',' + -(parseInt(336) - parseInt( movePoint.y)) + 'r' + parseInt(angle));
 
                 }, ms, function(){
+                    // Ocultamos el rombo rojo
                     groupRomboRojo.attr({transform: "t0,0 s0"});
+                    
+                    // Inicializamos el strokeDasharray y strokeDashoffset para ocultarlo
                     lineaAzul.attr({strokeDasharray: len_Dasharray + " " + len_Dasharray, strokeDashoffset: len_Dasharray});
                     bordeNegro.attr({strokeDasharray: len_Dasharray + " " + len_Dasharray, strokeDashoffset: len_Dasharray});
                     lineaNegra.attr({strokeDasharray: len_Dasharray + " " + len_Dasharray, strokeDashoffset: len_Dasharray});
-
-                    groupRomboRojo.attr({transform: "t253,305 s0"});
                 });
             },1300);
         }
@@ -156,166 +172,15 @@ window.onload = function () {
         animation.animacionRomboAmarillo = function(ms) {
             // Esperamos 2,1 seg hasta que terminen las animaciones anteriores
             setTimeout(function(){
+                // Ocultamos la linea negra
                 lineaNegra.attr({display: "none"});
+                
+                // Fijamos la posición final del rombo amarillo
                 groupRomboAmarillo.attr({transform: "t-253,-305 "});
+                // Ocultamos el rombo amarillo con una animación de escalado a 0
                 groupRomboAmarillo.animate({transform: "t-253,-305 s0"}, ms);
             },2100);
        }
-        
-        
- /*               
-        function animacionRomboRojo() {
-            groupRomboRojo.animate({transform: "t253,305 s1"}, 500, mina.bounce);
-            groupRomboRojo.before(bordeNegro);
-            groupRomboRojo.before(lineaAzul);
-            groupRomboRojo.before(lineaNegra);
-        }
-
-        function animacionTranslateRomboRojo() {
-            lineaNegra.attr({display: "inline"});
-            groupRomboAmarillo.attr({transform: "t0,0 s1"});
-            groupRomboAmarillo.after(groupRomboRojo);
-
-            groupRomboAmarillo.before(bordeNegro);
-            groupRomboAmarillo.before(lineaAzul);
-            groupRomboAmarillo.before(lineaNegra);
-
-            //groupRomboRojo.attr({class:"animated translateRomboRojo"});
-
-            bordeNegro.animate({strokeDashoffset: "0"}, 800);
-            lineaAzul.animate({strokeDashoffset: "0"}, 800);
-            lineaNegra.animate({strokeDashoffset: "0"}, 900);
-
-            Snap.animate(0, len_Dasharray, function (value) {
-                //alert(value);
-                var movePoint = lineaAzul.getPointAtLength(value),
-                    movePointPrevious = lineaAzul.getPointAtLength(value - 1),
-                    x1 = movePoint.y - movePointPrevious.y,
-                    x2 = movePoint.x - movePointPrevious.x,
-                    angle = Math.atan(x1 / x2) * (180 / Math.PI);
-
-                groupRomboRojo.transform('t' + parseInt(movePoint.x - 33) + ',' + parseInt(movePoint.y - 34) + 'r' + parseInt(angle));
-
-            }, 800);
-        }
-
-        function animacionTranslateRomboAmarillo() {
-            groupRomboAmarillo.before(groupRomboRojo);
-            bordeNegro.animate({strokeDashoffset: -len_Dasharray}, 800);
-            lineaAzul.animate({strokeDashoffset: -len_Dasharray}, 800);
-            lineaNegra.animate({strokeDashoffset: -len_Dasharray}, 800);
-
-            Snap.animate(0,len_Dasharray, function(value) {
-                //alert(value);
-                var movePoint = lineaAzul.getPointAtLength(value),
-                movePointPrevious = lineaAzul.getPointAtLength(value - 1),
-                x1 = movePoint.y - movePointPrevious.y,
-                x2 = movePoint.x - movePointPrevious.x,
-                angle = Math.atan(x1 / x2) * (180 / Math.PI);
-
-                groupRomboAmarillo.transform('t' +  -(parseInt(287.078) - parseInt(movePoint.x)) + ',' + -(parseInt(336) - parseInt( movePoint.y)) + 'r' + parseInt(angle));
-
-            }, 800, function(){
-                groupRomboRojo.attr({transform: "t0,0 s0"});
-                lineaAzul.attr({strokeDasharray: len_Dasharray + " " + len_Dasharray, strokeDashoffset: len_Dasharray});
-                bordeNegro.attr({strokeDasharray: len_Dasharray + " " + len_Dasharray, strokeDashoffset: len_Dasharray});
-                lineaNegra.attr({strokeDasharray: len_Dasharray + " " + len_Dasharray, strokeDashoffset: len_Dasharray});
-
-                groupRomboRojo.attr({transform: "t253,305 s0"});
-            });
-        }
-
-        function animacionRomboAmarillo() {
-            lineaNegra.attr({display: "none"});
-            groupRomboAmarillo.attr({transform: "t-253,-305 "});
-            groupRomboAmarillo.animate({transform: "t-253,-305 s0"}, 800);
-       }
-        
-        function startAnimation(){
-            var aux = 1;
-            if(timerFunction == null) {
-                //for(var i = 1; i <= 5; i++){
-                    timerFunction = setInterval(animacionRomboRojo, 2900);
-                    setTimeout(animacionRomboRojo, aux);
-                    aux = aux + 500;
-                    setTimeout(animacionTranslateRomboRojo, aux);
-                    aux = aux + 900;
-                    setTimeout(animacionTranslateRomboAmarillo, aux);
-                    aux = aux + 800;
-                    setTimeout(animacionRomboAmarillo, aux);
-                    aux = aux + 400;
-                //}
-            }
-        }
-        
-        function stopAnimation() {
-            if(timerFunction != null){
-                clearInterval(timerFunction);
-                timerFunction = null;
-            }
-        }
-        
-        function animacionRomboRojo() {
-            groupRomboRojo.before(bordeNegro);
-            groupRomboRojo.before(lineaAzul);
-            groupRomboRojo.before(lineaNegra);
-            
-            groupRomboRojo.animate({transform: "t253,305 s1"}, 500, mina.bounce, function(){
-                lineaNegra.attr({display: "inline"});
-                groupRomboAmarillo.attr({transform: "t0,0 s1"});
-                groupRomboAmarillo.after(groupRomboRojo);
-
-                groupRomboAmarillo.before(bordeNegro);
-                groupRomboAmarillo.before(lineaAzul);
-                groupRomboAmarillo.before(lineaNegra);
-
-                Snap.animate(0, len_Dasharray, function (value) {
-                    //alert(value);
-                    var movePoint = lineaAzul.getPointAtLength(value),
-                        movePointPrevious = lineaAzul.getPointAtLength(value - 1),
-                        x1 = movePoint.y - movePointPrevious.y,
-                        x2 = movePoint.x - movePointPrevious.x,
-                        angle = Math.atan(x1 / x2) * (180 / Math.PI);
-
-                    groupRomboRojo.transform('t' + parseInt(movePoint.x - 33) + ',' + parseInt(movePoint.y - 34) + 'r' + parseInt(angle));
-
-                }, 800);
-                
-                bordeNegro.animate({strokeDashoffset: "0"}, 800);
-                lineaAzul.animate({strokeDashoffset: "0"}, 800);
-                lineaNegra.animate({strokeDashoffset: "0"}, 900, function(){
-                    groupRomboAmarillo.before(groupRomboRojo);
-                        bordeNegro.animate({strokeDashoffset: -len_Dasharray}, 800);
-                        lineaAzul.animate({strokeDashoffset: -len_Dasharray}, 800);
-                        lineaNegra.animate({strokeDashoffset: -len_Dasharray}, 800);
-
-                        Snap.animate(0,len_Dasharray, function(value) {
-                            //alert(value);
-                            var movePoint = lineaAzul.getPointAtLength(value),
-                            movePointPrevious = lineaAzul.getPointAtLength(value - 1),
-                            x1 = movePoint.y - movePointPrevious.y,
-                            x2 = movePoint.x - movePointPrevious.x,
-                            angle = Math.atan(x1 / x2) * (180 / Math.PI);
-
-                            groupRomboAmarillo.transform('t' +  -(parseInt(287.078) - parseInt(movePoint.x)) + ',' + -(parseInt(336) - parseInt( movePoint.y)) + 'r' + parseInt(angle));
-
-                        }, 800, function(){
-                            groupRomboRojo.attr({transform: "t0,0 s0"});
-                            lineaAzul.attr({strokeDasharray: len_Dasharray + " " + len_Dasharray, strokeDashoffset: len_Dasharray});
-                            bordeNegro.attr({strokeDasharray: len_Dasharray + " " + len_Dasharray, strokeDashoffset: len_Dasharray});
-                            lineaNegra.attr({strokeDasharray: len_Dasharray + " " + len_Dasharray, strokeDashoffset: len_Dasharray});
-
-                            groupRomboRojo.attr({transform: "t253,305 s0"});
-                            
-                            
-                            lineaNegra.attr({display: "none"});
-                            groupRomboAmarillo.attr({transform: "t-253,-305 "});
-                            groupRomboAmarillo.animate({transform: "t-253,-305 s0"}, 800);
-                        });
-                });
-            });
-        }
-       */
         
 	    // Funciones de las animaciones
 	    document.getElementById('play').onclick=function(){animation.play();};

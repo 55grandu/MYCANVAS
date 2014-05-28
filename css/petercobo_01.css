@@ -1,0 +1,92 @@
+.animatedCreciente { 
+   -webkit-animation-duration: 0.6s; 
+   animation-duration: 0.6s; 
+   -webkit-animation:animLineaAzulCreciente 0.6s; /* Chrome, Safari, Opera */
+   
+   -webkit-animation-fill-mode: both; 
+   animation-fill-mode: both; 
+   
+   -webkit-animation-timing-function: ease-out; 
+   animation-timing-function: ease-out;
+   
+   -webkit-animation-name: animLineaAzulCreciente; 
+   animation-name: animLineaAzulCreciente; 
+   
+   transform-origin:287.078px 339px;
+   -ms-transform-origin:287.078px 339px; /* IE 9 */
+   -webkit-transform-origin:287.078px 339px; /* Chrome, Safari, Opera */
+   
+   stroke-dasharray: 425.87506103515625;
+   stroke-dashoffset: 425.87506103515625;
+} 
+
+.lineaNegra {
+   -webkit-animation-duration: 0.7s; 
+   animation-duration: 0.7s; 
+   -webkit-animation:animLineaAzulCreciente 0.7s; /* Chrome, Safari, Opera */
+   
+    stroke-dasharray: 305.87506103515625;
+   stroke-dashoffset: 305.87506103515625;
+}
+
+@-webkit-keyframes animLineaAzulCreciente { 
+   0% { 
+       -webkit-stroke-dashoffset: 425.87506103515625;
+   } 
+   100% { 
+       -webkit-stroke-dashoffset: 0;
+   } 
+} 
+@keyframes animLineaAzulCreciente { 
+   0% { 
+       stroke-dashoffset: 425.87506103515625;
+   } 
+   100% { 
+       stroke-dashoffset: 0;
+   } 
+} 
+
+.animatedDecreciente { 
+   -webkit-animation-duration: 1.5s; 
+   animation-duration: 1.5s; 
+   -webkit-animation:animLineaAzulDecreciente 1.5s; /* Chrome, Safari, Opera */
+   
+   -webkit-animation-fill-mode: both; 
+   animation-fill-mode: both; 
+   
+   -webkit-animation-timing-function: ease-out; 
+   animation-timing-function: ease-out;
+   
+   -webkit-animation-name: animLineaAzulDecreciente; 
+   animation-name: animLineaAzulDecreciente; 
+   
+   transform-origin:287.078px 339px;
+   -ms-transform-origin:287.078px 339px; /* IE 9 */
+   -webkit-transform-origin:287.078px 339px; /* Chrome, Safari, Opera */
+   
+   stroke-dasharray: 425.87506103515625;
+   stroke-dashoffset: 0;
+} 
+
+@-webkit-keyframes animLineaAzulDecreciente { 
+   0% { 
+       -webkit-stroke-dashoffset: 0;
+   } 
+   66% { 
+       -webkit-stroke-dashoffset: 0;
+   } 
+   100% { 
+       -webkit-stroke-dashoffset: 425.87506103515625;
+   } 
+} 
+@keyframes animLineaAzulDecreciente { 
+   0% { 
+       stroke-dashoffset: 0;
+   } 
+   66% { 
+       stroke-dashoffset: 0;
+   } 
+   100% { 
+       stroke-dashoffset: -425.87506103515625;
+   } 
+} 

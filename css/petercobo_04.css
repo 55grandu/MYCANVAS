@@ -1,0 +1,222 @@
+.animated { 
+   -webkit-animation-duration: 2s; 
+   animation-duration: 2s; 
+   -webkit-animation-fill-mode: both; 
+   animation-fill-mode: both; 
+   -webkit-animation-timing-function: ease-out; 
+   animation-timing-function: ease-out; 
+} 
+
+.rayoAmarillo { 
+   -webkit-animation:cambioColoresAmarillo 2s; /* Chrome, Safari, Opera */
+   -webkit-animation-name: cambioColoresAmarillo; 
+   animation-name: cambioColoresAmarillo; 
+} 
+
+@-webkit-keyframes cambioColoresAmarillo { 
+   0% { 
+       -webkit-fill: #FFCF48;
+       -webkit-stroke: #000000;
+   } 
+   10% { 
+       -webkit-fill: #C83759;
+       -webkit-stroke: #000000;
+   } 
+   20% { 
+       -webkit-fill: #FFCF48;
+       -webkit-stroke: #000000;
+   } 
+   30% { 
+       -webkit-fill: #C83759;
+       -webkit-stroke: #000000;
+   } 
+   40% { 
+       -webkit-fill: #FFCF48;
+       -webkit-stroke: #000000;
+   } 
+   50% { 
+       -webkit-fill: #C83759;
+       -webkit-stroke: #000000;
+   } 
+   60% { 
+       -webkit-fill: #FFCF48;
+       -webkit-stroke: #000000;
+   } 
+   70% { 
+       -webkit-fill: #C83759;
+       -webkit-stroke: #000000;
+   } 
+   80% { 
+       -webkit-fill: #FFCF48;
+       -webkit-stroke: #000000;
+   } 
+   90% { 
+       -webkit-fill: #C83759;
+       -webkit-stroke: #000000;
+   } 
+   99% { 
+       -webkit-fill: #FFCF48;
+       -webkit-stroke: #000000;
+   } 
+   100% { 
+       -webkit-fill: #FFFFFF;
+       -webkit-stroke: #FFFFFF;
+   } 
+} 
+@keyframes cambioColoresAmarillo { 
+   0% { 
+       fill: #FFCF48;
+       stroke: #000000;
+   } 
+   10% { 
+       fill: #C83759;
+       stroke: #000000;
+   } 
+   20% { 
+       fill: #FFCF48;
+       stroke: #000000;
+   } 
+   30% { 
+       fill: #C83759;
+       stroke: #000000;
+   } 
+   40% { 
+       fill: #FFCF48;
+       stroke: #000000;
+   } 
+   50% { 
+       fill: #C83759;
+       stroke: #000000;
+   } 
+   60% { 
+       fill: #FFCF48;
+       stroke: #000000;
+   } 
+   70% { 
+       fill: #C83759;
+       stroke: #000000;
+   } 
+   80% { 
+       fill: #FFCF48;
+       stroke: #000000;
+   } 
+   90% { 
+       fill: #C83759;
+       stroke: #000000;
+   } 
+   99% { 
+       fill: #FFCF48;
+       stroke: #000000;
+   } 
+   100% { 
+       fill: #FFFFFF;
+       stroke: #FFFFFF;
+   } 
+} 
+
+.rayoRojo { 
+   -webkit-animation:cambioColoresRojo 2s; /* Chrome, Safari, Opera */
+   -webkit-animation-name: cambioColoresRojo; 
+   animation-name: cambioColoresRojo; 
+} 
+
+@-webkit-keyframes cambioColoresRojo { 
+   0% { 
+       -webkit-fill: #C83759;
+       -webkit-stroke: #000000;
+   } 
+   10% { 
+       -webkit-fill: #FFCF48;
+       -webkit-stroke: #000000;
+   } 
+   20% { 
+       -webkit-fill: #C83759;
+       -webkit-stroke: #000000;
+   } 
+   30% { 
+       -webkit-fill: #FFCF48;
+       -webkit-stroke: #000000;
+   } 
+   40% { 
+       -webkit-fill: #C83759;
+       -webkit-stroke: #000000;
+   } 
+   50% { 
+       -webkit-fill: #FFCF48;
+       -webkit-stroke: #000000;
+   } 
+   60% { 
+       -webkit-fill: #C83759;
+       -webkit-stroke: #000000;
+   } 
+   70% { 
+       -webkit-fill: #FFCF48;
+       -webkit-stroke: #000000;
+   } 
+   80% { 
+       -webkit-fill: #C83759;
+       -webkit-stroke: #000000;
+   } 
+   90% { 
+       -webkit-fill: #FFCF48;
+       -webkit-stroke: #000000;
+   } 
+   99% { 
+       -webkit-fill: #C83759;
+       -webkit-stroke: #000000;
+   } 
+   100% { 
+       -webkit-fill: #FFFFFF;
+       -webkit-stroke: #FFFFFF;
+   } 
+} 
+@keyframes cambioColoresRojo { 
+   0% { 
+       fill: #C83759;
+       stroke: #000000;
+   } 
+   10% { 
+       fill: #FFCF48;
+       stroke: #000000;
+   } 
+   20% { 
+       fill: #C83759;
+       stroke: #000000;
+   } 
+   30% { 
+       fill: #FFCF48;
+       stroke: #000000;
+   } 
+   40% { 
+       fill: #C83759;
+       stroke: #000000;
+   } 
+   50% { 
+       fill: #FFCF48;
+       stroke: #000000;
+   } 
+   60% { 
+       fill: #C83759;
+       stroke: #000000;
+   } 
+   70% { 
+       fill: #FFCF48;
+       stroke: #000000;
+   } 
+   80% { 
+       fill: #C83759;
+       stroke: #000000;
+   } 
+   90% { 
+       fill: #FFCF48;
+       stroke: #000000;
+   } 
+   99% { 
+       fill: #C83759;
+       stroke: #000000;
+   } 
+   100% { 
+       fill: #FFFFFF;
+       stroke: #FFFFFF;
+   } 
+} 
