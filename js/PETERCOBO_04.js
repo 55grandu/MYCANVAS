@@ -8,14 +8,15 @@ window.onload = function(){
 	    	rayoRojo = f.select("polygon[id='rayoRojo']"),
 	    	linea = f.select("path[id='linea']"),
 	    	panelOculto = f.select("path[id='panelOculto']"),
-            lengthLinea = linea.getTotalLength();
+            lengthLinea = linea.getTotalLength(),
+            intervalo = null;
         
         linea.attr({strokeDasharray:lengthLinea+" "+lengthLinea, strokeDashoffset:lengthLinea});
         
-        animation.play = function() {        	
+        animation.play = function() {
             linea.attr({display:"inline"});
-            rayoAmarillo.attr({class:"none"});
-            rayoRojo.attr({class:"none"});
+            rayoAmarillo.attr({display:"inline", fill:"#FFCF48"});
+            rayoRojo.attr({display:"inline", fill:"#C83759"});
             
             linea.attr({strokeDasharray:lengthLinea+" "+lengthLinea, strokeDashoffset:lengthLinea});
             panelOculto.attr({display:"inline"});
@@ -45,14 +46,20 @@ window.onload = function(){
         	console.log(this.timeConsumed);
         	this.timeConsumed = this.timeConsumed + diff;
         	console.log(this.timeConsumed);
+            if(this.timeConsumed > 1250){
+                clearInterval(intervalo);
+            }
         }
 
         animation.resume = function() {
         	this.timestapInit = new Date().getTime();
 			this.animacionLinea(animation.timeConsumed > 800?1: 800 - animation.timeConsumed);
 	        this.animacionRayoAmarillo(animation.timeConsumed > 1000?1: 1000 - animation.timeConsumed);
-	        this.animacionRayoRojo(1250 -animation.timeConsumed);
-
+	        this.animacionRayoRojo(1250 - animation.timeConsumed);
+            if(animation.timeConsumed > 1250){
+                var tiempoInitCambioColores = new Date().getTime();
+                intervalo = setInterval(function(){funcCambioColores(tiempoInitCambioColores)}, 200);
+            }
         }
 
         animation.animacionLinea = function(ms){
@@ -67,10 +74,30 @@ window.onload = function(){
 	    	rayoRojo.animate({transform:"t0,0"},ms, function(){
                 linea.attr({display:"none"});
                 panelOculto.attr({display:"none"});
-                rayoAmarillo.attr({class:"animated rayoAmarillo"});
-                rayoRojo.attr({class:"animated rayoRojo"});
+                var tiempoInitCambioColores = new Date().getTime();
+                intervalo = setInterval(function(){funcCambioColores(tiempoInitCambioColores)}, 200);
             });	    	
 	    }
+        
+        function funcCambioColores(tiempo){
+            //alert(((new Date().getTime() - tiempo) + animation.timeConsumed));
+            if(((new Date().getTime() - tiempo) + animation.timeConsumed) < 3000){
+                if($("#rayoAmarillo").css('fill') == "rgb(255, 207, 72)"){
+                    rayoAmarillo.attr({fill:"#C83759"});
+                }else{
+                    rayoAmarillo.attr({fill:"#FFCF48"});
+                }
+                if($("#rayoRojo").css('fill') == "rgb(200, 55, 89)"){
+                    rayoRojo.attr({fill:"#FFCF48"});
+                }else{
+                    rayoRojo.attr({fill:"#C83759"});
+                }
+            }else{
+                clearInterval(intervalo);
+                rayoAmarillo.attr({display:"none"});
+                rayoRojo.attr({display:"none"});
+            }
+        }
 
 	    //animation.play();
 	    document.getElementById('play').onclick=function(){animation.play();};
