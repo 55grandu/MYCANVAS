@@ -14,48 +14,12 @@
 } 
 
 @-webkit-keyframes cambioColoresAmarillo { 
-   0% { 
+   0%, 20%, 40%, 60%, 80%, 99% { 
        -webkit-fill: #FFCF48;
        -webkit-stroke: #000000;
    } 
-   10% { 
+   10%, 30%, 50%, 70%, 90% { 
        -webkit-fill: #C83759;
-       -webkit-stroke: #000000;
-   } 
-   20% { 
-       -webkit-fill: #FFCF48;
-       -webkit-stroke: #000000;
-   } 
-   30% { 
-       -webkit-fill: #C83759;
-       -webkit-stroke: #000000;
-   } 
-   40% { 
-       -webkit-fill: #FFCF48;
-       -webkit-stroke: #000000;
-   } 
-   50% { 
-       -webkit-fill: #C83759;
-       -webkit-stroke: #000000;
-   } 
-   60% { 
-       -webkit-fill: #FFCF48;
-       -webkit-stroke: #000000;
-   } 
-   70% { 
-       -webkit-fill: #C83759;
-       -webkit-stroke: #000000;
-   } 
-   80% { 
-       -webkit-fill: #FFCF48;
-       -webkit-stroke: #000000;
-   } 
-   90% { 
-       -webkit-fill: #C83759;
-       -webkit-stroke: #000000;
-   } 
-   99% { 
-       -webkit-fill: #FFCF48;
        -webkit-stroke: #000000;
    } 
    100% { 
@@ -64,50 +28,14 @@
    } 
 } 
 @keyframes cambioColoresAmarillo { 
-   0% { 
+   0%, 20%, 40%, 60%, 80%, 99% { 
        fill: #FFCF48;
        stroke: #000000;
    } 
-   10% { 
+   10%, 30%, 50%, 70%, 90% { 
        fill: #C83759;
        stroke: #000000;
-   } 
-   20% { 
-       fill: #FFCF48;
-       stroke: #000000;
-   } 
-   30% { 
-       fill: #C83759;
-       stroke: #000000;
-   } 
-   40% { 
-       fill: #FFCF48;
-       stroke: #000000;
-   } 
-   50% { 
-       fill: #C83759;
-       stroke: #000000;
-   } 
-   60% { 
-       fill: #FFCF48;
-       stroke: #000000;
-   } 
-   70% { 
-       fill: #C83759;
-       stroke: #000000;
-   } 
-   80% { 
-       fill: #FFCF48;
-       stroke: #000000;
-   } 
-   90% { 
-       fill: #C83759;
-       stroke: #000000;
-   } 
-   99% { 
-       fill: #FFCF48;
-       stroke: #000000;
-   } 
+   }
    100% { 
        fill: #FFFFFF;
        stroke: #FFFFFF;
@@ -121,48 +49,12 @@
 } 
 
 @-webkit-keyframes cambioColoresRojo { 
-   0% { 
+   0%, 20%, 40%, 60%, 80%, 99% { 
        -webkit-fill: #C83759;
        -webkit-stroke: #000000;
    } 
-   10% { 
+   10%, 30%, 50%, 70%, 90% { 
        -webkit-fill: #FFCF48;
-       -webkit-stroke: #000000;
-   } 
-   20% { 
-       -webkit-fill: #C83759;
-       -webkit-stroke: #000000;
-   } 
-   30% { 
-       -webkit-fill: #FFCF48;
-       -webkit-stroke: #000000;
-   } 
-   40% { 
-       -webkit-fill: #C83759;
-       -webkit-stroke: #000000;
-   } 
-   50% { 
-       -webkit-fill: #FFCF48;
-       -webkit-stroke: #000000;
-   } 
-   60% { 
-       -webkit-fill: #C83759;
-       -webkit-stroke: #000000;
-   } 
-   70% { 
-       -webkit-fill: #FFCF48;
-       -webkit-stroke: #000000;
-   } 
-   80% { 
-       -webkit-fill: #C83759;
-       -webkit-stroke: #000000;
-   } 
-   90% { 
-       -webkit-fill: #FFCF48;
-       -webkit-stroke: #000000;
-   } 
-   99% { 
-       -webkit-fill: #C83759;
        -webkit-stroke: #000000;
    } 
    100% { 
@@ -171,48 +63,12 @@
    } 
 } 
 @keyframes cambioColoresRojo { 
-   0% { 
+   0%, 20%, 40%, 60%, 80%, 99% { 
        fill: #C83759;
        stroke: #000000;
    } 
-   10% { 
+   10%, 30%, 50%, 70%, 90% { 
        fill: #FFCF48;
-       stroke: #000000;
-   } 
-   20% { 
-       fill: #C83759;
-       stroke: #000000;
-   } 
-   30% { 
-       fill: #FFCF48;
-       stroke: #000000;
-   } 
-   40% { 
-       fill: #C83759;
-       stroke: #000000;
-   } 
-   50% { 
-       fill: #FFCF48;
-       stroke: #000000;
-   } 
-   60% { 
-       fill: #C83759;
-       stroke: #000000;
-   } 
-   70% { 
-       fill: #FFCF48;
-       stroke: #000000;
-   } 
-   80% { 
-       fill: #C83759;
-       stroke: #000000;
-   } 
-   90% { 
-       fill: #FFCF48;
-       stroke: #000000;
-   } 
-   99% { 
-       fill: #C83759;
        stroke: #000000;
    } 
    100% { 
