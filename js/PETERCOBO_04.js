@@ -81,7 +81,7 @@ window.onload = function(){
         
         function funcCambioColores(tiempo){
             //alert(((new Date().getTime() - tiempo) + animation.timeConsumed));
-            if(((new Date().getTime() - tiempo) + animation.timeConsumed) < 3000){
+            if((new Date().getTime() - tiempo) < 3000){
                 if($("#rayoAmarillo").css('fill') == "rgb(255, 207, 72)"){
                     rayoAmarillo.attr({fill:"#C83759"});
                 }else{
