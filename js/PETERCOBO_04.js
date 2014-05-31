@@ -32,8 +32,8 @@ window.onload = function(){
 		    this.timeConsumed = 0;
 
         	this.animacionLinea(800);
-	        this.animacionRayoAmarillo(1000);
-	        this.animacionRayoRojo(1250);
+	        this.animacionRayoAmarillo(2100);
+	        this.animacionRayoRojo(2350);
         }
 
         animation.pause = function() {
@@ -54,9 +54,9 @@ window.onload = function(){
         animation.resume = function() {
         	this.timestapInit = new Date().getTime();
 			this.animacionLinea(animation.timeConsumed > 800?1: 800 - animation.timeConsumed);
-	        this.animacionRayoAmarillo(animation.timeConsumed > 1000?1: 1000 - animation.timeConsumed);
-	        this.animacionRayoRojo(1250 - animation.timeConsumed);
-            if(animation.timeConsumed > 1250){
+	        this.animacionRayoAmarillo(animation.timeConsumed > 2100?1: 2100 - animation.timeConsumed);
+	        this.animacionRayoRojo(2350 - animation.timeConsumed);
+            if(animation.timeConsumed > 2350){
                 var tiempoInitCambioColores = new Date().getTime();
                 intervalo = setInterval(function(){funcCambioColores(tiempoInitCambioColores)}, 200);
             }
@@ -67,11 +67,11 @@ window.onload = function(){
 	    }
 
         animation.animacionRayoAmarillo = function(ms){
-	    	rayoAmarillo.animate({transform:"t0,0"},ms);
+	    	rayoAmarillo.animate({transform:"t0,0"},ms, mina.bounce);
 	    }
 
         animation.animacionRayoRojo = function(ms){
-	    	rayoRojo.animate({transform:"t0,0"},ms, function(){
+	    	rayoRojo.animate({transform:"t0,0"},ms, mina.bounce, function(){
                 linea.attr({display:"none"});
                 panelOculto.attr({display:"none"});
                 var tiempoInitCambioColores = new Date().getTime();
