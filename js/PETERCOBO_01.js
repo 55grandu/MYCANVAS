@@ -162,9 +162,6 @@ window.onload = function () {
                 bordeNegro.animate({strokeDashoffset: -len_Dasharray}, ms);
                 lineaAzul.animate({strokeDashoffset: -len_Dasharray}, ms);
                 lineaNegra.animate({strokeDashoffset: -len_Dasharray}, ms);
-                //bordeNegro.attr({class: "animatedDecreciente"});
-                //lineaAzul.attr({class: "animatedDecreciente"});
-                //lineaNegra.attr({class: "animatedDecreciente"});
 
                 // Animamos el rombo amarillo para que se mueva x el mismo camino que la linea azul
                 var strokeDashoffset = 0;
