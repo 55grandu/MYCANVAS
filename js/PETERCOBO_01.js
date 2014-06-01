@@ -21,11 +21,6 @@ window.onload = function () {
         groupRomboRojo = s.group(romboRojo1,romboRojo2);
         groupRomboAmarillo = s.group(romboAmarillo1,romboAmarillo2);
 
-        // Inicializamos el strokeDasharray y strokeDashoffset para ocultarlo
-        lineaAzul.attr({strokeDasharray: len_Dasharray + " " + len_Dasharray, strokeDashoffset: len_Dasharray});
-        bordeNegro.attr({strokeDasharray: len_Dasharray + " " + len_Dasharray, strokeDashoffset: len_Dasharray});
-        lineaNegra.attr({strokeDasharray: len_Dasharray + " " + len_Dasharray, strokeDashoffset: len_Dasharray});
-
         // Ponemos los rombos en la posición inicial
         groupRomboRojo.attr({transform: "t253,305 s0"});
         groupRomboAmarillo.attr({transform: "t0,0 s0"});
@@ -57,11 +52,6 @@ window.onload = function () {
         
         // Pause de la animación
         animation.pause = function() {
-            animation.pause.groupRomboRojo = groupRomboRojo.stop();
-            animation.pause.groupRomboAmarillo = groupRomboAmarillo.stop();
-            animation.pause.bordeNegro = bordeNegro.stop();
-            animation.pause.lineaAzul = lineaAzul.stop();
-            animation.pause.lineaNegra = lineaNegra.stop();
             this.timestapPause = new Date().getTime();
         	var diff = this.timestapPause - this.timestapInit;
         	console.log(diff);
@@ -74,6 +64,11 @@ window.onload = function () {
             if(this.timeConsumed > 1100){
                 animation.pause.animRomboAmarillo = animRomboAmarillo.stop();
             }
+            animation.pause.groupRomboRojo = groupRomboRojo.stop();
+            animation.pause.groupRomboAmarillo = groupRomboAmarillo.stop();
+            animation.pause.bordeNegro = bordeNegro.stop();
+            animation.pause.lineaAzul = lineaAzul.stop();
+            animation.pause.lineaNegra = lineaNegra.stop();
         }
         
         // Continuar con la animación
@@ -83,11 +78,12 @@ window.onload = function () {
                 this.animacionRomboRojo(500 - animation.timeConsumed);
             }else if(animation.timeConsumed > 500 && animation.timeConsumed < 1100){
                 this.animacionTranslateRomboRojo(1100 - animation.timeConsumed);
-            }else if(animation.timeConsumed > 1100 && animation.timeConsumed < 1600){
-                this.animacionTranslateRomboAmarillo(1600 - animation.timeConsumed);
+            }else if(animation.timeConsumed > 1100 && animation.timeConsumed < 1800){
+                this.animacionTranslateRomboAmarillo(1800 - animation.timeConsumed);
             }else{
                 this.animacionRomboAmarillo(2100 - animation.timeConsumed);
             }
+		    this.timestapInit = new Date().getTime();
         }
         
         // Función de la animación del rombo rojo
