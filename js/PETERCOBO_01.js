@@ -76,10 +76,10 @@ window.onload = function () {
             //this.animacionRomboRojo(animation.timeConsumed > 2100?1: 2100 - animation.timeConsumed);
             if(animation.timeConsumed > 1 && animation.timeConsumed < 500){
                 this.animacionRomboRojo(500 - animation.timeConsumed);
-            }else if(animation.timeConsumed > 500 && animation.timeConsumed < 1100){
-                this.animacionTranslateRomboRojo(1100 - animation.timeConsumed);
-            }else if(animation.timeConsumed > 1100 && animation.timeConsumed < 1800){
-                this.animacionTranslateRomboAmarillo(1800 - animation.timeConsumed);
+            }else if(animation.timeConsumed > 500 && animation.timeConsumed < 1000){
+                this.animacionTranslateRomboRojo(1000 - animation.timeConsumed);
+            }else if(animation.timeConsumed > 1000 && animation.timeConsumed < 1600){
+                this.animacionTranslateRomboAmarillo(1600 - animation.timeConsumed);
             }else{
                 this.animacionRomboAmarillo(2100 - animation.timeConsumed);
             }
@@ -119,8 +119,16 @@ window.onload = function () {
 
                 // Animamos el rombo rojo para que se mueva x el mismo camino que la linea azul
                 var strokeDashoffset = 0;
-                if(lineaAzul.attr('stroke-dashoffset') != len_Dasharray){
-                    strokeDashoffset = len_Dasharray - lineaAzul.attr('stroke-dashoffset');
+                var is_chrome = navigator.userAgent.toLowerCase().indexOf('chrome') > -1;
+                if(is_chrome){
+                    var lenStrokeDashoffset_LineaAzul = lineaAzul.attr('stroke-dashoffset').length;
+                    if(lineaAzul.attr('stroke-dashoffset').substring(0, (lenStrokeDashoffset_LineaAzul - 2)) != len_Dasharray){
+                        strokeDashoffset = len_Dasharray - lineaAzul.attr('stroke-dashoffset').substring(0, (lenStrokeDashoffset_LineaAzul - 2));
+                    }
+                }else{
+                    if(lineaAzul.attr('stroke-dashoffset') != len_Dasharray){
+                        strokeDashoffset = len_Dasharray - lineaAzul.attr('stroke-dashoffset');
+                    }
                 }
                 animRomboRojo = Snap.animate(strokeDashoffset, len_Dasharray, function (value) {
                     //alert(value);
@@ -130,14 +138,14 @@ window.onload = function () {
                         x2 = movePoint.x - movePointPrevious.x,
                         angle = Math.atan(x1 / x2) * (180 / Math.PI);
 
-                    groupRomboRojo.transform('t' + parseInt(movePoint.x - 34) + ',' + parseInt(movePoint.y - 34) + 'r' + parseInt(angle));
+                    groupRomboRojo.transform('t' + parseInt(movePoint.x - 33) + ',' + parseInt(movePoint.y - 34) + 'r' + parseInt(angle));
 
                 }, ms);
             
                 // Animamos los componentes de la linea azul, para que se desplacen a su posición final
                 bordeNegro.animate({strokeDashoffset: "0"}, ms);
                 lineaAzul.animate({strokeDashoffset: "0"}, ms);
-                lineaNegra.animate({strokeDashoffset: "0"}, ms + 100, function(){
+                lineaNegra.animate({strokeDashoffset: "0"}, ms, function(){
                     animation.animacionTranslateRomboAmarillo(500);
                 });
             }
@@ -150,16 +158,31 @@ window.onload = function () {
 
                 // Animamos el rombo amarillo para que se mueva x el mismo camino que la linea azul
                 var strokeDashoffset = 0;
-                if(lineaAzul.attr('stroke-dashoffset') != len_Dasharray && lineaAzul.attr('stroke-dashoffset') < 0 ){
-                    strokeDashoffset = -lineaAzul.attr('stroke-dashoffset');
+                
+                var is_chrome = navigator.userAgent.toLowerCase().indexOf('chrome') > -1;
+                if(is_chrome){
+                    var lenStrokeDashoffset_LineaAzul = lineaAzul.attr('stroke-dashoffset').length;
+                    if(lineaAzul.attr('stroke-dashoffset').substring(0, (lenStrokeDashoffset_LineaAzul - 2)) != len_Dasharray && lineaAzul.attr('stroke-dashoffset').substring(0, (lenStrokeDashoffset_LineaAzul - 2)) < 0){
+                        strokeDashoffset = -lineaAzul.attr('stroke-dashoffset').substring(0, (lenStrokeDashoffset_LineaAzul - 2));
+                    }
+                }else{
+                    if(lineaAzul.attr('stroke-dashoffset') != len_Dasharray && lineaAzul.attr('stroke-dashoffset') < 0 ){
+                        strokeDashoffset = -lineaAzul.attr('stroke-dashoffset');
+                    }
                 }
                 animRomboAmarillo = Snap.animate(strokeDashoffset,len_Dasharray, function(value) {
+                    console.log(strokeDashoffset);
                     //alert(value);
                     var movePoint = lineaAzul.getPointAtLength(value),
-                    movePointPrevious = lineaAzul.getPointAtLength(value - 1),
-                    x1 = movePoint.y - movePointPrevious.y,
-                    x2 = movePoint.x - movePointPrevious.x,
-                    angle = Math.atan(x1 / x2) * (180 / Math.PI);
+                        movePointPrevious = lineaAzul.getPointAtLength(value - 1),
+                        x1 = movePoint.y - movePointPrevious.y,
+                        x2 = movePoint.x - movePointPrevious.x,
+                        angle = Math.atan(x1 / x2) * (180 / Math.PI);
+                    console.log(movePoint);
+                    console.log(movePointPrevious);
+                    console.log(x1);
+                    console.log(x2);
+                    console.log(angle);
 
                     groupRomboAmarillo.transform('t' +  -(parseInt(287.078) - parseInt(movePoint.x)) + ',' + -(parseInt(336) - parseInt( movePoint.y)) + 'r' + parseInt(angle));
 
