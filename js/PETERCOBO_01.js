@@ -106,8 +106,6 @@ window.onload = function () {
         
         // Animación del deplazamiento del rombo rojo y aparición de la linea azul
         animation.animacionTranslateRomboRojo = function (ms) {
-            // Esperamos 0,5 seg hasta que termine la animación del bounce
-            //setTimeout(function(){
             if(ms > 1){
                 // Mostramos la linea negra
                 lineaNegra.attr({display: "inline"});
@@ -126,7 +124,7 @@ window.onload = function () {
                 // Animamos el rombo rojo para que se mueva x el mismo camino que la linea azul
                 var strokeDashoffset = 0;
                 if(lineaAzul.attr('stroke-dashoffset') != len_Dasharray){
-                    strokeDashoffset = lineaAzul.attr('stroke-dashoffset');
+                    strokeDashoffset = len_Dasharray - lineaAzul.attr('stroke-dashoffset');
                 }
                 animRomboRojo = Snap.animate(strokeDashoffset, len_Dasharray, function (value) {
                     //alert(value);
@@ -143,30 +141,21 @@ window.onload = function () {
                 // Animamos los componentes de la linea azul, para que se desplacen a su posición final
                 bordeNegro.animate({strokeDashoffset: "0"}, ms);
                 lineaAzul.animate({strokeDashoffset: "0"}, ms);
-                lineaNegra.animate({strokeDashoffset: "0"}, ms + 100
-                                  , function(){
-                                      animation.animacionTranslateRomboAmarillo(500);
-                                  }
-                );
-            }//,500);
+                lineaNegra.animate({strokeDashoffset: "0"}, ms + 100, function(){
+                    animation.animacionTranslateRomboAmarillo(500);
+                });
+            }
         }
         
         animation.animacionTranslateRomboAmarillo = function(ms) {
-            // Esperamos 1,3 seg hasta que terminen las animaciones anteriores
-            //setTimeout(function(){
             if(ms > 1){
                 // Situamos al rombo amarillo delante del rombo rojo
                 groupRomboAmarillo.before(groupRomboRojo);
-                
-                // Animamos los componentes de la linea azul, para que se cierre sobre la posición del rombo rojo
-                bordeNegro.animate({strokeDashoffset: -len_Dasharray}, ms);
-                lineaAzul.animate({strokeDashoffset: -len_Dasharray}, ms);
-                lineaNegra.animate({strokeDashoffset: -len_Dasharray}, ms);
 
                 // Animamos el rombo amarillo para que se mueva x el mismo camino que la linea azul
                 var strokeDashoffset = 0;
-                if(lineaAzul.attr('stroke-dashoffset') != len_Dasharray){
-                    strokeDashoffset = lineaAzul.attr('stroke-dashoffset');
+                if(lineaAzul.attr('stroke-dashoffset') != len_Dasharray && lineaAzul.attr('stroke-dashoffset') < 0 ){
+                    strokeDashoffset = -lineaAzul.attr('stroke-dashoffset');
                 }
                 animRomboAmarillo = Snap.animate(strokeDashoffset,len_Dasharray, function(value) {
                     //alert(value);
@@ -178,7 +167,11 @@ window.onload = function () {
 
                     groupRomboAmarillo.transform('t' +  -(parseInt(287.078) - parseInt(movePoint.x)) + ',' + -(parseInt(336) - parseInt( movePoint.y)) + 'r' + parseInt(angle));
 
-                }, ms, function(){
+                }, ms);
+                // Animamos los componentes de la linea azul, para que se cierre sobre la posición del rombo rojo
+                bordeNegro.animate({strokeDashoffset: -len_Dasharray}, ms);
+                lineaAzul.animate({strokeDashoffset: -len_Dasharray}, ms);
+                lineaNegra.animate({strokeDashoffset: -len_Dasharray}, ms, function(){
                     // Ocultamos el rombo rojo
                     groupRomboRojo.attr({transform: "t0,0 s0"});
                     
@@ -189,7 +182,7 @@ window.onload = function () {
                     
                     animation.animacionRomboAmarillo(500);
                 });
-            }//,1300);
+            }
         }
         
         animation.animacionRomboAmarillo = function(ms) {
