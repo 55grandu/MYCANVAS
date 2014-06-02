@@ -19,18 +19,14 @@
 		</i:pgfRef>
 	</foreignObject>
 	<g i:extraneous="self">
+        <!--<path id="ojo" fill="#1CA9C9" stroke="#000000" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M 316.675,186 Q 271.304,186 160,186 Q 48.697,186 3.326,186 Q 48.697,186 160,186 Q 271.304,186 316.675,186"/>-->
+        <path id="ojo" fill="#1CA9C9" stroke="#000000" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M 316.675,186 Q 271.304,106.5 160,106.5 Q 48.697,106.5 3.326,186 Q 48.697,265.5 160,265.5 Q 271.304,265.5 316.675,186"/>
+        <circle id="iris" fill="#FFFFFF" stroke="#000000" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="160" cy="186" r="79.5"/>
+		<circle id="pupila" fill="#FFCF48" stroke="#000000" stroke-width="5" stroke-miterlimit="10" cx="160" cy="186" r="39.096"/>
 		
-			<path fill="#1CA9C9" stroke="#000000" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
-			M3.326,186c0,0,45.371,79.5,156.674,79.5S316.675,186,316.675,186S271.304,106.5,160,106.5S3.326,186,3.326,186z"/>
-		
-			<circle fill="#FFFFFF" stroke="#000000" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="160" cy="186" r="79.5"/>
-		<circle fill="#FFCF48" stroke="#000000" stroke-width="5" stroke-miterlimit="10" cx="160" cy="186" r="39.096"/>
-		<path fill="none" stroke="#000000" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
-			M3.326,186c0,0,45.371,79.5,156.674,79.5S316.675,186,316.675,186S271.304,106.5,160,106.5S3.326,186,3.326,186z"/>
-		
-			<circle fill="none" stroke="#000000" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="160" cy="186" r="60.221"/>
-		<circle fill="#C83759" stroke="#000000" stroke-width="5" stroke-miterlimit="10" cx="130" cy="162.5" r="11.612"/>
-		<circle fill="#93C93D" stroke="#000000" stroke-width="5" stroke-miterlimit="10" cx="195.96" cy="233.993" r="7.931"/>
+        <circle id="interIrisPupila" fill="none" stroke="#000000" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="160" cy="186" r="60.221"/>
+		<circle id="circuloRojo" fill="#C83759" stroke="#000000" stroke-width="5" stroke-miterlimit="10" cx="130" cy="162.5" r="11.612"/>
+		<circle id="circuloVerde" fill="#93C93D" stroke="#000000" stroke-width="5" stroke-miterlimit="10" cx="195.96" cy="233.993" r="7.931"/>
 	</g>
 </switch>
 <i:pgf  id="adobe_illustrator_pgf">

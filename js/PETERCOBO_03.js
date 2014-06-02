@@ -1,6 +1,32 @@
+var animation = {};
+
 window.onload = function(){
     var s = Snap("#petercobo_03");
-    Snap.load("img/PETERCOBO_03.svg", function (f) {
+    Snap.load("img/PETERCOBO_03_1.svg", function (f) {
+        var ojo = f.select("path[id='ojo']"),
+		    iris = f.select("circle[id='iris']"),
+		    pupila = f.select("circle[id='pupila']"),
+		    interIrisPupila = f.select("circle[id='interIrisPupila']"),
+		    circuloRojo = f.select("circle[id='circuloRojo']"),
+		    circuloVerde = f.select("circle[id='circuloVerde']");
+        
+        // Inicializamos el ojo a la linea
+        ojo.attr({d:"M 316.675,186 Q 271.304,186 160,186 Q 48.697,186 3.326,186 Q 48.697,186 160,186 Q 271.304,186 316.675,186"});
+        
+        animation.play = function() {        
+            // Inicializamos el ojo a la linea
+            ojo.attr({d:"M 316.675,186 Q 271.304,186 160,186 Q 48.697,186 3.326,186 Q 48.697,186 160,186 Q 271.304,186 316.675,186"});
+            
+            this.timestapInit = new Date().getTime();
+		    this.timeConsumed = 0;
+
+        	this.animacionOjo(800);
+        }
+        
+        animation.animacionOjo = function(ms){
+	    	ojo.animate({d:"M 316.675,186 Q 271.304,106.5 160,106.5 Q 48.697,106.5 3.326,186 Q 48.697,265.5 160,265.5 Q 271.304,265.5 316.675,186"},ms);
+	    }
+        
 /*	    var romboAmarillo1 = f.select("rect[id='romboAmarillo1']"),
 		    romboAmarillo2 = f.select("rect[id='romboAmarillo2']"),
 		    romboRojo1 = f.select("rect[id='romboRojo1']"),
@@ -101,5 +127,12 @@ window.onload = function(){
 		s.append(bordeNegro);
 		s.append(lineaAzul);
 		s.append(lineaNegra);*/
+        
+        s.append(ojo);
+        
+	    //animation.play();
+	    document.getElementById('play').onclick=function(){animation.play();};
+	    document.getElementById('pause').onclick=function(){animation.pause();};
+	    document.getElementById('resume').onclick=function(){animation.resume();};
     });
 }
