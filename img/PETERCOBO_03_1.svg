@@ -20,11 +20,15 @@
 	</foreignObject>
 	<g i:extraneous="self">
         <!--<path id="ojo" fill="#1CA9C9" stroke="#000000" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M 316.675,186 Q 271.304,186 160,186 Q 48.697,186 3.326,186 Q 48.697,186 160,186 Q 271.304,186 316.675,186"/>-->
+        <path id="panel" fill="#FFFFFF" d="M0,0 V0,186 Q 48.697,186 160,186 Q 271.304,186 320.675,186 V316.675,0z"></path>
         <path id="ojo" fill="#1CA9C9" stroke="#000000" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M 316.675,186 Q 271.304,106.5 160,106.5 Q 48.697,106.5 3.326,186 Q 48.697,265.5 160,265.5 Q 271.304,265.5 316.675,186"/>
+        <path id="ojo2" fill="none" stroke="#000000" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M 316.675,186 Q 271.304,106.5 160,106.5 Q 48.697,106.5 3.326,186 Q 48.697,265.5 160,265.5 Q 271.304,265.5 316.675,186"/>
         <circle id="iris" fill="#FFFFFF" stroke="#000000" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="160" cy="186" r="79.5"/>
-		<circle id="pupila" fill="#FFCF48" stroke="#000000" stroke-width="5" stroke-miterlimit="10" cx="160" cy="186" r="39.096"/>
+		<!--<circle id="pupila" fill="#FFCF48" stroke="#000000" stroke-width="5" stroke-miterlimit="10" cx="160" cy="186" r="39.096"/>-->
+        <path id="pupila" d="m120.904,186c0,-21.60001 17.49599,-39.09599 39.096,-39.09599c21.60001,0 39.09599,17.49599 39.09599,39.09599c0,21.60001 -17.49599,39.09599 -39.09599,39.09599c-21.60001,0 -39.096,-17.49599 -39.096,-39.09599z" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="5" stroke="#000000" fill="#FFCF48"/>
 		
-        <circle id="interIrisPupila" fill="none" stroke="#000000" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="160" cy="186" r="60.221"/>
+        <!--<circle id="interIrisPupila" fill="none" stroke="#000000" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="160" cy="186" r="60.221"/>-->
+        <path id="interIrisPupila" d="m99.779,186c0,-33.27127 26.94973,-60.221 60.221,-60.221c33.27127,0 60.22099,26.94973 60.22099,60.221c0,33.27127 -26.94972,60.22099 -60.22099,60.22099c-33.27127,0 -60.221,-26.94972 -60.221,-60.22099z" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="null" stroke-width="5" stroke="#000000" fill="none"/>
 		<circle id="circuloRojo" fill="#C83759" stroke="#000000" stroke-width="5" stroke-miterlimit="10" cx="130" cy="162.5" r="11.612"/>
 		<circle id="circuloVerde" fill="#93C93D" stroke="#000000" stroke-width="5" stroke-miterlimit="10" cx="195.96" cy="233.993" r="7.931"/>
 	</g>
