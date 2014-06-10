@@ -7,13 +7,64 @@
 		<title>PETERCOBO 01</title>
 
 		<script type="text/javascript" src="lib/Snap.svg-0.2.0/dist/snap.svg-min.js"></script>
-		<!--<script type="text/javascript" src="js/ATTITUDE_3.js"></script>-->
+		<script type="text/javascript" src="js/ATTITUDE_3.js"></script>
 	</head>
 	<body>
         <button id="play">Play</button><button id="pause">Pause</button><button id="resume">Resume</button><br />
 		<svg version="1.1" id="attitude_3" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="320px" height="372px" viewBox="0 0 320 372" enable-background="new 0 0 320 372" xml:space="preserve">
-			<path id="bordeOjo" d="M154.669,210.93c-15.999,0-28.7-12.719-29.232-13.261l-1.062-1.079l1.062-1.079c0.532-0.542,13.233-13.26,29.232-13.26 s28.7,12.718,29.232,13.26l1.062,1.079l-1.062,1.079C183.369,198.211,170.668,210.93,154.669,210.93z M128.793,196.59 c3.393,3.009,13.803,11.262,25.876,11.262s22.482-8.253,25.876-11.262c-3.394-3.009-13.803-11.261-25.876-11.261 S132.186,193.581,128.793,196.59z"/>
+			<!--
+			<g id="grupoPiramide">
+				<g>
+					<g>
+						<g>
+							<polygon fill="#FFFFFF" points="154.669,135.032 97.568,238.683 107.829,238.983 157.621,140.459"/>
+							<polygon id="fondoVerdePiramide" fill="#93C93D" points="211.903,238.489 155.84,137.243 101.828,238.489"/>
+							<path id="bordeNegroPiramide" d="M214.472,240.01H95.069l59.701-108.019L214.472,240.01z M100.287,236.932h108.966l-54.483-98.578L100.287,236.932z"/>
+						</g>
+						<rect id="primeraLineaHorizontal" x="112.506" y="209.673" width="84.327" height="1.539"/>
+						<rect id="lineaCentalInferior" x="154.096" y="210.442" width="1.539" height="28.028"/>
+						<rect id="lineaIzqInferior" x="119.701" y="210.371" width="1.539" height="28.029"/>
+						<rect id="lineaDerInferior" x="188.37" y="209.653" width="1.54" height="28.03"/>
+						<rect id="segundaLineaHorizontal" x="128.816" y="181.432" width="52.444" height="1.54"/>
+						<rect id="lineaIzqMedio" x="136.729" y="182.132" width="1.539" height="28.029"/>
+						<rect id="lineaDerMedio" x="171.246" y="182.063" width="1.538" height="28.028"/>
+						<rect id="terceraLineaHorizontal" x="144.229" y="153.474" width="21.042" height="1.539"/>
+						<rect id="lineaCentalSuperior" x="154" y="154.174" width="1.539" height="28.028"/>
+					</g>
+				</g>
+			</g>
 
+
+			<circle id="iris" fill="#C83759" cx="154.669" cy="196.59" r="8.163"/>
+			<circle id="pupila" cx="154.669" cy="196.59" r="4.718"/>
+			<circle id="brilloGrand" fill="#FFFFFF" cx="163.312" cy="196.093" r="3.343"/>
+			<circle id="brilloPeq" fill="#FFFFFF" cx="159.673" cy="193.999" r="1.249"/>
+
+
+			<path id="ojo" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M 183.369,196.739 Q 154.669,196.739 125.437,196.739 L125.437,170.548 L183.369,170.548 L183.369,196.739">
+				<animate
+			        id            = "blink"
+			        attributeType = "XML"
+			        attributeName = "d"
+			        from          = "M 183.369,196.739 Q 154.669,196.739 125.437,196.739 L125.437,170.548 L183.369,170.548 L183.369,196.739"
+			        to            = "M 183.369,196.739 Q 154.669,170.548 125.437,196.739 L125.437,170.548 L183.369,170.548 L183.369,196.739"
+			        begin         = "0s;"
+			        dur           = "2s"
+			    />
+			<path>
+
+			<path id="ojo" fill="none" stroke="#000000" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M 183.369,196.739 Q 154.669,196.739 125.437,196.739 Q 154.669,196.739 183.369,196.739">
+				<animate
+			        id            = "blink"
+			        attributeType = "XML"
+			        attributeName = "d"
+			        from          = "M 183.369,196.739 Q 154.669,196.739 125.437,196.739 Q 154.669,196.739 183.369,196.739"
+			        to            = "M 183.369,196.739 Q 154.669,170.548 125.437,196.739 Q 154.669,222.93 183.369,196.739"
+			        begin         = "0s;"
+			        dur           = "2s"
+			    />
+			<path>
+-->
 
 		</svg>
 	</body>
