@@ -93,6 +93,8 @@ var animation = (function () {
 			if(primerCierre){
 				anim.animacionAperturaOjo(1000,false)	
 			}else{
+				bordeOjo.attr({fill:"none", stroke:"none"});
+				rellonoOjo.attr({fill:"none", stroke:"none"});
 				anim.animacionCierrePiramide(ms);
 			}
 		});
@@ -115,10 +117,7 @@ var animation = (function () {
 	}
 
 	anim.animacionCierrePiramide = function(ms){
-		bloqueOcultaPiramide.animate({transform:"t0,150"}, ms, function(){
-			bordeOjo.attr({fill:"none"});
-			rellonoOjo.attr({fill:"none"});
-			
+		bloqueOcultaPiramide.animate({transform:"t0,0"}, ms, function(){			
 			document.getElementById('play').disabled = false;
 			document.getElementById('pause').disabled = true;
 			document.getElementById('resume').disabled = true;
