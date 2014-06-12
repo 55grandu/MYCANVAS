@@ -62,17 +62,17 @@ var animation = (function () {
         }else if(anim.timeConsumed > 1500 && anim.timeConsumed < 2500){
             anim.animacionAperturaOjo(2500 - anim.timeConsumed);
         }else if(anim.timeConsumed > 2500 && anim.timeConsumed < 3700){
-            anim.animacionCierreOjo(3700 - anim.timeConsumed);
-        }else if(anim.timeConsumed > 3700 && anim.timeConsumed < 4700){
-            anim.animacionAperturaOjo(4700 - anim.timeConsumed);
-        }else if(anim.timeConsumed > 4700 && anim.timeConsumed < 5200){
-            anim.animacionMano(5200 - anim.timeConsumed);
-        }else if(anim.timeConsumed > 5200 && anim.timeConsumed < 6200){
-            anim.animacionCierreMano(6200 - anim.timeConsumed);
-        }else if(anim.timeConsumed > 6200 && anim.timeConsumed < 7200){
-            anim.animacionCierreOjo(7200 - anim.timeConsumed);
+            anim.animacionCierreOjo(3500 - anim.timeConsumed);
+        }else if(anim.timeConsumed > 3500 && anim.timeConsumed < 4500){
+            anim.animacionAperturaOjo(4500 - anim.timeConsumed);
+        }else if(anim.timeConsumed > 4500 && anim.timeConsumed < 5000){
+            anim.animacionMano(5000 - anim.timeConsumed);
+        }else if(anim.timeConsumed > 5000 && anim.timeConsumed < 6000){
+            anim.animacionCierreMano(6000 - anim.timeConsumed);
+        }else if(anim.timeConsumed > 6000 && anim.timeConsumed < 7000){
+            anim.animacionCierreOjo(7000 - anim.timeConsumed);
         }else{
-            anim.animacionCierrePiramide(8200 - anim.timeConsumed);
+            anim.animacionCierrePiramide(8000 - anim.timeConsumed);
         }
         this.timestapInit = new Date().getTime();
 	}
@@ -113,14 +113,14 @@ var animation = (function () {
 	anim.animacionCierreOjo = function(ms,primerCierre){
         if(ms>1){
     		grupoPestanas.attr({display:"none"});
-    		grupoOjoInt.animate({transform:"t0,0 s0"},(ms + 200));
+    		grupoOjoInt.animate({transform:"t0,0 s0"},(ms));
     		rellonoOjo.animate({d:"M 183.369,196.739 Q 154.669,196.739 125.437,196.739 Q 154.669,196.739 183.369,196.739"},ms, function(){
     			if(primerCierre){
     				anim.animacionAperturaOjo(1000,false)	
     			}else{
     				bordeOjo.attr({fill:"none", stroke:"none"});
     				rellonoOjo.attr({fill:"none", stroke:"none"});
-    				anim.animacionCierrePiramide(ms);
+    				anim.animacionCierrePiramide(1000);
     			}
     		});
     		bordeOjo.animate({d:"M 183.369,196.739 Q 154.669,196.739 125.437,196.739 Q 154.669,196.739 183.369,196.739"},ms);
@@ -141,7 +141,7 @@ var animation = (function () {
 	anim.animacionCierreMano = function(ms){
         if(ms>1){
     		grupoMano.animate({transform:"t0,0 s0"},ms, function(){
-    			anim.animacionCierreOjo(ms, false);
+    			anim.animacionCierreOjo(1000, false);
     		});
         }
 	}
