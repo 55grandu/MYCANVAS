@@ -80,7 +80,7 @@ var animation = (function () {
 	anim.animacionPiramide = function(ms){
         if(ms>1){
     		bloqueOcultaPiramide.animate({transform:"t0,-150"}, ms, function(){
-    			anim.animacionAperturaOjo(1000,true)
+    			anim.animacionAperturaOjo(150,true)
     		});
         }
 	}
@@ -95,13 +95,13 @@ var animation = (function () {
     		rellonoOjo.attr({fill:"#FFFFFF", stroke:"#000000", strokeWidth:"3", strokeLinecap:"round", strokeLinejoin:"round", strokeMiterlimit:"10"});
     		bordeOjo.attr({fill:"none", stroke:"#000000", strokeWidth:"3", strokeLinecap:"round", strokeLinejoin:"round", strokeMiterlimit:"10"});
     		
-    		grupoOjoInt.animate({transform:"t0,0 s1"},(ms - 500));
+    		grupoOjoInt.animate({transform:"t0,0 s1"},(ms));
     		rellonoOjo.animate({d:"M 183.369,196.739 Q 154.669,170.548 125.437,196.739 Q 154.669,222.93 183.369,196.739"},ms);
     		bordeOjo.animate({d:"M 183.369,196.739 Q 154.669,170.548 125.437,196.739 Q 154.669,222.93 183.369,196.739"},ms, function(){
     			grupoPestanas.attr({display:"inline"});
     			if(primeraApertura){
     				setTimeout(function(){
-    					anim.animacionCierreOjo(1000,true);
+    					anim.animacionCierreOjo(150,true);
     				},500);
     			}else{
     				anim.animacionMano(500);
@@ -116,7 +116,7 @@ var animation = (function () {
     		grupoOjoInt.animate({transform:"t0,0 s0"},(ms));
     		rellonoOjo.animate({d:"M 183.369,196.739 Q 154.669,196.739 125.437,196.739 Q 154.669,196.739 183.369,196.739"},ms, function(){
     			if(primerCierre){
-    				anim.animacionAperturaOjo(1000,false)	
+    				anim.animacionAperturaOjo(150,false)	
     			}else{
     				bordeOjo.attr({fill:"none", stroke:"none"});
     				rellonoOjo.attr({fill:"none", stroke:"none"});
@@ -132,8 +132,8 @@ var animation = (function () {
     		anim.element.append(grupoMano);
 
     		grupoMano.attr({transform:"t0,0 s0"});
-    		grupoMano.animate({transform:"t0,0 s1"},ms, function(){
-    			anim.animacionCierreMano(1000);
+    		grupoMano.animate({transform:"t0,0 s1"},ms, mina.bounce, function(){
+    			anim.animacionCierreMano(500);
     		});
         }
 	}
@@ -141,7 +141,7 @@ var animation = (function () {
 	anim.animacionCierreMano = function(ms){
         if(ms>1){
     		grupoMano.animate({transform:"t0,0 s0"},ms, function(){
-    			anim.animacionCierreOjo(1000, false);
+    			anim.animacionCierreOjo(150, false);
     		});
         }
 	}
