@@ -1,7 +1,7 @@
 var animation = (function () {
 	var anim = {};
 
-	var grupoPiramide = null, bloqueOcultaPiramide = null, bordeOjo = null, rellonoOjo = null, grupoOjoInt = null, grupoPestanas = null, grupoMano = null,
+	var grupoPiramide = null, bloqueOcultaPiramide = null, bordeOjo = null, rellonoOjo = null, grupoOjoInt = null, grupoPestanas = null, grupoMano = null, intervalPrimeraParte = null, intervalSegundaParte = null, intervalTerceraParte = null,
 		loaded = false;
 
 	// Animation Login
@@ -12,7 +12,7 @@ var animation = (function () {
 		Snap.load("img/ATTITUDE_3.svg", function (f) {
 			// Cargamos los elementos del SVG
 			grupoPiramide = f.select("g[id='grupoPiramide']");
-			bloqueOcultaPiramide = anim.element.path({d:"M300,250 L0,250 L0,100 L300,100 L300,250", fill:"#FFFFFF"});
+			bloqueOcultaPiramide = anim.element.path({d:"M300,241 L0,241 L0,100 L300,100 L300,241", fill:"#FFFFFF"});
 			bordeOjo = f.select("path[id='bordeOjo']").attr({d:"M 183.369,196.739 Q 154.669,196.739 125.437,196.739 Q 154.669,196.739 183.369,196.739", fill:"none"});
 			rellonoOjo = f.select("path[id='rellonoOjo']").attr({d:"M 183.369,196.739 Q 154.669,196.739 125.437,196.739 Q 154.669,196.739 183.369,196.739", fill:"none"});
 			grupoOjoInt = f.select("g[id='grupoOjoInt']");
@@ -31,7 +31,7 @@ var animation = (function () {
 		this.timestapInit = new Date().getTime();
 		this.timeConsumed = 0;
 		
-		this.animacionPiramide(1500);
+		this.animacionPiramidePrimeraParte(150);
 	}
 
 	anim.pause = function() {
@@ -57,8 +57,20 @@ var animation = (function () {
 		document.getElementById('pause').disabled = false;
 		document.getElementById('resume').disabled = true;
 
-        if(anim.timeConsumed > 1 && anim.timeConsumed < 1500){
-            anim.animacionPiramide(1500 - anim.timeConsumed);
+        if(anim.timeConsumed > 1 && anim.timeConsumed < 150){
+            anim.animacionPiramidePrimeraParte(150 - anim.timeConsumed);
+        }else if(anim.timeConsumed > 300 && anim.timeConsumed < 450){
+            clearInterval(intervalPrimeraParte);
+        }else if(anim.timeConsumed > 450 && anim.timeConsumed < 600){
+            anim.animacionPiramideSegundaParte(600 - anim.timeConsumed);
+        }else if(anim.timeConsumed > 600 && anim.timeConsumed < 900){
+            clearInterval(intervalSegundaParte);
+        }else if(anim.timeConsumed > 900 && anim.timeConsumed < 1050){
+            anim.animacionPiramideTerceraParte(1050 - anim.timeConsumed);
+        }else if(anim.timeConsumed > 1050 && anim.timeConsumed < 1350){
+            clearInterval(intervalTerceraParte);
+        }else if(anim.timeConsumed > 1350 && anim.timeConsumed < 1500){
+            anim.animacionPiramideCuartaParte(1500 - anim.timeConsumed);
         }else if(anim.timeConsumed > 1500 && anim.timeConsumed < 2500){
             anim.animacionAperturaOjo(2500 - anim.timeConsumed);
         }else if(anim.timeConsumed > 2500 && anim.timeConsumed < 3700){
@@ -77,13 +89,44 @@ var animation = (function () {
         this.timestapInit = new Date().getTime();
 	}
 
-	anim.animacionPiramide = function(ms){
+	anim.animacionPiramidePrimeraParte = function(ms){
         if(ms>1){
-    		bloqueOcultaPiramide.animate({transform:"t0,-150"}, ms, function(){
-    			anim.animacionAperturaOjo(150,true)
+    		bloqueOcultaPiramide.animate({transform:"t0,-31"}, ms, function(){
+                intervalPrimeraParte = setInterval(function(){
+        			anim.animacionPiramideSegundaParte(150);
+                },450);
     		});
         }
 	}
+
+    anim.animacionPiramideSegundaParte = function(ms){
+        clearInterval(intervalPrimeraParte);
+        if(ms>1){
+            bloqueOcultaPiramide.animate({transform:"t0,-59"}, ms, function(){
+                intervalSegundaParte = setTimeout(function(){
+                    anim.animacionPiramideTerceraParte(150);
+                },300);
+            });
+        }
+    }
+
+    anim.animacionPiramideTerceraParte = function(ms){
+        if(ms>1){
+            bloqueOcultaPiramide.animate({transform:"t0,-87"}, ms, function(){
+                intervalTerceraParte = setTimeout(function(){
+                    anim.animacionPiramideCuartaParte(150);
+                },300);
+            });
+        }
+    }
+
+    anim.animacionPiramideCuartaParte = function(ms){
+        if(ms>1){
+            bloqueOcultaPiramide.animate({transform:"t0,-115"}, ms, function(){
+                anim.animacionAperturaOjo(150,true);
+            });
+        }
+    }
 
 	anim.animacionAperturaOjo = function(ms,primeraApertura){		
         if(ms>1){
@@ -120,7 +163,7 @@ var animation = (function () {
     			}else{
     				bordeOjo.attr({fill:"none", stroke:"none"});
     				rellonoOjo.attr({fill:"none", stroke:"none"});
-    				anim.animacionCierrePiramide(1000);
+    				anim.animacionCierrePiramideCuartaParte(150);
     			}
     		});
     		bordeOjo.animate({d:"M 183.369,196.739 Q 154.669,196.739 125.437,196.739 Q 154.669,196.739 183.369,196.739"},ms);
@@ -133,7 +176,9 @@ var animation = (function () {
 
     		grupoMano.attr({transform:"t0,0 s0"});
     		grupoMano.animate({transform:"t0,0 s1"},ms, mina.bounce, function(){
-    			anim.animacionCierreMano(500);
+                setTimeout(function(){
+                    anim.animacionCierreMano(500);
+                },500);
     		});
         }
 	}
@@ -141,21 +186,50 @@ var animation = (function () {
 	anim.animacionCierreMano = function(ms){
         if(ms>1){
     		grupoMano.animate({transform:"t0,0 s0"},ms, function(){
-    			anim.animacionCierreOjo(150, false);
+                anim.animacionCierreOjo(150, false);
     		});
         }
 	}
 
-	anim.animacionCierrePiramide = function(ms){
+    anim.animacionCierrePiramideCuartaParte = function(ms){
         if(ms>1){
-    		bloqueOcultaPiramide.animate({transform:"t0,0"}, ms, function(){			
-    			document.getElementById('play').disabled = false;
-    			document.getElementById('pause').disabled = true;
-    			document.getElementById('resume').disabled = true;
-    		});
+            bloqueOcultaPiramide.animate({transform:"t0,-87"}, ms, function(){
+                setTimeout(function(){
+                    anim.animacionCierrePiramideTerceraParte(150);
+                },300);
+            });
         }
-	}
-	
+    }
+
+    anim.animacionCierrePiramideTerceraParte = function(ms){
+        if(ms>1){
+            bloqueOcultaPiramide.animate({transform:"t0,-59"}, ms, function(){
+                setTimeout(function(){
+                    anim.animacionCierrePiramideSegundaParte(150);
+                },300);
+            });
+        }
+    }
+    
+    anim.animacionCierrePiramideSegundaParte = function(ms){
+        if(ms>1){
+            bloqueOcultaPiramide.animate({transform:"t0,-31"}, ms, function(){
+                setTimeout(function(){
+                    anim.animacionCierrePiramidePrimeraParte(150);
+                },300);
+            });
+        }
+    }
+
+    anim.animacionCierrePiramidePrimeraParte = function(ms){
+        if(ms>1){
+            bloqueOcultaPiramide.animate({transform:"t0,0"}, ms, function(){  
+                document.getElementById('play').disabled = false;
+                document.getElementById('pause').disabled = true;
+                document.getElementById('resume').disabled = true;
+            });
+        }
+    }
 
 	return anim;
 
