@@ -1,7 +1,8 @@
 var animation = (function () {
 	var anim = {};
 
-	var grupoManoDer = null, grupoManoIzq = null,
+	var manoDerGota1 = null, manoDerGota2 = null, manoDerGota3 = null, manoDerGota4 = null, manoIzqGota1 = null, manoIzqGota2 = null, manoIzqGota3 = null, manoIzqGota4 = null,
+		grupoManoDer = null, grupoManoIzq = null, grupoGotas = null,
         loaded = false;
 
 	// Animation public methods
@@ -11,11 +12,29 @@ var animation = (function () {
 
 		Snap.load("img/ATTITUDE_1-4.svg", function (f) {
 			// Cargamos los elementos del SVG
-            grupoManoDer = f.select("g[id='MANO_103_']").attr({display:"none"});
-            grupoManoIzq = f.select("g[id='MANO_104_']").attr({display:"none"});
+            grupoManoDer = f.select("g[id='MANO_103_']");
+            grupoManoIzq = f.select("g[id='MANO_104_']");
+            manoDerGota1 = f.select("path[id='manoDerGota1']").attr({transform:"t0,-70"});
+            manoDerGota2 = f.select("path[id='manoDerGota2']").attr({transform:"t0,-70"});
+            manoDerGota3 = f.select("path[id='manoDerGota3']").attr({transform:"t0,-70"});
+            manoDerGota4 = f.select("path[id='manoDerGota4']").attr({transform:"t0,-70"});
+            manoIzqGota1 = f.select("path[id='manoIzqGota1']").attr({transform:"t0,-70"});
+            manoIzqGota2 = f.select("path[id='manoIzqGota2']").attr({transform:"t0,-70"});
+            manoIzqGota3 = f.select("path[id='manoIzqGota3']").attr({transform:"t0,-70"});
+            manoIzqGota4 = f.select("path[id='manoIzqGota4']").attr({transform:"t0,-70"});
 
-            anim.element.append(grupoManoDer);
-            anim.element.append(grupoManoIzq);
+            grupoManoIzq.select("path[id='RELLENO_104_']").attr({transform:"t0,-300"});
+            grupoManoIzq.select("path[id='TRAZO_104_']").attr({transform:"t0,-300"});
+            grupoManoIzq.select("ellipse[id='RELLENO_2_208_']").attr({transform:"t0,-300"});
+            grupoManoIzq.select("ellipse[id='RELLENO_2_207_']").attr({transform:"t0,-300"});
+            grupoManoIzq.select("path[id='bordeRellenoMano104']").attr({transform:"t0,-300"});
+
+            grupoManoDer.select("path[id='RELLENO_103_']").attr({transform:"t0,-300"});
+            grupoManoDer.select("path[id='TRAZO_103_']").attr({transform:"t0,-300"});
+            grupoManoDer.select("ellipse[id='RELLENO_2_206_']").attr({transform:"t0,-300"});
+            grupoManoDer.select("ellipse[id='RELLENO_2_205_']").attr({transform:"t0,-300"});
+            grupoManoDer.select("path[id='bordeRellenoMano103']").attr({transform:"t0,-300"});
+
 		});
 	}
 
@@ -55,11 +74,20 @@ var animation = (function () {
 	}
 
     function animBajaManos (ms){
-        grupoManoDer.attr({transform:"t0,-300"});
-        grupoManoIzq.attr({transform:"t0,-300"});
+        anim.element.append(grupoManoDer);
+        anim.element.append(grupoManoIzq);
 
-        grupoManoDer.animate({transform:"t0,0"},ms);
-        grupoManoIzq.animate({transform:"t0,0"},ms);
+        grupoManoIzq.animate({transform:"t0,300"},ms);
+        grupoManoDer.animate({transform:"t0,300"},ms, function(){
+        	animGotas(2000);
+        });
+    }
+
+    function animGotas (ms){
+        grupoGotas = anim.element.group(manoDerGota1,manoDerGota2,manoDerGota3,manoDerGota4,manoIzqGota1,manoIzqGota2,manoIzqGota3,manoIzqGota4);
+        //anim.element.append(grupoGotas);
+
+        grupoGotas.animate({transform:"t0,300"},ms);
     }
 
 	return anim;
