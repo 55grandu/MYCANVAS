@@ -71,9 +71,11 @@ var animation = (function () {
         grupoManoDer.select("ellipse[id='RELLENO_2_205_']").attr({transform:"t0,-300"});
         grupoManoDer.select("path[id='bordeRellenoMano103']").attr({transform:"t0,-300"});
 
-        interiorOjoIzq.attr({display:"none"});
-        interiorOjoDer.attr({display:"none"});
-
+        anim.element.append(interiorOjoIzq);
+        anim.element.append(interiorOjoDer);
+        
+        interiorOjoIzq.attr({transform:"t0,0 s0"});
+        interiorOjoDer.attr({transform:"t0,0 s0"});
 		this.timestapInit = new Date().getTime();
 		this.timeConsumed = 0;
 
@@ -92,6 +94,22 @@ var animation = (function () {
     	console.log(this.timeConsumed);
     	this.timeConsumed = this.timeConsumed + diff;
     	console.log(this.timeConsumed);
+
+        anim.element.grupoManoIzq = grupoManoIzq.stop();
+        anim.element.grupoManoDer = grupoManoDer.stop();
+        anim.element.grupoGotas = grupoGotas.stop();
+        anim.element.rellenoOjoIzq = rellenoOjoIzq.stop();
+        anim.element.rellenoOjoDer = rellenoOjoDer.stop();
+        anim.element.bordeOjoIzq = bordeOjoIzq.stop();
+        anim.element.bordeOjoDer = bordeOjoDer.stop();
+        anim.element.interiorOjoIzq = interiorOjoIzq.stop();
+        anim.element.interiorOjoDer = interiorOjoDer.stop();
+        anim.element.lineaIzqOjoIzq = lineaIzqOjoIzq.stop();
+        anim.element.lineaIzqOjoDer = lineaIzqOjoDer.stop();
+        anim.element.lineaDerOjoIzq = lineaDerOjoIzq.stop();
+        anim.element.lineaDerOjoDer = lineaDerOjoDer.stop();
+
+        clearInterval(intervalCierreParpado);
 	}
 
     // Resume animation
@@ -100,6 +118,39 @@ var animation = (function () {
 		document.getElementById('pause').disabled = false;
 		document.getElementById('resume').disabled = true;
 
+        if(anim.timeConsumed > 1 && anim.timeConsumed < 500){
+            animBajaManos(500 - anim.timeConsumed);
+        }else if(anim.timeConsumed > 500 && anim.timeConsumed < 1000){
+            animBajaDedos(1000 - anim.timeConsumed);
+        }else if(anim.timeConsumed > 1000 && anim.timeConsumed < 1250){
+            animGotas(2000 - anim.timeConsumed);
+            animAbreLineaOjos((1250 - anim.timeConsumed),true);
+        }else if(anim.timeConsumed > 1250 && anim.timeConsumed < 1400){
+            animGotas(2000 - anim.timeConsumed);
+            animAbreOjos((1400 - anim.timeConsumed),true);
+        }else if(anim.timeConsumed > 1400 && anim.timeConsumed < 1700){
+            intervalCierreParpado = setInterval(function(){
+                cierreParpados();
+                animCierraOjos(150,true);
+            },(1700 - anim.timeConsumed));
+        }else if(anim.timeConsumed > 1700 && anim.timeConsumed < 1850){
+            animGotas(2000 - anim.timeConsumed);
+            animAbreOjos((1850 - anim.timeConsumed),false);
+        }else if(anim.timeConsumed > 1850 && anim.timeConsumed < 2150){
+            animGotas(2000 - anim.timeConsumed);
+            intervalCierreParpado = setInterval(function(){
+                cierreParpados();
+                animCierraOjos(150,flase);
+            },(2150 - anim.timeConsumed));
+        }else if(anim.timeConsumed > 2150 && anim.timeConsumed < 2500){
+            animCierreLineaOjos(2500 - anim.timeConsumed);
+        }else if(anim.timeConsumed > 2500 && anim.timeConsumed < 3000){
+            animCierreMano(3000 - anim.timeConsumed);
+        }else{
+            animCierreDedos(3500 - anim.timeConsumed);
+        }
+
+
         this.timestapInit = new Date().getTime();
 	}
 
@@ -107,8 +158,17 @@ var animation = (function () {
         anim.element.append(grupoManoDer);
         anim.element.append(grupoManoIzq);
 
-        grupoManoIzq.animate({transform:"t0,300"},ms);
-        grupoManoDer.animate({transform:"t0,300"},ms, function(){
+        grupoManoIzq.select("path[id='RELLENO_104_']").animate({transform:"t0,0"},ms);
+        grupoManoIzq.select("path[id='TRAZO_104_']").animate({transform:"t0,0"},ms);
+        grupoManoIzq.select("ellipse[id='RELLENO_2_208_']").animate({transform:"t0,0"},ms);
+        grupoManoIzq.select("ellipse[id='RELLENO_2_207_']").animate({transform:"t0,0"},ms);
+        grupoManoIzq.select("path[id='bordeRellenoMano104']").animate({transform:"t0,0"},ms);
+
+        grupoManoDer.select("path[id='RELLENO_103_']").animate({transform:"t0,0"},ms);
+        grupoManoDer.select("path[id='TRAZO_103_']").animate({transform:"t0,0"},ms);
+        grupoManoDer.select("ellipse[id='RELLENO_2_206_']").animate({transform:"t0,0"},ms);
+        grupoManoDer.select("ellipse[id='RELLENO_2_205_']").animate({transform:"t0,0"},ms);
+        grupoManoDer.select("path[id='bordeRellenoMano103']").animate({transform:"t0,0"},ms, function(){
             animBajaDedos(500);
         });
     }
@@ -127,7 +187,7 @@ var animation = (function () {
     function animGotas (ms){
         grupoGotas = anim.element.group(manoDerGota1,manoDerGota2,manoDerGota3,manoDerGota4,manoIzqGota1,manoIzqGota2,manoIzqGota3,manoIzqGota4);
 
-        grupoGotas.animate({transform:"t0,300"},ms);
+        grupoGotas.animate({transform:"t0,180"},ms);
     }
 
     function animAbreLineaOjos (ms,primeraApertura){
@@ -150,19 +210,14 @@ var animation = (function () {
         anim.element.append(rellenoOjoDer);
         anim.element.append(bordeOjoDer);
 
-        anim.element.append(interiorOjoIzq);
-        anim.element.append(interiorOjoDer);
-
         rellenoOjoIzq.attr({display:"inline"});
         bordeOjoIzq.after(rellenoOjoIzq).attr({display:"inline"});
         rellenoOjoDer.attr({display:"inline"});
         bordeOjoDer.after(rellenoOjoDer).attr({display:"inline"});
 
-        interiorOjoIzq.attr({transform:"t0,0 s0"});
-        interiorOjoDer.attr({transform:"t0,0 s0"});
+        interiorOjoIzq.before(bordeOjoIzq).animate({transform:"t0,0 s1"},ms);
+        interiorOjoDer.before(bordeOjoDer).animate({transform:"t0,0 s1"},ms);
 
-        interiorOjoIzq.animate({transform:"t0,0 s1"},ms);
-        interiorOjoDer.animate({transform:"t0,0 s1"},ms);
         bordeOjoDer.animate({d:"M 219.5,179.194 Q 193,202.5 167,179.194 Q 193,156.5 219.5,179.194"},ms);
         bordeOjoIzq.animate({d:"M 153.714,179.194 Q 127.178,202.5 101,179.194 Q 127.178,156.5 153.714,179.194"},ms);
         rellenoOjoDer.animate({d:"M 219.5,179.194 Q 193,202.5 167,179.194 Q 193,156.5 219.5,179.194"},ms);
@@ -184,6 +239,10 @@ var animation = (function () {
 
     function animCierraOjos (ms,primeraApertura){
         clearInterval(intervalCierreParpado);
+
+        interiorOjoIzq.animate({transform:"t0,0 s0"},ms);
+        interiorOjoDer.animate({transform:"t0,0 s0"},ms);
+
         bordeOjoDer.animate({d:"M 219.5,179.194 Q 193,179.194 167,179.194 Q 193,179.194 219.5,179.194"},ms);
         bordeOjoIzq.animate({d:"M 153.714,179.194 Q 127.178,179.194 101,179.194 Q 127.178,179.194 153.714,179.194"},ms);
         rellenoOjoDer.animate({d:"M 219.5,179.194 Q 193,179.194 167,179.194 Q 193,179.194 219.5,179.194"},ms);
@@ -235,15 +294,15 @@ var animation = (function () {
     function animCierreMano (ms){
         grupoManoIzq.select("path[id='RELLENO_104_']").animate({d:"m 152.869,437.033 0,-292.909 c 0,-2.374 -1.924,-4.298 -4.299,-4.298 -2.373,0 -4.299,1.924 -4.299,4.298 l 0,295.909 -3.197,0 0,-320.413 c 0,-2.376 -1.924,-4.3 -4.299,-4.3 -2.373,0 -4.299,1.925 -4.299,4.3 l 0,308.609 -3.198,0 0,-316.546 c 0,-2.375 -1.923,-4.299 -4.298,-4.299 -2.375,0 -4.301,1.924 -4.301,4.299 l 0,316.546 -3.195,0 0,-311.915 c 0,-2.375 -1.926,-4.299 -4.299,-4.299 -2.376,0 -4.302,1.924 -4.302,4.299 l 0,313.222 -3.195,0 0,-298.285 c 0,-2.374 -1.925,-4.3 -4.299,-4.3 -2.376,0 -4.302,1.926 -4.302,4.3 l 0,298.283 -0.002,0 0,7.499 0,14.296 0,1.436 0.002,0 c 0,18.752 12.301,24.215 12.301,24.215 l 1.09,2.699 -6.641,32.259 42.283,0 -6.141,-31.259 1.031,-3.091 c 6.601,-4.646 11.094,-14.087 11.766,-22.604 0.061,-0.289 0.092,-0.588 0.092,-0.896 l 0,-1.297 c 0,-0.01 0.004,-0.018 0.004,-0.025 l 0,-15.731 -0.003,0 z"},ms);
         grupoManoIzq.select("path[id='TRAZO_104_']").animate({d:"m 150.571,136.421 c -1.502,0 -2.904,0.432 -4.09,1.18 l 0,-17.98 c 0,-4.248 -3.457,-7.703 -7.706,-7.703 -1.502,0 -2.902,0.433 -4.092,1.179 l 0,-1.412 c 0.002,-4.248 -3.454,-7.703 -7.702,-7.703 -3.644,0 -6.704,2.539 -7.501,5.941 -1.229,-0.828 -2.707,-1.312 -4.295,-1.312 -4.249,0 -7.705,3.456 -7.705,7.704 l 0,8.41 c -1.187,-0.746 -2.588,-1.178 -4.09,-1.178 -4.25,0 -7.705,3.455 -7.705,7.704 l 0,298.285 -0.002,7.497 0,14.296 0,1.438 c 0.002,11.117 5.834,20.89 14.596,26.442 l -7.793,36.229 0.066,0 c -0.025,0.193 -0.041,0.388 -0.041,0.584 0,5.748 10.957,10.407 24.469,10.407 13.514,0 24.468,-4.659 24.468,-10.407 0,-0.196 -0.016,-0.391 -0.041,-0.584 l 0.067,0 -7.711,-36.318 c 7.966,-5.104 13.545,-13.711 14.393,-23.675 0.078,-0.449 0.121,-0.906 0.121,-1.357 l 0,-1.191 0,-0.01 0,-0.119 0,-15.733 0,-292.909 c 0,-4.248 -3.457,-7.705 -7.706,-7.705 z m 4.304,316.344 c 0,0.008 -0.004,0.016 -0.004,0.025 l 0,1.297 c 0,0.309 -0.031,0.607 -0.092,0.896 -0.674,8.518 -5.166,15.957 -11.768,20.604 -1.934,1.362 -4.051,2.479 -6.305,3.317 l 3.438,0.033 0.42,1.975 6.151,28.959 c -4.454,-2.581 -11.632,-4.257 -19.735,-4.257 -8.098,0 -15.273,1.674 -19.728,4.252 l 6.229,-28.872 0.498,-2.307 2.779,0.026 c -2.033,-0.801 -3.948,-1.832 -5.715,-3.064 -7.224,-5.039 -11.955,-13.406 -11.955,-22.885 l -0.004,0 0,-1.436 0,-14.296 0,-7.499 0.004,0 0,-298.283 c 0,-2.374 1.926,-4.3 4.301,-4.3 2.374,0 4.299,1.926 4.299,4.3 l 0,298.285 3.195,0 0,-313.222 c 0,-2.375 1.926,-4.299 4.301,-4.299 2.375,0 4.299,1.924 4.299,4.299 l 0,311.915 3.197,0 0,-316.546 c 0,-2.375 1.925,-4.299 4.3,-4.299 2.375,0 4.298,1.924 4.298,4.299 l 0,316.546 3.197,0 0,-308.608 c 0,-2.375 1.926,-4.3 4.299,-4.3 2.375,0 4.3,1.924 4.3,4.3 l 0,320.413 3.197,0 0,-295.909 c 0,-2.374 1.926,-4.298 4.299,-4.298 2.374,0 4.3,1.924 4.3,4.298 l 0,292.909 0.004,0 0,15.732 z"},ms);
-        grupoManoIzq.select("ellipse[id='RELLENO_2_208_']").animate({transform:"t0, 0"},ms);
-        grupoManoIzq.select("ellipse[id='RELLENO_2_207_']").animate({transform:"t0, 0"},ms);
-        grupoManoIzq.select("path[id='bordeRellenoMano104']").animate({transform:"t0, 0"},ms);
+        grupoManoIzq.select("ellipse[id='RELLENO_2_208_']").animate({transform:"t0, 300"},ms);
+        grupoManoIzq.select("ellipse[id='RELLENO_2_207_']").animate({transform:"t0, 300"},ms);
+        grupoManoIzq.select("path[id='bordeRellenoMano104']").animate({transform:"t0, 300"},ms);
 
         grupoManoDer.select("path[id='RELLENO_103_']").animate({d:"m 163.129,437.033 0,-292.909 c 0,-2.374 1.926,-4.298 4.301,-4.298 2.373,0 4.299,1.924 4.299,4.298 l 0,295.909 3.197,0 0,-320.413 c 0,-2.376 1.924,-4.3 4.299,-4.3 2.373,0 4.299,1.925 4.299,4.3 l 0,308.609 3.197,0 0,-316.546 c 0,-2.375 1.922,-4.299 4.297,-4.299 2.375,0 4.301,1.924 4.301,4.299 l 0,316.546 3.195,0 0,-311.915 c 0,-2.375 1.926,-4.299 4.299,-4.299 2.375,0 4.301,1.924 4.301,4.299 l 0,313.222 3.195,0 0,-298.285 c 0,-2.374 1.926,-4.3 4.299,-4.3 2.375,0 4.301,1.926 4.301,4.3 l 0,298.283 0.004,0 0,7.499 0,14.296 0,1.436 -0.004,0 c 0,18.752 -12.299,24.215 -12.299,24.215 l -1.09,2.699 6.641,32.259 -42.281,0 6.141,-31.259 -1.031,-3.091 c -6.602,-4.646 -11.094,-14.087 -11.768,-22.604 -0.061,-0.289 -0.092,-0.588 -0.092,-0.896 l 0,-1.297 c 0,-0.01 -0.004,-0.018 -0.004,-0.025 l 0,-15.731 0.003,0 z"},ms);
         grupoManoDer.select("path[id='TRAZO_103_']").animate({d:"m 161.725,144.124 0,292.909 0,15.733 0,0.119 0,0.01 0,1.191 c 0,0.451 0.043,0.908 0.121,1.357 0.848,9.964 6.428,18.571 14.393,23.675 l -7.711,36.318 0.068,0 c -0.025,0.193 -0.041,0.388 -0.041,0.584 0,5.748 10.953,10.407 24.467,10.407 13.512,0 24.467,-4.659 24.467,-10.407 0,-0.196 -0.016,-0.391 -0.041,-0.584 l 0.066,0 -7.793,-36.229 c 8.762,-5.553 14.594,-15.325 14.596,-26.442 l 0,-1.438 0,-14.296 -0.002,-7.497 0,-298.285 c 0,-4.249 -3.455,-7.704 -7.705,-7.704 -1.502,0 -2.902,0.432 -4.09,1.178 l 0,-8.41 c 0,-4.248 -3.455,-7.704 -7.705,-7.704 -1.586,0 -3.064,0.483 -4.293,1.312 -0.799,-3.402 -3.857,-5.941 -7.502,-5.941 -4.248,0 -7.703,3.455 -7.701,7.703 l 0,1.412 c -1.189,-0.746 -2.59,-1.179 -4.092,-1.179 -4.248,0 -7.705,3.455 -7.705,7.703 l 0,17.98 c -1.186,-0.748 -2.588,-1.18 -4.09,-1.18 -4.25,0.002 -7.707,3.459 -7.707,7.705 z m 3.402,292.909 0.004,0 0,-292.909 c 0,-2.374 1.926,-4.298 4.301,-4.298 2.373,0 4.299,1.924 4.299,4.298 l 0,295.909 3.197,0 0,-320.413 c 0,-2.376 1.924,-4.3 4.299,-4.3 2.373,0 4.299,1.925 4.299,4.3 l 0,308.609 3.197,0 0,-316.546 c 0,-2.375 1.922,-4.299 4.297,-4.299 2.375,0 4.301,1.924 4.301,4.299 l 0,316.546 3.195,0 0,-311.915 c 0,-2.375 1.926,-4.299 4.299,-4.299 2.375,0 4.301,1.924 4.301,4.299 l 0,313.222 3.195,0 0,-298.285 c 0,-2.374 1.926,-4.3 4.299,-4.3 2.375,0 4.301,1.926 4.301,4.3 l 0,298.283 0.004,0 0,7.499 0,14.296 0,1.436 -0.004,0 c 0,9.479 -4.73,17.846 -11.955,22.885 -1.766,1.232 -3.682,2.264 -5.713,3.064 l 2.779,-0.026 0.498,2.307 6.229,28.872 c -4.455,-2.578 -11.631,-4.252 -19.727,-4.252 -8.104,0 -15.281,1.676 -19.734,4.257 l 6.15,-28.959 0.42,-1.975 3.438,-0.033 c -2.254,-0.839 -4.371,-1.955 -6.305,-3.317 -6.602,-4.646 -11.094,-12.086 -11.768,-20.604 -0.061,-0.289 -0.092,-0.588 -0.092,-0.896 l 0,-1.297 c 0,-0.01 -0.004,-0.018 -0.004,-0.025 z"},ms);
-        grupoManoDer.select("ellipse[id='RELLENO_2_206_']").animate({transform:"t0, 0"},ms);
-        grupoManoDer.select("ellipse[id='RELLENO_2_205_']").animate({transform:"t0, 0"},ms);
-        grupoManoDer.select("path[id='bordeRellenoMano103']").animate({transform:"t0, 0"},ms, function(){
+        grupoManoDer.select("ellipse[id='RELLENO_2_206_']").animate({transform:"t0, 300"},ms);
+        grupoManoDer.select("ellipse[id='RELLENO_2_205_']").animate({transform:"t0, 300"},ms);
+        grupoManoDer.select("path[id='bordeRellenoMano103']").animate({transform:"t0, 300"},ms, function(){
             animCierreDedos(500);
         });
     }
