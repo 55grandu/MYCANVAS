@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 17.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 2560 1440" style="enable-background:new 0 0 2560 1440;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#FFCF48;}
+	.st1{fill:url(#DEGRADADO_1_);}
+	.st2{fill:none;}
+	.st3{fill:#FFFFFF;}
+	.st4{font-family:'Lato-Black';}
+	.st5{font-size:64.3742;}
+	.st6{font-family:'Lato-Regular';}
+	.st7{font-size:50.0948;}
+	.st8{fill:none;stroke:#FFFFFF;stroke-width:2;stroke-miterlimit:10;}
+	.st9{fill:#C83759;}
+	.st10{fill:url(#DEGRADADO_2_1_);}
+	.st11{fill:url(#DEGRADADO_1_1_);}
+</style>
+<g id="PANTALLA_2">
+	<rect x="-12" class="st0" width="2575" height="1545"/>
+	<linearGradient id="DEGRADADO_1_" gradientUnits="userSpaceOnUse" x1="-14" y1="772.5" x2="2561" y2="772.5">
+		<stop  offset="0.2159" style="stop-color:#1CA9C9"/>
+		<stop  offset="0.3002" style="stop-color:#21AAC6"/>
+		<stop  offset="0.4042" style="stop-color:#30ACBD"/>
+		<stop  offset="0.5184" style="stop-color:#49B1AF"/>
+		<stop  offset="0.6401" style="stop-color:#6CB69B"/>
+		<stop  offset="0.7677" style="stop-color:#99BE82"/>
+		<stop  offset="0.8981" style="stop-color:#CFC763"/>
+		<stop  offset="1" style="stop-color:#FFCF48"/>
+	</linearGradient>
+	<polygon id="DEGRADADO" class="st1" points="2561,1545 -14,1545 -14,511.267 511.269,0 2561,0 	"/>
+	<rect x="149.055" y="578.833" class="st2" width="960.263" height="1019.736"/>
+	<text id="DESCRIPCION" transform="matrix(1 0 0 1 149.0542 624.5379)"><tspan x="0" y="0" class="st3 st4 st5">London Type</tspan><tspan x="0" y="60.113" class="st3 st6 st7">Es un proyecto colaborativo que busca </tspan><tspan x="0" y="120.228" class="st3 st6 st7">explorar los limites de la tecnología aplicada </tspan><tspan x="0" y="180.341" class="st3 st6 st7">al área visual y movil.</tspan><tspan x="0" y="300.568" class="st3 st6 st7">Gracias a la intervención de diferentes artistas </tspan><tspan x="0" y="360.683" class="st3 st6 st7">visuales y desarrolladores, hemos utilizado </tspan><tspan x="0" y="420.796" class="st3 st6 st7">HTML y librerias de Paper.js para crear un </tspan><tspan x="0" y="480.91" class="st3 st6 st7">experiencia de usuario interactiva e </tspan><tspan x="0" y="541.023" class="st3 st6 st7">innovadora.</tspan><tspan x="0" y="721.364" class="st3 st4 st7">Contacto</tspan><tspan x="0" y="781.479" class="st3 st6 st7">hi@londontypes.com</tspan></text>
+	<g id="CREDITOS">
+		<rect x="1585.035" y="105.83" class="st2" width="854.761" height="495.666"/>
+		<text transform="matrix(1 0 0 1 1585.0352 151.5347)"><tspan x="0" y="0" class="st3 st4 st5">Designers</tspan><tspan x="700.07" y="120.228" class="st3 st6 st7">Velckro</tspan><tspan x="587.259" y="180.341" class="st3 st6 st7">MAST Studio</tspan><tspan x="607.698" y="240.455" class="st3 st6 st7">Pedro Cobo</tspan><tspan x="613.96" y="300.568" class="st3 st6 st7">Pablo Abad</tspan><tspan x="326.771" y="360.683" class="st3 st6 st7">Attitude Visual Art Studio</tspan></text>
+		<rect x="1585.035" y="607.531" class="st2" width="854.761" height="611.873"/>
+		<text transform="matrix(1 0 0 1 1585.0345 653.2379)"><tspan x="0" y="0" class="st3 st4 st5">Developers</tspan><tspan x="609.502" y="120.228" class="st3 st6 st7">Javier Pérez</tspan><tspan x="535.764" y="180.341" class="st3 st6 st7">Monica Lirugyli</tspan><tspan x="343.452" y="240.455" class="st3 st6 st7">David Gonzalez Vaquero</tspan><tspan x="234.349" y="300.568" class="st3 st6 st7">Manuel Jesús Dávila González</tspan><tspan x="591.868" y="360.683" class="st3 st6 st7">Rennie Scott</tspan></text>
+		<line class="st8" x1="1585" y1="201" x2="2440" y2="201"/>
+		<line class="st8" x1="1585" y1="700" x2="2440" y2="700"/>
+		<rect x="1585.035" y="1124.536" class="st2" width="854.761" height="341.988"/>
+		<text transform="matrix(1 0 0 1 1585.0345 1170.2421)"><tspan x="0" y="0" class="st3 st4 st5">Special thanks</tspan><tspan x="532.657" y="120.228" class="st3 st6 st7">Luis Hernandez</tspan><tspan x="618.317" y="180.341" class="st3 st6 st7">The Feelms</tspan><tspan x="504.203" y="240.455" class="st3 st6 st7">Alvaro Cuadrado</tspan></text>
+		<line class="st8" x1="1585" y1="1217" x2="2440" y2="1217"/>
+	</g>
+	<polygon id="ESQUINA" class="st9" points="511.268,0 -14,511.267 -14,0 	"/>
+</g>
+</svg>

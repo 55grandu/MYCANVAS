@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 17.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 1280 768" style="enable-background:new 0 0 1280 768;" xml:space="preserve">
+<g id="PANTALLA_2">
+	<rect style="fill:#FFCF48;" width="1280" height="768"/>
+	<linearGradient id="DEGRADADO_1_" gradientUnits="userSpaceOnUse" x1="-1" y1="384" x2="1279" y2="384">
+		<stop  offset="0.2159" style="stop-color:#1CA9C9"/>
+		<stop  offset="0.3002" style="stop-color:#21AAC6"/>
+		<stop  offset="0.4042" style="stop-color:#30ACBD"/>
+		<stop  offset="0.5184" style="stop-color:#49B1AF"/>
+		<stop  offset="0.6401" style="stop-color:#6CB69B"/>
+		<stop  offset="0.7677" style="stop-color:#99BE82"/>
+		<stop  offset="0.8981" style="stop-color:#CFC763"/>
+		<stop  offset="1" style="stop-color:#FFCF48"/>
+	</linearGradient>
+	<polygon id="DEGRADADO" style="fill:url(#DEGRADADO_1_);" points="1279,768 -1,768 -1,254.148 260.108,0 1279,0 	"/>
+	<rect x="80.054" y="287.734" style="fill:none;" width="477.341" height="506.904"/>
+	<text id="DESCRIPCION" transform="matrix(1 0 0 1 80.0537 310.4629)" style="display:none;"><tspan x="0" y="0" style="display:inline;fill:#FFFFFF; font-family:'Lato-Black'; font-size:32;">London Type</tspan><tspan x="0" y="29.882" style="display:inline;fill:#FFFFFF; font-family:'Lato-Regular'; font-size:24.9018;">Es un proyecto colaborativo que busca </tspan><tspan x="0" y="59.764" style="display:inline;fill:#FFFFFF; font-family:'Lato-Regular'; font-size:24.9018;">explorar los limites de la tecnología aplicada </tspan><tspan x="0" y="89.646" style="display:inline;fill:#FFFFFF; font-family:'Lato-Regular'; font-size:24.9018;">al área visual y movil.</tspan><tspan x="0" y="149.411" style="display:inline;fill:#FFFFFF; font-family:'Lato-Regular'; font-size:24.9018;">Gracias a la intervención de diferentes artistas </tspan><tspan x="0" y="179.293" style="display:inline;fill:#FFFFFF; font-family:'Lato-Regular'; font-size:24.9018;">visuales y desarrolladores, hemos utilizado </tspan><tspan x="0" y="209.175" style="display:inline;fill:#FFFFFF; font-family:'Lato-Regular'; font-size:24.9018;">HTML y librerias de Paper.js para crear un </tspan><tspan x="0" y="239.057" style="display:inline;fill:#FFFFFF; font-family:'Lato-Regular'; font-size:24.9018;">experiencia de usuario interactiva e </tspan><tspan x="0" y="268.939" style="display:inline;fill:#FFFFFF; font-family:'Lato-Regular'; font-size:24.9018;">innovadora.</tspan><tspan x="0" y="358.586" style="display:inline;fill:#FFFFFF; font-family:'Lato-Black'; font-size:24.9018;">Contacto</tspan><tspan x="0" y="388.468" style="display:inline;fill:#FFFFFF; font-family:'Lato-Regular'; font-size:24.9018;">hi@londontypes.com</tspan></text>
+	<g id="CREDITOS" style="display:none;">
+		<rect x="793.87" y="52.607" style="display:inline;fill:none;" width="424.897" height="246.393"/>
+		<text transform="matrix(1 0 0 1 793.8701 75.3271)" style="display:inline;"><tspan x="0" y="0" style="fill:#FFFFFF; font-family:'Lato-Black'; font-size:32;">Designers</tspan><tspan x="348.001" y="59.764" style="fill:#FFFFFF; font-family:'Lato-Regular'; font-size:24.9018;">Velckro</tspan><tspan x="291.923" y="89.646" style="fill:#FFFFFF; font-family:'Lato-Regular'; font-size:24.9018;">MAST Studio</tspan><tspan x="302.083" y="119.529" style="fill:#FFFFFF; font-family:'Lato-Regular'; font-size:24.9018;">Pedro Cobo</tspan><tspan x="305.195" y="149.411" style="fill:#FFFFFF; font-family:'Lato-Regular'; font-size:24.9018;">Pablo Abad</tspan><tspan x="162.436" y="179.293" style="fill:#FFFFFF; font-family:'Lato-Regular'; font-size:24.9018;">Attitude Visual Art Studio</tspan></text>
+		<rect x="793.87" y="302" style="display:inline;fill:none;" width="424.897" height="304.158"/>
+		<text transform="matrix(1 0 0 1 793.8701 324.7202)" style="display:inline;"><tspan x="0" y="0" style="fill:#FFFFFF; font-family:'Lato-Black'; font-size:32;">Developers</tspan><tspan x="302.979" y="59.765" style="fill:#FFFFFF; font-family:'Lato-Regular'; font-size:24.9018;">Javier Pérez</tspan><tspan x="266.324" y="89.646" style="fill:#FFFFFF; font-family:'Lato-Regular'; font-size:24.9018;">Monica Lirugyli</tspan><tspan x="170.728" y="119.528" style="fill:#FFFFFF; font-family:'Lato-Regular'; font-size:24.9018;">David Gonzalez Vaquero</tspan><tspan x="116.493" y="149.411" style="fill:#FFFFFF; font-family:'Lato-Regular'; font-size:24.9018;">Manuel Jesús Dávila González</tspan><tspan x="294.214" y="179.293" style="fill:#FFFFFF; font-family:'Lato-Regular'; font-size:24.9018;">Rennie Scott</tspan></text>
+		
+			<line style="display:inline;fill:none;stroke:#FFFFFF;stroke-width:2;stroke-miterlimit:10;" x1="794" y1="100" x2="1219" y2="100"/>
+		
+			<line style="display:inline;fill:none;stroke:#FFFFFF;stroke-width:2;stroke-miterlimit:10;" x1="794" y1="348" x2="1219" y2="348"/>
+		<rect x="793.87" y="559" style="display:inline;fill:none;" width="424.897" height="170"/>
+		<text transform="matrix(1 0 0 1 793.8701 581.7202)" style="display:inline;"><tspan x="0" y="0" style="fill:#FFFFFF; font-family:'Lato-Black'; font-size:32;">Special thanks</tspan><tspan x="264.78" y="59.765" style="fill:#FFFFFF; font-family:'Lato-Regular'; font-size:24.9018;">Luis Hernandez</tspan><tspan x="307.361" y="89.646" style="fill:#FFFFFF; font-family:'Lato-Regular'; font-size:24.9018;">The Feelms</tspan><tspan x="250.636" y="119.528" style="fill:#FFFFFF; font-family:'Lato-Regular'; font-size:24.9018;">Alvaro Cuadrado</tspan></text>
+		
+			<line style="display:inline;fill:none;stroke:#FFFFFF;stroke-width:2;stroke-miterlimit:10;" x1="794" y1="605" x2="1219" y2="605"/>
+	</g>
+	<polygon id="ESQUINA" style="fill:#C83759;" points="260.107,0 -1,254.148 -1,0 	"/>
+</g>
+<g id="PANTALLA_1" style="display:none;">
+	<linearGradient id="DEGRADADO_2_1_" gradientUnits="userSpaceOnUse" x1="260.1074" y1="-384" x2="1280" y2="-384">
+		<stop  offset="0.2814" style="stop-color:#1CA9C9"/>
+		<stop  offset="1" style="stop-color:#FFCF48"/>
+	</linearGradient>
+	<polygon id="DEGRADADO_2" style="display:inline;fill:url(#DEGRADADO_2_1_);" points="1280,0 260.107,0 1024.198,-768 1280,-768 	
+		"/>
+	<linearGradient id="DEGRADADO_1_1_" gradientUnits="userSpaceOnUse" x1="0" y1="-384" x2="1024.1981" y2="-384">
+		<stop  offset="0" style="stop-color:#C83759"/>
+		<stop  offset="0.1627" style="stop-color:#C73959"/>
+		<stop  offset="0.5253" style="stop-color:#AE7E4C"/>
+		<stop  offset="0.8453" style="stop-color:#9BB441"/>
+		<stop  offset="1" style="stop-color:#93C93D"/>
+	</linearGradient>
+	<polygon id="DEGRADADO_1" style="display:inline;fill:url(#DEGRADADO_1_1_);" points="0,0 0,-768 1024.198,-768 260.107,0 	"/>
+</g>
+</svg>
