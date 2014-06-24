@@ -105,4 +105,5 @@ window.onload = function(){
         s.append(fondo);
         s.append(circuloSuperiorSup);
     });
+
 }

@@ -273,7 +273,7 @@ var peterCobo = function() {
     }
 
     var animation_3 = function(f, svg) {
-        var animation = {};
+        var animation = {}, intervalCierre = null;
         s = new Snap(svg);
 
         var ojo = f.select("path[id='ojo']"),
@@ -340,6 +340,8 @@ var peterCobo = function() {
 
             animation.pause.animBolaVerde = animBolaVerde.stop();
             animation.pause.animBolaRoja = animBolaRoja.stop();
+
+            clearInterval(intervalCierre);
         }
 
         animation.resume = function() {
@@ -379,17 +381,21 @@ var peterCobo = function() {
                     groupInteriorOjo.select("circle[id='circuloRojo']").animate({r:"11.612"},1000);
 
                     funcAnimBolaRoja();
+
+                    intervalCierre = setInterval(function(){
+                        animCierreInterIrisPupila(800);
+                    },2000);
                 });
             });
         }
 
         function funcAnimBolaVerde(){
             var lenInterIrisPupila = groupInteriorOjo.select("path[id='interIrisPupila']").getTotalLength();
-            animBolaVerde = Snap.animate(0, lenInterIrisPupila, function (value) {
+            animBolaVerde = Snap.animate(lenInterIrisPupila, 0, function (value) {
                 var movePoint = groupInteriorOjo.select("path[id='interIrisPupila']").getPointAtLength(value);
 
                 groupInteriorOjo.select("circle[id='circuloVerde']").attr({cx: parseInt(movePoint.x), cy:  parseInt(movePoint.y)});
-            }, 2500, function(){
+            }, 1000, function(){
                 funcAnimBolaVerde();
             });
         }
@@ -403,6 +409,30 @@ var peterCobo = function() {
             }, 1000, function(){
                 funcAnimBolaRoja();
             });
+        }
+
+        function animCierreInterIrisPupila(ms){
+            clearInterval(intervalCierre);
+            groupInteriorOjo.select("circle[id='circuloVerde']").animate({r:"0"},1000);
+            groupInteriorOjo.select("circle[id='circuloRojo']").animate({r:"0"},1000, function(){
+                animBolaRoja.stop();
+                animBolaVerde.stop();
+                    groupInteriorOjo.select("path[id='pupila']").animate({transform:"t0,-300 s0"},ms);
+                    groupInteriorOjo.select("path[id='interIrisPupila']").animate({transform:"t0,-300 s0"},ms);
+                    animCierreIris(800);
+                    animCierreOjo(800);
+                //});
+            });
+        }
+
+        function animCierreIris (ms){
+            groupInteriorOjo.animate({transform:"t0,-300"},ms);
+        }
+
+        function animCierreOjo (ms){
+            ojo.animate({d:"M 316.675,186 Q 271.304,186 160,186 Q 48.697,186 3.326,186 Q 48.697,186 160,186 Q 271.304,186 316.675,186"},ms);
+            ojo2.animate({d:"M 316.675,186 Q 271.304,186 160,186 Q 48.697,186 3.326,186 Q 48.697,186 160,186 Q 271.304,186 316.675,186"},ms);
+            panel.animate({d:"M0,0 V0,186 Q 48.697,186 160,186 Q 271.304,186 320.675,186 V316.675,0z"},ms);
         }
 
         s.append(panel);
