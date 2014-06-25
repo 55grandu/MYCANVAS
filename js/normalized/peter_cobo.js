@@ -273,53 +273,48 @@ var peterCobo = function() {
     }
 
     var animation_3 = function(f, svg) {
-        var animation = {}, intervalCierre = null;
         s = new Snap(svg);
 
-        var ojo = f.select("path[id='ojo']"),
-            ojo2 = f.select("path[id='ojo2']"),
-            panel = f.select("path[id='panel']"),
-            iris = f.select("circle[id='iris']"),
-            pupila = f.select("path[id='pupila']"),
-            interIrisPupila = f.select("path[id='interIrisPupila']"),
-            circuloRojo = f.select("circle[id='circuloRojo']"),
-            circuloVerde = f.select("circle[id='circuloVerde']"),
-            groupInteriorOjo = s.group(iris,interIrisPupila, pupila, circuloRojo, circuloVerde);
+        var animation = {}, 
+            ojo = null, ojo2 = null; panel = null, iris = null, pupila = null, interIrisPupila = null, circuloRojo = null, circuloVerde = null, 
+            groupInteriorOjo = null, groupContornoOjo = null,
+            intervalAbreIris = null, intervalAbreBolaVerde = null, intervalAbreBolaRoja = null, intervalMueveBolaVerde = null, intervalMueveBolaRoja = null, intervalCierre = null,
+            lenPupila = null, lenInterIrisPupila = null,
+            animBolaVerde = null, animBolaRoja = null,
+            cxBolaVerde = 0, cyBolaVerde = 0, cxBolaRoja = 0, cyBolaRoja = 0;
 
-        // Inicializamos el ojo a la linea
-        ojo.attr({d:"M 316.675,186 Q 271.304,186 160,186 Q 48.697,186 3.326,186 Q 48.697,186 160,186 Q 271.304,186 316.675,186"});
-        ojo2.attr({d:"M 316.675,186 Q 271.304,186 160,186 Q 48.697,186 3.326,186 Q 48.697,186 160,186 Q 271.304,186 316.675,186"});
+        ojo = f.select("path[id='ojo']");
+        ojo2 = f.select("path[id='ojo2']");
+        panel = f.select("path[id='panel']");
+        iris = f.select("circle[id='iris']");
+        pupila = f.select("path[id='pupila']");
+        interIrisPupila = f.select("path[id='interIrisPupila']");
+        circuloRojo = f.select("circle[id='circuloRojo']");
+        circuloVerde = f.select("circle[id='circuloVerde']");
 
-        groupInteriorOjo.attr({transform:"t0,-300"});
-        groupInteriorOjo.select("path[id='pupila']").attr({transform:"t0,-300 s0"});
-        groupInteriorOjo.select("path[id='interIrisPupila']").attr({transform:"t0,-300 s0"});
-        groupInteriorOjo.select("circle[id='circuloRojo']").attr({transform:"t0,-300",r:"0"});
-        groupInteriorOjo.select("circle[id='circuloVerde']").attr({transform:"t0,-300",r:"0"});
+        groupInteriorOjo = s.group(iris,interIrisPupila, pupila, circuloRojo, circuloVerde);
+        groupContornoOjo = s.group(ojo, ojo2);
 
+        lenPupila = pupila.getTotalLength();
+        lenInterIrisPupila = interIrisPupila.getTotalLength();
+
+        // Play animation
         animation.play = function() {
             // Inicializamos el ojo a la linea
             ojo.attr({d:"M 316.675,186 Q 271.304,186 160,186 Q 48.697,186 3.326,186 Q 48.697,186 160,186 Q 271.304,186 316.675,186"});
             ojo2.attr({d:"M 316.675,186 Q 271.304,186 160,186 Q 48.697,186 3.326,186 Q 48.697,186 160,186 Q 271.304,186 316.675,186"});
             panel.attr({d:"M0,0 V0,186 Q 48.697,186 160,186 Q 271.304,186 320.675,186 V316.675,0z"});
 
-            var lenInterIrisPupila = groupInteriorOjo.select("path[id='interIrisPupila']").getTotalLength();
-            groupInteriorOjo.select("path[id='interIrisPupila']").attr({strokeDasharray: lenInterIrisPupila + " " + lenInterIrisPupila, strokeDashoffset: "0"});
-
-            var lenPupila = groupInteriorOjo.select("path[id='pupila']").getTotalLength();
-            groupInteriorOjo.select("path[id='pupila']").attr({strokeDasharray: lenPupila + " " + lenPupila, strokeDashoffset: "0"});
-
-            groupInteriorOjo.attr({transform:"t0,-300"});
-            groupInteriorOjo.select("path[id='pupila']").attr({transform:"t0,-300 s0"});
-            groupInteriorOjo.select("path[id='interIrisPupila']").attr({transform:"t0,-300 s0"});
-            groupInteriorOjo.select("circle[id='circuloRojo']").attr({r:"0"});
-            groupInteriorOjo.select("circle[id='circuloVerde']").attr({r:"0"});
+            iris.attr({transform:"t0,-120"});
+            pupila.attr({transform:"t0,-120 s0"});
+            interIrisPupila.attr({transform:"t0,-120 s0"});
+            circuloRojo.attr({r:"0"});
+            circuloVerde.attr({r:"0"});
 
             this.timestapInit = new Date().getTime();
             this.timeConsumed = 0;
 
-            animacionOjo(800);
-            animacionIris(800);
-            animacionInterIrisPupila(400);
+            animAperturaOjo(300);
         }
 
         animation.pause = function() {
@@ -330,7 +325,7 @@ var peterCobo = function() {
             animation.pause.circuloRojo = circuloRojo.stop();
             animation.pause.circuloVerde = circuloVerde.stop();
             animation.pause.interIrisPupila = interIrisPupila.stop();
-            animation.pause.groupInteriorOjo = groupInteriorOjo.stop();
+
             this.timestapPause = new Date().getTime();
             var diff = this.timestapPause - this.timestapInit;
             console.log(diff);
@@ -342,102 +337,199 @@ var peterCobo = function() {
             animation.pause.animBolaRoja = animBolaRoja.stop();
 
             clearInterval(intervalCierre);
+            clearInterval(intervalAbreIris);
+            clearInterval(intervalAbreBolaVerde);
+            clearInterval(intervalMueveBolaVerde);
+            clearInterval(intervalAbreBolaRoja);
+            clearInterval(intervalMueveBolaRoja);
         }
 
         animation.resume = function() {
+            if(this.timeConsumed > 1 && this.timeConsumed < 150){
+                animAperturaOjo(300 - this.timeConsumed);
+                intervalAbreIris = setInterval(function(){
+                    animAperturaIris(300);
+                },(150 - this.timeConsumed));
+                intervalCierre = setInterval(function(){
+                    animCierrePupila(300);
+                },(3000 - this.timeConsumed));
+            }else if(this.timeConsumed > 150 && this.timeConsumed < 300){
+                animAperturaOjo(300 - this.timeConsumed);
+                animAperturaIris(450 - this.timeConsumed);
+                intervalCierre = setInterval(function(){
+                    animCierrePupila(300);
+                },(3000 - this.timeConsumed));
+            }else if(this.timeConsumed > 300 && this.timeConsumed < 400){
+                animAperturaIris(450 - this.timeConsumed);
+                intervalAbreBolaVerde = setInterval(function(){
+                    animAperturaBolaVerde(300);
+                },(400 - this.timeConsumed));
+                intervalCierre = setInterval(function(){
+                    animCierrePupila(300);
+                },(3000 - this.timeConsumed));
+            }else if(this.timeConsumed > 400 && this.timeConsumed < 450){
+                animAperturaIris(450 - this.timeConsumed);
+                animAperturaBolaVerde(700 - this.timeConsumed);
+                intervalCierre = setInterval(function(){
+                    animCierrePupila(300);
+                },(3000 - this.timeConsumed));
+            }else if(this.timeConsumed > 450 && this.timeConsumed < 700){
+                animAperturaBolaVerde(700 - this.timeConsumed);
+                animAperutaPupila(750 - this.timeConsumed);
+                intervalCierre = setInterval(function(){
+                    animCierrePupila(300);
+                },(3000 - this.timeConsumed));
+            }else if(this.timeConsumed > 700 && this.timeConsumed < 750){
+                animAperutaPupila(750 - this.timeConsumed);
+                intervalMueveBolaVerde = setInterval(function(){
+                    funcAnimBolaVerde(1500);
+                },(2250 - this.timeConsumed));
+                intervalCierre = setInterval(function(){
+                    animCierrePupila(300);
+                },(3000 - this.timeConsumed));
+            }else if(this.timeConsumed > 750 && this.timeConsumed < 1050){
+                intervalAbreBolaRoja = setInterval(function(){
+                    animAperturaBolaRoja(300);
+                },(1050 - this.timeConsumed));
+                intervalMueveBolaVerde = setInterval(function(){
+                    funcAnimBolaVerde(1500);
+                },(2250 - this.timeConsumed));
+                intervalCierre = setInterval(function(){
+                    animCierrePupila(300);
+                },(3000 - this.timeConsumed));
+            }else if(this.timeConsumed > 1050 && this.timeConsumed < 2050){
+                intervalMueveBolaRoja = setInterval(function(){
+                    funcAnimBolaRoja(1000);
+                },(2050 - this.timeConsumed));
+                intervalMueveBolaVerde = setInterval(function(){
+                    funcAnimBolaVerde(1500);
+                },(2250 - this.timeConsumed));
+                intervalCierre = setInterval(function(){
+                    animCierrePupila(300);
+                },(3000 - this.timeConsumed));
+            }else if(this.timeConsumed > 2050 && this.timeConsumed < 3000){                
+                intervalMueveBolaRoja = setInterval(function(){
+                    funcAnimBolaRoja(950);
+                },(3000 - this.timeConsumed));
+                intervalMueveBolaVerde = setInterval(function(){
+                    funcAnimBolaVerde(750);
+                },(3000 - this.timeConsumed));
+                intervalCierre = setInterval(function(){
+                    animCierrePupila(300);
+                },(3000 - this.timeConsumed));
+            }else if(this.timeConsumed > 3000 && this.timeConsumed < 3300){
+                animCierrePupila(3300 - this.timeConsumed);
+            }else if(this.timeConsumed > 3300 && this.timeConsumed < 3900){
+                animCierreIris(3900 - this.timeConsumed);
+            }else if(this.timeConsumed > 3900 && this.timeConsumed < 4500){
+                animCierreOjo(4500 - this.timeConsumed);
+            }
+
             this.timestapInit = new Date().getTime();
-            animacionOjo(this.timeConsumed > 800?1: 800 - this.timeConsumed);
-            animacionIris(this.timeConsumed > 800?1: 800 - this.timeConsumed);
-            animacionInterIrisPupila(this.timeConsumed > 1200?1: 1200 - this.timeConsumed);
         }
 
-        function animacionOjo (ms){
+        function animAperturaOjo (ms){
             ojo.before(panel);
             ojo2.before(ojo);
             ojo.animate({d:"M 316.675,186 Q 271.304,106.5 160,106.5 Q 48.697,106.5 3.326,186 Q 48.697,265.5 160,265.5 Q 271.304,265.5 316.675,186"},ms);
             ojo2.animate({d:"M 316.675,186 Q 271.304,106.5 160,106.5 Q 48.697,106.5 3.326,186 Q 48.697,265.5 160,265.5 Q 271.304,265.5 316.675,186"},ms);
             panel.animate({d:"M 0,0 V0,186 Q 48.697,104 160,104 Q 271.304,104 320.675,186 V316.675,0z"},ms);
+
+            intervalAbreIris = setInterval(function(){
+                animAperturaIris(300);
+            },150);
+
+            intervalCierre = setInterval(function(){
+                animCierrePupila(300);
+            },3000);
         }
 
-        function animacionIris (ms){
+        function animAperturaIris (ms){
+            clearInterval(intervalAbreIris);
             groupInteriorOjo.after(panel);
             groupInteriorOjo.after(ojo2);
             groupInteriorOjo.before(ojo);
-            groupInteriorOjo.animate({transform:"t0,0"},ms);
+
+            iris.animate({transform:"t0,0"},ms);
+            //circuloVerde.animate({cx:"99.779", cy:"144.404"},ms);
+            //circuloRojo.attr({cx:"118.404", cy:"186"});
+            pupila.attr({transform:"t0,0 s0"});
+            intervalAbreBolaVerde = setInterval(function(){
+                animAperturaBolaVerde(300);
+            },250);
+            interIrisPupila.animate({transform:"t0,0 s1"},ms, function(){
+                animAperutaPupila(300);
+            });
         }
 
-        function animacionInterIrisPupila (ms){
-            groupInteriorOjo.select("path[id='interIrisPupila']").animate({transform:"t0,-150 s0"},ms, function(){
-                groupInteriorOjo.select("circle[id='circuloVerde']").attr({transform:"t0,0"});
-                groupInteriorOjo.select("circle[id='circuloVerde']").animate({r:"7.931"},1000);
+        function animAperturaBolaVerde (ms){
+            clearInterval(intervalAbreBolaVerde);
+            circuloVerde.animate({r:"7.931"},ms);
+            funcAnimBolaVerde(1500);
+            intervalMueveBolaVerde = setInterval(function(){
+                funcAnimBolaVerde(1500);
+            },1500);
+        }
 
-                funcAnimBolaVerde();
-                groupInteriorOjo.select("path[id='interIrisPupila']").animate({transform:"t0,0 s1"},ms, function(){
-                    groupInteriorOjo.select("path[id='pupila']").attr({transform:"t0,0"});
-                    groupInteriorOjo.select("circle[id='circuloRojo']").attr({transform:"t0,0"});
+        function animAperutaPupila (ms){
+            pupila.animate({transform:"t0,0 s1"},ms);
+            intervalAbreBolaRoja = setInterval(function(){
+                animAperturaBolaRoja(300);
+            },300);
+        }
 
-                    groupInteriorOjo.select("path[id='pupila']").animate({transform:"t0,0 s1"},ms);
+        function animAperturaBolaRoja (ms){
+            clearInterval(intervalAbreBolaRoja);
+            circuloRojo.animate({r:"11.612"},ms);
+            funcAnimBolaRoja(1000);
+            intervalMueveBolaRoja = setInterval(function(){
+                funcAnimBolaRoja(1000);
+            },1000);
+        }
 
-                    groupInteriorOjo.select("circle[id='circuloRojo']").animate({r:"11.612"},1000);
+        function funcAnimBolaVerde(ms){
+            animBolaVerde = Snap.animate(lenInterIrisPupila, 0, function (value) {
+                var movePoint = interIrisPupila.getPointAtLength(value);
+                
+                circuloVerde.attr({cx: parseInt(movePoint.x), cy:  parseInt(movePoint.y)});
+            }, ms);
+        }
 
-                    funcAnimBolaRoja();
+        function funcAnimBolaRoja(ms){
+            animBolaRoja = Snap.animate(0, lenPupila, function (value) {
+                var movePoint = pupila.getPointAtLength(value);
 
-                    intervalCierre = setInterval(function(){
-                        animCierreInterIrisPupila(800);
-                    },2000);
+                circuloRojo.attr({cx: parseInt(movePoint.x), cy:  parseInt(movePoint.y)});
+            }, ms);
+        }
+
+        function animCierrePupila(ms){
+            clearInterval(intervalCierre);
+            circuloRojo.animate({r:"0"},ms, function(){
+                clearInterval(intervalMueveBolaRoja);
+                animBolaRoja.stop();
+                pupila.animate({transform:"t0,0 s0"},ms, function(){
+                    animCierreIris(300);
                 });
             });
         }
 
-        function funcAnimBolaVerde(){
-            var lenInterIrisPupila = groupInteriorOjo.select("path[id='interIrisPupila']").getTotalLength();
-            animBolaVerde = Snap.animate(lenInterIrisPupila, 0, function (value) {
-                var movePoint = groupInteriorOjo.select("path[id='interIrisPupila']").getPointAtLength(value);
-
-                groupInteriorOjo.select("circle[id='circuloVerde']").attr({cx: parseInt(movePoint.x), cy:  parseInt(movePoint.y)});
-            }, 1000, function(){
-                funcAnimBolaVerde();
-            });
-        }
-
-        function funcAnimBolaRoja(){
-            var lenPupila = groupInteriorOjo.select("path[id='pupila']").getTotalLength();
-            animBolaRoja = Snap.animate(0, lenPupila, function (value) {
-                var movePoint = groupInteriorOjo.select("path[id='pupila']").getPointAtLength(value);
-
-                groupInteriorOjo.select("circle[id='circuloRojo']").attr({cx: parseInt(movePoint.x), cy:  parseInt(movePoint.y)});
-            }, 1000, function(){
-                funcAnimBolaRoja();
-            });
-        }
-
-        function animCierreInterIrisPupila(ms){
-            clearInterval(intervalCierre);
-            groupInteriorOjo.select("circle[id='circuloVerde']").animate({r:"0"},1000);
-            groupInteriorOjo.select("circle[id='circuloRojo']").animate({r:"0"},1000, function(){
-                animBolaRoja.stop();
+        function animCierreIris(ms){
+            circuloVerde.animate({r:"0"},ms, function(){
+                clearInterval(intervalMueveBolaVerde);
                 animBolaVerde.stop();
-                    groupInteriorOjo.select("path[id='pupila']").animate({transform:"t0,-300 s0"},ms);
-                    groupInteriorOjo.select("path[id='interIrisPupila']").animate({transform:"t0,-300 s0"},ms);
-                    animCierreIris(800);
-                    animCierreOjo(800);
-                //});
+                interIrisPupila.animate({transform:"t0,-120 s0"},ms);
+                iris.animate({transform:"t0,-120"},ms, function(){
+                    animCierreOjo(300);
+                });
             });
         }
 
-        function animCierreIris (ms){
-            groupInteriorOjo.animate({transform:"t0,-300"},ms);
-        }
-
-        function animCierreOjo (ms){
+        function animCierreOjo(ms){
             ojo.animate({d:"M 316.675,186 Q 271.304,186 160,186 Q 48.697,186 3.326,186 Q 48.697,186 160,186 Q 271.304,186 316.675,186"},ms);
             ojo2.animate({d:"M 316.675,186 Q 271.304,186 160,186 Q 48.697,186 3.326,186 Q 48.697,186 160,186 Q 271.304,186 316.675,186"},ms);
             panel.animate({d:"M0,0 V0,186 Q 48.697,186 160,186 Q 271.304,186 320.675,186 V316.675,0z"},ms);
         }
-
-        s.append(panel);
-        s.append(ojo);
-        s.append(ojo2);
 
         return {
             play: animation.play,

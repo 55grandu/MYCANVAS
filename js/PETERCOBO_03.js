@@ -5,31 +5,14 @@ window.onload = function(){
     Snap.load("img/PETERCOBO_03_1.svg", function (f) {
         var ojo = f.select("path[id='ojo']"),
             ojo2 = f.select("path[id='ojo2']"),
-            //panel = f.select("path[id='panel']"),
+            panel = f.select("path[id='panel']"),
             iris = f.select("circle[id='iris']"),
             pupila = f.select("path[id='pupila']"),
             interIrisPupila = f.select("path[id='interIrisPupila']"),
             circuloRojo = f.select("circle[id='circuloRojo']"),
             circuloVerde = f.select("circle[id='circuloVerde']"),
-            circuloIris = s.circle(160,186,61).attr({stroke:"silver","strokeWidth":61, fill:"silver"}),
-            groupCirculoIris = s.group(circuloIris,circuloIris),
             groupInteriorOjo = s.group(iris,interIrisPupila, pupila, circuloRojo, circuloVerde);
 
-        //s.append(ojo);
-        //s.append(ojo2);
-
-        groupInteriorOjo.attr({mask:groupCirculoIris});
-
-        //groupInteriorOjo.before(ojo);
-        //groupInteriorOjo.after(ojo2);
-        //panel.animate({transform:"t0,0"},1);
-
-        groupCirculoIris.animate({transform:"t0,0"},1);
-
-        groupInteriorOjo.animate({transform:"t0,100"},2000);
-        //groupCirculoIris.animate({transform:"t0,-100"},2000);
-
-        /*
         // Inicializamos el ojo a la linea
         ojo.attr({d:"M 316.675,186 Q 271.304,186 160,186 Q 48.697,186 3.326,186 Q 48.697,186 160,186 Q 271.304,186 316.675,186"});
         ojo2.attr({d:"M 316.675,186 Q 271.304,186 160,186 Q 48.697,186 3.326,186 Q 48.697,186 160,186 Q 271.304,186 316.675,186"});
@@ -62,8 +45,8 @@ window.onload = function(){
             this.timeConsumed = 0;
 
             animacionOjo(800);
-            animacionIris(800);
-            animacionInterIrisPupila(400);
+            //animacionIris(800);
+            //animacionInterIrisPupila(400);
         }
 
         animation.pause = function() {
@@ -86,10 +69,28 @@ window.onload = function(){
             animation.pause.animBolaRoja = animBolaRoja.stop();
 
             clearInterval(intervalCierre);
+            clearInterval(animIntervalIris);
+            clearInterval(animIntervalInterIris);
         }
 
         animation.resume = function() {
             this.timestapInit = new Date().getTime();
+            /*if(this.timeConsumed > 1 && this.timeConsumed < 800){
+                animacionOjo(800 - this.timeConsumed);
+            }else if(this.timeConsumed > 800 && this.timeConsumed < 1200){
+                animacionIris(1200 - this.timeConsumed);
+                animacionInterIrisPupila(1200 - this.timeConsumed);
+            }else if(this.timeConsumed > 1600 && this.timeConsumed < 3600){
+                intervalCierre = setInterval(function(){
+                    animCierreInterIrisPupila(800);
+                },(3600 - this.timeConsumed));
+            }else if(this.timeConsumed > 3600 && this.timeConsumed < 4400){
+                animCierreInterIrisPupila(4400 - this.timeConsumed);
+            }else if(this.timeConsumed > 4400 && this.timeConsumed < 5200){
+                animCierreIris(5200 - this.timeConsumed);
+                animCierreOjo(5200 - this.timeConsumed);
+            }*/
+
             animacionOjo(this.timeConsumed > 800?1: 800 - this.timeConsumed);
             animacionIris(this.timeConsumed > 800?1: 800 - this.timeConsumed);
             animacionInterIrisPupila(this.timeConsumed > 1200?1: 1200 - this.timeConsumed);
@@ -101,9 +102,16 @@ window.onload = function(){
             ojo.animate({d:"M 316.675,186 Q 271.304,106.5 160,106.5 Q 48.697,106.5 3.326,186 Q 48.697,265.5 160,265.5 Q 271.304,265.5 316.675,186"},ms);
             ojo2.animate({d:"M 316.675,186 Q 271.304,106.5 160,106.5 Q 48.697,106.5 3.326,186 Q 48.697,265.5 160,265.5 Q 271.304,265.5 316.675,186"},ms);
             panel.animate({d:"M 0,0 V0,186 Q 48.697,104 160,104 Q 271.304,104 320.675,186 V316.675,0z"},ms);
+            animIntervalIris = setInterval(function(){
+                animacionIris(400);
+            },400);
+            animIntervalInterIris = setInterval(function(){
+                animacionInterIrisPupila(400);
+            },400);
         }
 
         function animacionIris (ms){
+            clearInterval(animIntervalIris);
             groupInteriorOjo.after(panel);
             groupInteriorOjo.after(ojo2);
             groupInteriorOjo.before(ojo);
@@ -111,6 +119,7 @@ window.onload = function(){
         }
 
         function animacionInterIrisPupila (ms){
+            clearInterval(animIntervalInterIris);
             groupInteriorOjo.select("path[id='interIrisPupila']").animate({transform:"t0,-150 s0"},ms, function(){
                 groupInteriorOjo.select("circle[id='circuloVerde']").attr({transform:"t0,0"});
                 groupInteriorOjo.select("circle[id='circuloVerde']").animate({r:"7.931"},1000);
@@ -178,8 +187,10 @@ window.onload = function(){
             ojo2.animate({d:"M 316.675,186 Q 271.304,186 160,186 Q 48.697,186 3.326,186 Q 48.697,186 160,186 Q 271.304,186 316.675,186"},ms);
             panel.animate({d:"M0,0 V0,186 Q 48.697,186 160,186 Q 271.304,186 320.675,186 V316.675,0z"},ms);
         }
-*/
-      
+
+        s.append(panel);
+        s.append(ojo);
+        s.append(ojo2);
 	    //animation.play();
 	    document.getElementById('play').onclick=function(){animation.play();};
 	    document.getElementById('pause').onclick=function(){animation.pause();};
