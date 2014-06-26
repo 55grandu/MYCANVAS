@@ -285,15 +285,12 @@ var peterCobo = function() {
 
         ojo = f.select("path[id='ojo']");
         ojo2 = f.select("path[id='ojo2']");
-        panel = f.select("path[id='panel']");
+        //panel = f.select("path[id='panel']");
         iris = f.select("circle[id='iris']");
         pupila = f.select("path[id='pupila']");
         interIrisPupila = f.select("path[id='interIrisPupila']");
         circuloRojo = f.select("circle[id='circuloRojo']");
         circuloVerde = f.select("circle[id='circuloVerde']");
-
-        groupInteriorOjo = s.group(iris,interIrisPupila, pupila, circuloRojo, circuloVerde);
-        groupContornoOjo = s.group(ojo, ojo2);
 
         lenPupila = pupila.getTotalLength();
         lenInterIrisPupila = interIrisPupila.getTotalLength();
@@ -303,13 +300,20 @@ var peterCobo = function() {
             // Inicializamos el ojo a la linea
             ojo.attr({d:"M 316.675,186 Q 271.304,186 160,186 Q 48.697,186 3.326,186 Q 48.697,186 160,186 Q 271.304,186 316.675,186"});
             ojo2.attr({d:"M 316.675,186 Q 271.304,186 160,186 Q 48.697,186 3.326,186 Q 48.697,186 160,186 Q 271.304,186 316.675,186"});
-            panel.attr({d:"M0,0 V0,186 Q 48.697,186 160,186 Q 271.304,186 320.675,186 V316.675,0z"});
+            //panel.attr({d:"M0,0 V0,186 Q 48.697,186 160,186 Q 271.304,186 320.675,186 V316.675,0z"});
+
+            groupInteriorOjo = s.group(iris, interIrisPupila, pupila, circuloRojo, circuloVerde);
+            groupContornoOjo = s.group(ojo, ojo2);
 
             iris.attr({transform:"t0,-120"});
             pupila.attr({transform:"t0,-120 s0"});
             interIrisPupila.attr({transform:"t0,-120 s0"});
             circuloRojo.attr({r:"0"});
             circuloVerde.attr({r:"0"});
+
+            groupInteriorOjo.attr({ mask : ojo2 });
+
+            groupInteriorOjo.before(ojo);
 
             this.timestapInit = new Date().getTime();
             this.timeConsumed = 0;
@@ -320,7 +324,7 @@ var peterCobo = function() {
         animation.pause = function() {
             animation.pause.ojo = ojo.stop();
             animation.pause.ojo2 = ojo2.stop();
-            animation.pause.panel = panel.stop();
+            //animation.pause.panel = panel.stop();
             animation.pause.iris = iris.stop();
             animation.pause.circuloRojo = circuloRojo.stop();
             animation.pause.circuloVerde = circuloVerde.stop();
@@ -429,11 +433,11 @@ var peterCobo = function() {
         }
 
         function animAperturaOjo (ms){
-            ojo.before(panel);
-            ojo2.before(ojo);
+            //ojo.before(panel);
+            //ojo2.before(ojo);
             ojo.animate({d:"M 316.675,186 Q 271.304,106.5 160,106.5 Q 48.697,106.5 3.326,186 Q 48.697,265.5 160,265.5 Q 271.304,265.5 316.675,186"},ms);
             ojo2.animate({d:"M 316.675,186 Q 271.304,106.5 160,106.5 Q 48.697,106.5 3.326,186 Q 48.697,265.5 160,265.5 Q 271.304,265.5 316.675,186"},ms);
-            panel.animate({d:"M 0,0 V0,186 Q 48.697,104 160,104 Q 271.304,104 320.675,186 V316.675,0z"},ms);
+            //panel.animate({d:"M 0,0 V0,186 Q 48.697,104 160,104 Q 271.304,104 320.675,186 V316.675,0z"},ms);
 
             intervalAbreIris = setInterval(function(){
                 animAperturaIris(300);
@@ -446,9 +450,9 @@ var peterCobo = function() {
 
         function animAperturaIris (ms){
             clearInterval(intervalAbreIris);
-            groupInteriorOjo.after(panel);
-            groupInteriorOjo.after(ojo2);
-            groupInteriorOjo.before(ojo);
+            //groupInteriorOjo.after(panel);
+            //groupInteriorOjo.after(ojo2);
+            //groupInteriorOjo.before(ojo);
 
             iris.animate({transform:"t0,0"},ms);
             //circuloVerde.animate({cx:"99.779", cy:"144.404"},ms);
@@ -528,7 +532,7 @@ var peterCobo = function() {
         function animCierreOjo(ms){
             ojo.animate({d:"M 316.675,186 Q 271.304,186 160,186 Q 48.697,186 3.326,186 Q 48.697,186 160,186 Q 271.304,186 316.675,186"},ms);
             ojo2.animate({d:"M 316.675,186 Q 271.304,186 160,186 Q 48.697,186 3.326,186 Q 48.697,186 160,186 Q 271.304,186 316.675,186"},ms);
-            panel.animate({d:"M0,0 V0,186 Q 48.697,186 160,186 Q 271.304,186 320.675,186 V316.675,0z"},ms);
+            //panel.animate({d:"M0,0 V0,186 Q 48.697,186 160,186 Q 271.304,186 320.675,186 V316.675,0z"},ms);
         }
 
         return {
