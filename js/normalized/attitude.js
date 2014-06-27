@@ -440,12 +440,13 @@ var attitude = function() {
         var anim = {};
 
         var grupoPiramide = null, bloqueOcultaPiramide = null, bordeOjo = null, rellonoOjo = null, grupoOjoInt = null, grupoPestanas = null, grupoMano = null, 
-            intervalPrimeraParte = null, intervalSegundaParte = null, intervalTerceraParte = null, intervalCierreCuartaParte = null, intervalCierreTerceraParte = null, intervalCierreSegundaParte = null, intervalCierreOjo = null, intervalCierreMano = null, 
+            intervalPrimeraParte = null, intervalSegundaParte = null, intervalTerceraParte = null, intervalCierreCuartaParte = null, intervalCierreTerceraParte = null, intervalCierreSegundaParte = null, intervalCierreOjo = null, intervalCierreMano = null, mascaraPiramide = null;
             loaded = false;
 
         // Cargamos los elementos del SVG
         grupoPiramide = f.select("g[id='grupoPiramide']");
-        bloqueOcultaPiramide = s.path({d:"M300,241 L0,241 L0,100 L300,100 L300,241", fill:"#FFFFFF"});
+        bloqueOcultaPiramide = s.path({d:"m 216.472,240.01 -123.403,0 61.701,-110.019 z", fill:"#FFFFFF"});
+        mascaraPiramide = s.path({d:"m 216.472,240.01 -123.403,0 61.701,-110.019 z", fill:"#FFFFFF"});
         bordeOjo = f.select("path[id='bordeOjo']").attr({d:"M 183.369,196.739 Q 154.669,196.739 125.437,196.739 Q 154.669,196.739 183.369,196.739", fill:"none"});
         rellonoOjo = f.select("path[id='rellonoOjo']").attr({d:"M 183.369,196.739 Q 154.669,196.739 125.437,196.739 Q 154.669,196.739 183.369,196.739", fill:"none"});
         grupoOjoInt = f.select("g[id='grupoOjoInt']");
@@ -455,11 +456,14 @@ var attitude = function() {
         s.append(grupoPiramide);
         s.append(bloqueOcultaPiramide);
         s.append(grupoPestanas);
+        s.append(mascaraPiramide);
 
         anim.play = function() {
 
             this.timestapInit = new Date().getTime();
             this.timeConsumed = 0;
+
+            bloqueOcultaPiramide.attr({ mask : mascaraPiramide});
 
             animacionPiramidePrimeraParte(150);
         }

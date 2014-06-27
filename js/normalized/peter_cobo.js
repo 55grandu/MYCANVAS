@@ -545,29 +545,35 @@ var peterCobo = function() {
     var animation_4 = function(f, svg) {
         var animation = {};
         s = new Snap(svg);
+
+        var rayoAmarillo = null, rayoRojo = null, linea = null, panelOculto = null, 
+            lengthLinea = 0,
+            groupRayos = null,
+            intervalo = null;
+
         rayoAmarillo = f.select("polygon[id='rayoAmarillo']");
         rayoRojo = f.select("polygon[id='rayoRojo']");
         linea = f.select("path[id='linea']");
-        panelOculto = f.select("path[id='panelOculto']");
+        panelOculto = f.select("polygon[id='panelOculto']");
         lengthLinea = linea.getTotalLength();
-        intervalo = null;
 
         linea.attr({strokeDasharray:lengthLinea+" "+lengthLinea, strokeDashoffset:lengthLinea});
 
         animation.play = function() {
+            s.append(panelOculto);
+
+            groupRayos = s.group(rayoAmarillo, rayoRojo, linea);
+
+            groupRayos.attr({ mask : panelOculto });
+
             linea.attr({display:"inline"});
             rayoAmarillo.attr({display:"inline", fill:"#FFCF48"});
             rayoRojo.attr({display:"inline", fill:"#C83759"});
             
             linea.attr({strokeDasharray:lengthLinea+" "+lengthLinea, strokeDashoffset:lengthLinea});
-            panelOculto.attr({display:"inline"});
             
             rayoAmarillo.attr({transform:"t-433,0"});
             rayoRojo.attr({transform:"t-703,0"});
-
-            linea.before(panelOculto);
-            panelOculto.before(rayoAmarillo);
-            panelOculto.before(rayoRojo);
             
             this.timestapInit = new Date().getTime();
             this.timeConsumed = 0;
@@ -614,7 +620,7 @@ var peterCobo = function() {
         function animacionRayoRojo (ms){
             rayoRojo.animate({transform:"t0,0"},ms, mina.bounce, function(){
                 linea.attr({display:"none"});
-                panelOculto.attr({display:"none"});
+                //panelOculto.attr({display:"none"});
                 var tiempoInitCambioColores = new Date().getTime();
                 intervalo = setInterval(function(){funcCambioColores(tiempoInitCambioColores)}, 200);
             });     
@@ -640,8 +646,8 @@ var peterCobo = function() {
             }
         }
 
-        s.append(panelOculto);
-        s.append(linea);
+        //s.append(panelOculto);
+        //s.append(linea);
 
         return {
             play: animation.play,
