@@ -441,7 +441,10 @@ var attitude = function() {
 
         var grupoPiramide = null, bloqueOcultaPiramide = null, bordeOjo = null, rellonoOjo = null, grupoOjoInt = null, grupoPestanas = null, grupoMano = null, 
             intervalPrimeraParte = null, intervalSegundaParte = null, intervalTerceraParte = null, intervalCierreCuartaParte = null, intervalCierreTerceraParte = null, intervalCierreSegundaParte = null, intervalCierreOjo = null, intervalCierreMano = null, mascaraPiramide = null;
-            fondoVerdeParteInf = null, primeraLineaHorizontal = null, lineaCentalInferior = null, lineaIzqInferior = null, lineaDerInferior = null,
+            fondoVerdeParteInf = null, primeraLineaHorizontal = null, lineaCentalInferior = null, lineaIzqInferior = null, lineaDerInferior = null, lineaIzqMedio = null, lineaDerMedio = null, lineaCentalSuperior = null, segundaLineaHorizontal = null, terceraLineaHorizontal = null
+            fondoVerdeParteInterInf = null, bordeNegroParteInterInf = null,
+            fondoVerdeParteInterSup = null, bordeNegroParteInterSup = null,
+            fondoVerdeParteSup = null, bordeNegroParteSup = null,
             fondoBlancoPiramide = null,
             loaded = false;
 
@@ -452,12 +455,30 @@ var attitude = function() {
         lineaCentalInferior = f.select("rect[id='lineaCentalInferior']");
         lineaIzqInferior = f.select("rect[id='lineaIzqInferior']");
         lineaDerInferior = f.select("rect[id='lineaDerInferior']");
+        segundaLineaHorizontal = f.select("rect[id='segundaLineaHorizontal']");
+        lineaIzqMedio = f.select("rect[id='lineaIzqMedio']");
+        lineaDerMedio = f.select("rect[id='lineaDerMedio']");
+        lineaCentalSuperior = f.select("rect[id='lineaCentalSuperior']");
+        terceraLineaHorizontal = f.select("rect[id='terceraLineaHorizontal']");
         //bloqueOcultaPiramide = s.path({d:"m 216.472,240.01 -123.403,0 61.701,-110.019 z", fill:"#FFFFFF"});
         mascaraPiramide = s.path({d:"m 216.472,240.01 -123.403,0 61.701,-110.019 z", fill:"#FFFFFF"});
 
+        s.append(fondoBlancoPiramide);
+
         fondoVerdeParteInf = s.polygon({points:"211.903,238.489 196.833,209.673 117,209.673 101.828,238.489 ", fill:"#93C93D"});
         bordeNegroParteInf = s.path({d:"M197.833,209.673 L214.472,240.01 H95.069 L112,209.673", fill:"none", stroke:"#000000", strokeWidth:"3.5"});
-        grupoPiramideParteInf = s.group(fondoBlancoPiramide, bordeNegroParteInf, fondoVerdeParteInf,  primeraLineaHorizontal, lineaCentalInferior, lineaIzqInferior, lineaDerInferior);
+        grupoPiramideParteInf = s.group(fondoVerdeParteInf, bordeNegroParteInf, primeraLineaHorizontal, lineaCentalInferior, lineaIzqInferior, lineaDerInferior);
+
+        fondoVerdeParteInterInf = s.polygon({points:"196.833,209.673 117,209.673 130.816,181.432 182.256,181.432", fill:"#93C93D"});
+        bordeNegroParteInterInf = s.path({d:"M197.833,209.673 L182.256,181.432 M112,209.673 L127,181.432", fill:"none", stroke:"#000000", strokeWidth:"3.5"});
+        grupoPiramideParteInterInf = s.group(fondoVerdeParteInterInf, bordeNegroParteInterInf, segundaLineaHorizontal, lineaIzqMedio, lineaDerMedio);
+        
+        fondoVerdeParteInterSup = s.polygon({points:"130.816,181.432 182.256,181.432 165.271,153.474 144.229,153.474", fill:"#93C93D"});
+        bordeNegroParteInterSup = s.path({d:"M126.816,181.432 L144.229,153.474 M182.256,181.432 L165.271,153.474", fill:"none", stroke:"#000000", strokeWidth:"3.5"});
+        grupoPiramideParteInterSup = s.group(fondoVerdeParteInterSup, bordeNegroParteInterSup, terceraLineaHorizontal, lineaCentalSuperior);
+        
+        //fondoVerdeParteSup = s.polygon({points:"211.903,238.489 196.833,209.673 117,209.673 101.828,238.489 ", fill:"#93C93D"});
+        //bordeNegroParteSup = s.path({d:"M197.833,209.673 L214.472,240.01 H95.069 L112,209.673", fill:"none", stroke:"#000000", strokeWidth:"3.5"});
 
         bordeOjo = f.select("path[id='bordeOjo']").attr({d:"M 183.369,196.739 Q 154.669,196.739 125.437,196.739 Q 154.669,196.739 183.369,196.739", fill:"none"});
         rellonoOjo = f.select("path[id='rellonoOjo']").attr({d:"M 183.369,196.739 Q 154.669,196.739 125.437,196.739 Q 154.669,196.739 183.369,196.739", fill:"none"});
