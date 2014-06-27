@@ -8,7 +8,7 @@
 		<g>
 			<g>
 				<g>
-					<polygon fill="#FFFFFF" points="154.669,135.032 97.568,238.683 107.829,238.983 157.621,140.459"/>
+					<polygon id="fondoBlancoPiramide" fill="#FFFFFF" points="154.669,135.032 97.568,238.683 107.829,238.983 157.621,140.459"/>
 					<polygon id="fondoVerdePiramide" fill="#93C93D" points="211.903,238.489 155.84,137.243 101.828,238.489"/>
 					<path id="bordeNegroPiramide" d="M214.472,240.01H95.069l59.701-108.019L214.472,240.01z M100.287,236.932h108.966l-54.483-98.578L100.287,236.932z"/>
 				</g>

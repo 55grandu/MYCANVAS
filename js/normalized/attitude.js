@@ -441,31 +441,43 @@ var attitude = function() {
 
         var grupoPiramide = null, bloqueOcultaPiramide = null, bordeOjo = null, rellonoOjo = null, grupoOjoInt = null, grupoPestanas = null, grupoMano = null, 
             intervalPrimeraParte = null, intervalSegundaParte = null, intervalTerceraParte = null, intervalCierreCuartaParte = null, intervalCierreTerceraParte = null, intervalCierreSegundaParte = null, intervalCierreOjo = null, intervalCierreMano = null, mascaraPiramide = null;
+            fondoVerdeParteInf = null, primeraLineaHorizontal = null, lineaCentalInferior = null, lineaIzqInferior = null, lineaDerInferior = null,
+            fondoBlancoPiramide = null,
             loaded = false;
 
         // Cargamos los elementos del SVG
         grupoPiramide = f.select("g[id='grupoPiramide']");
-        bloqueOcultaPiramide = s.path({d:"m 216.472,240.01 -123.403,0 61.701,-110.019 z", fill:"#FFFFFF"});
+        fondoBlancoPiramide = f.select("polygon[id='fondoBlancoPiramide']");
+        primeraLineaHorizontal = f.select("rect[id='primeraLineaHorizontal']");
+        lineaCentalInferior = f.select("rect[id='lineaCentalInferior']");
+        lineaIzqInferior = f.select("rect[id='lineaIzqInferior']");
+        lineaDerInferior = f.select("rect[id='lineaDerInferior']");
+        //bloqueOcultaPiramide = s.path({d:"m 216.472,240.01 -123.403,0 61.701,-110.019 z", fill:"#FFFFFF"});
         mascaraPiramide = s.path({d:"m 216.472,240.01 -123.403,0 61.701,-110.019 z", fill:"#FFFFFF"});
+
+        fondoVerdeParteInf = s.polygon({points:"211.903,238.489 196.833,209.673 117,209.673 101.828,238.489 ", fill:"#93C93D"});
+        bordeNegroParteInf = s.path({d:"M197.833,209.673 L214.472,240.01 H95.069 L112,209.673", fill:"none", stroke:"#000000", strokeWidth:"3.5"});
+        grupoPiramideParteInf = s.group(fondoBlancoPiramide, bordeNegroParteInf, fondoVerdeParteInf,  primeraLineaHorizontal, lineaCentalInferior, lineaIzqInferior, lineaDerInferior);
+
         bordeOjo = f.select("path[id='bordeOjo']").attr({d:"M 183.369,196.739 Q 154.669,196.739 125.437,196.739 Q 154.669,196.739 183.369,196.739", fill:"none"});
         rellonoOjo = f.select("path[id='rellonoOjo']").attr({d:"M 183.369,196.739 Q 154.669,196.739 125.437,196.739 Q 154.669,196.739 183.369,196.739", fill:"none"});
         grupoOjoInt = f.select("g[id='grupoOjoInt']");
         grupoPestanas = f.select("g[id='grupoPestanas']").attr({display:"none"});
         grupoMano = f.select("g[id='grupoMano']");
 
-        s.append(grupoPiramide);
-        s.append(bloqueOcultaPiramide);
-        s.append(grupoPestanas);
-        s.append(mascaraPiramide);
+        //s.append(grupoPiramide);
+        //s.append(bloqueOcultaPiramide);
+        //s.append(grupoPestanas);
+        //s.append(mascaraPiramide);
 
         anim.play = function() {
 
             this.timestapInit = new Date().getTime();
             this.timeConsumed = 0;
 
-            bloqueOcultaPiramide.attr({ mask : mascaraPiramide});
+            //bloqueOcultaPiramide.attr({ mask : mascaraPiramide});
 
-            animacionPiramidePrimeraParte(150);
+            //animacionPiramidePrimeraParte(150);
         }
 
         anim.pause = function() {
