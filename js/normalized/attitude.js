@@ -439,7 +439,7 @@ var attitude = function() {
 
         var anim = {};
 
-        var grupoPiramide = null, bloqueOcultaPiramide = null, bordeOjo = null, rellonoOjo = null, grupoOjoInt = null, grupoPestanas = null, grupoMano = null, 
+        var grupoPiramide = null, bloqueOcultaPiramide = null, bordeOjo = null, rellonoOjo = null, grupoOjoInt = null, grupoPestanas = null, grupoMano = null, grupoPiramideParteSup = null,
             intervalPrimeraParte = null, intervalSegundaParte = null, intervalTerceraParte = null, intervalCierreCuartaParte = null, intervalCierreTerceraParte = null, intervalCierreSegundaParte = null, intervalCierreOjo = null, intervalCierreMano = null, mascaraPiramide = null;
             fondoVerdeParteInf = null, primeraLineaHorizontal = null, lineaCentalInferior = null, lineaIzqInferior = null, lineaDerInferior = null, lineaIzqMedio = null, lineaDerMedio = null, lineaCentalSuperior = null, segundaLineaHorizontal = null, terceraLineaHorizontal = null
             fondoVerdeParteInterInf = null, bordeNegroParteInterInf = null,
@@ -460,25 +460,27 @@ var attitude = function() {
         lineaDerMedio = f.select("rect[id='lineaDerMedio']");
         lineaCentalSuperior = f.select("rect[id='lineaCentalSuperior']");
         terceraLineaHorizontal = f.select("rect[id='terceraLineaHorizontal']");
-        //bloqueOcultaPiramide = s.path({d:"m 216.472,240.01 -123.403,0 61.701,-110.019 z", fill:"#FFFFFF"});
-        mascaraPiramide = s.path({d:"m 216.472,240.01 -123.403,0 61.701,-110.019 z", fill:"#FFFFFF"});
+        //bloqueOcultaPiramide = s.path({d:"m 214.472,240.01 -119.403,0 16.44103,-29.74731 15.63127,-28.28218 15.58957,-28.20671 12.03913,-21.7828 12.17037,22.01989 15.73019,28.46068 15.52063,28.08152 z", fill:"yellow"});
+        //bloqueOcultaPiramide2 = s.path({d:"m -114.185,-3.078 108.966,0 -14.60077,-26.41769 -15.51732,-28.07602 -15.65469,-28.32458 -8.71022,-15.75971 -8.70966,15.75869 -15.57529,28.18091 -15.63018,28.28024 z", fill:"black"});
+        //mascaraPiramide = s.path({d:"m 216.472,240.01 -123.403,0 61.701,-110.019 z", fill:"#FFFFFF"});
 
         s.append(fondoBlancoPiramide);
 
-        fondoVerdeParteInf = s.polygon({points:"211.903,238.489 196.833,209.673 117,209.673 101.828,238.489 ", fill:"#93C93D"});
-        bordeNegroParteInf = s.path({d:"M197.833,209.673 L214.472,240.01 H95.069 L112,209.673", fill:"none", stroke:"#000000", strokeWidth:"3.5"});
+        fondoVerdeParteInf = s.path({d:"m211.903,238.489l-16.03151,-28.623l-78.87149,0.134l-15.172,28.489l110.075,0z", fill:"#93C93D"});
+        bordeNegroParteInf = s.path({d:"m214.472,240.00999l-119.403,0l16.701,-30.019l85.85101,0.009l16.851,30.00999zm-114.185,-3.07799l108.966,0l-14.483,-26.578l-79.2415,-0.711l-15.2415,27.289z"});
         grupoPiramideParteInf = s.group(fondoVerdeParteInf, bordeNegroParteInf, primeraLineaHorizontal, lineaCentalInferior, lineaIzqInferior, lineaDerInferior);
 
-        fondoVerdeParteInterInf = s.polygon({points:"196.833,209.673 117,209.673 130.816,181.432 182.256,181.432", fill:"#93C93D"});
-        bordeNegroParteInterInf = s.path({d:"M197.833,209.673 L182.256,181.432 M112,209.673 L127,181.432", fill:"none", stroke:"#000000", strokeWidth:"3.5"});
+        fondoVerdeParteInterInf = s.path({d:"m180.903,182.489l14.968,27.377l-78.871,0.134l14.828,-27.511l49.075,0z", fill:"#93C93D"});
+        bordeNegroParteInterInf = s.path({d:"m182.472,182.00999l-55.172,0.19l-15.53001,27.791l85.85101,0.009l-15.42101,-27.99001l0.272,0zm-52.185,0.92201l48.966,0l15.517,27.422l-79.241,-0.711l14.758,-26.711l0,0z"});
         grupoPiramideParteInterInf = s.group(fondoVerdeParteInterInf, bordeNegroParteInterInf, segundaLineaHorizontal, lineaIzqMedio, lineaDerMedio);
         
-        fondoVerdeParteInterSup = s.polygon({points:"130.816,181.432 182.256,181.432 165.271,153.474 144.229,153.474", fill:"#93C93D"});
-        bordeNegroParteInterSup = s.path({d:"M126.816,181.432 L144.229,153.474 M182.256,181.432 L165.271,153.474", fill:"none", stroke:"#000000", strokeWidth:"3.5"});
+        fondoVerdeParteInterSup = s.path({d:"m180.8,182.489l-15.929,-28.189l-18.071,0l-14.972,28.189l48.972,0z", fill:"#93C93D"});
+        bordeNegroParteInterSup = s.path({d:"m182.472,182.00999l-55.272,0.19l15.56999,-28.209l23.85101,0.00899l15.57899,28.01001l0.27199,0l0.00002,0zm-52.185,0.92201l48.966,0l-15.55301,-28.289l-18.17101,0l-15.24199,28.289l0,0z"});
         grupoPiramideParteInterSup = s.group(fondoVerdeParteInterSup, bordeNegroParteInterSup, terceraLineaHorizontal, lineaCentalSuperior);
         
-        //fondoVerdeParteSup = s.polygon({points:"211.903,238.489 196.833,209.673 117,209.673 101.828,238.489 ", fill:"#93C93D"});
-        //bordeNegroParteSup = s.path({d:"M197.833,209.673 L214.472,240.01 H95.069 L112,209.673", fill:"none", stroke:"#000000", strokeWidth:"3.5"});
+        fondoVerdeParteSup = s.path({d:"m155.84,137.243l9.03101,17.05701l-18.071,0l9.03999,-17.05701l0,0z", fill:"#93C93D"});
+        bordeNegroParteSup = s.path({d:"m154.77,132.10001l0,-0.10901l-12.17,22l24.29999,0.009l-12.12999,-22.009l0,0l0,0l0,0.10901zm0.03,6.39999l-0.03,-0.10001l8.62999,15.8l-17.39999,0l8.77,-15.7l0,0l0.03,0z"});
+        grupoPiramideParteSup = s.group(fondoVerdeParteInterSup, bordeNegroParteInterSup);
 
         bordeOjo = f.select("path[id='bordeOjo']").attr({d:"M 183.369,196.739 Q 154.669,196.739 125.437,196.739 Q 154.669,196.739 183.369,196.739", fill:"none"});
         rellonoOjo = f.select("path[id='rellonoOjo']").attr({d:"M 183.369,196.739 Q 154.669,196.739 125.437,196.739 Q 154.669,196.739 183.369,196.739", fill:"none"});
@@ -487,7 +489,8 @@ var attitude = function() {
         grupoMano = f.select("g[id='grupoMano']");
 
         //s.append(grupoPiramide);
-        //s.append(bloqueOcultaPiramide);
+        s.append(bloqueOcultaPiramide2);
+        s.append(bloqueOcultaPiramide);
         //s.append(grupoPestanas);
         //s.append(mascaraPiramide);
 
