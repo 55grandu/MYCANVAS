@@ -449,7 +449,7 @@ var attitude = function() {
             loaded = false;
 
         // Cargamos los elementos del SVG
-        grupoPiramide = f.select("g[id='grupoPiramide']");
+        //grupoPiramide = f.select("g[id='grupoPiramide']");
         fondoBlancoPiramide = f.select("polygon[id='fondoBlancoPiramide']");
         primeraLineaHorizontal = f.select("rect[id='primeraLineaHorizontal']");
         lineaCentalInferior = f.select("rect[id='lineaCentalInferior']");
@@ -462,7 +462,7 @@ var attitude = function() {
         terceraLineaHorizontal = f.select("rect[id='terceraLineaHorizontal']");
         //bloqueOcultaPiramide = s.path({d:"m 214.472,240.01 -119.403,0 16.44103,-29.74731 15.63127,-28.28218 15.58957,-28.20671 12.03913,-21.7828 12.17037,22.01989 15.73019,28.46068 15.52063,28.08152 z", fill:"yellow"});
         //bloqueOcultaPiramide2 = s.path({d:"m -114.185,-3.078 108.966,0 -14.60077,-26.41769 -15.51732,-28.07602 -15.65469,-28.32458 -8.71022,-15.75971 -8.70966,15.75869 -15.57529,28.18091 -15.63018,28.28024 z", fill:"black"});
-        //mascaraPiramide = s.path({d:"m 216.472,240.01 -123.403,0 61.701,-110.019 z", fill:"#FFFFFF"});
+        mascaraPiramide = s.path({d:"m 216.472,240.01 -123.403,0 61.701,-110.019 z", fill:"#FFFFFF"});
 
         s.append(fondoBlancoPiramide);
 
@@ -472,15 +472,17 @@ var attitude = function() {
 
         fondoVerdeParteInterInf = s.path({d:"m180.903,182.489l14.968,27.377l-78.871,0.134l14.828,-27.511l49.075,0z", fill:"#93C93D"});
         bordeNegroParteInterInf = s.path({d:"m182.472,182.00999l-55.172,0.19l-15.53001,27.791l85.85101,0.009l-15.42101,-27.99001l0.272,0zm-52.185,0.92201l48.966,0l15.517,27.422l-79.241,-0.711l14.758,-26.711l0,0z"});
-        grupoPiramideParteInterInf = s.group(fondoVerdeParteInterInf, bordeNegroParteInterInf, segundaLineaHorizontal, lineaIzqMedio, lineaDerMedio);
-        
+        grupoPiramideParteInterInf = s.group(fondoVerdeParteInterInf, bordeNegroParteInterInf, primeraLineaHorizontal, segundaLineaHorizontal, lineaIzqMedio, lineaDerMedio);
+
         fondoVerdeParteInterSup = s.path({d:"m180.8,182.489l-15.929,-28.189l-18.071,0l-14.972,28.189l48.972,0z", fill:"#93C93D"});
         bordeNegroParteInterSup = s.path({d:"m182.472,182.00999l-55.272,0.19l15.56999,-28.209l23.85101,0.00899l15.57899,28.01001l0.27199,0l0.00002,0zm-52.185,0.92201l48.966,0l-15.55301,-28.289l-18.17101,0l-15.24199,28.289l0,0z"});
-        grupoPiramideParteInterSup = s.group(fondoVerdeParteInterSup, bordeNegroParteInterSup, terceraLineaHorizontal, lineaCentalSuperior);
+        grupoPiramideParteInterSup = s.group(fondoVerdeParteInterSup, bordeNegroParteInterSup, segundaLineaHorizontal, terceraLineaHorizontal, lineaCentalSuperior);
         
         fondoVerdeParteSup = s.path({d:"m155.84,137.243l9.03101,17.05701l-18.071,0l9.03999,-17.05701l0,0z", fill:"#93C93D"});
         bordeNegroParteSup = s.path({d:"m154.77,132.10001l0,-0.10901l-12.17,22l24.29999,0.009l-12.12999,-22.009l0,0l0,0l0,0.10901zm0.03,6.39999l-0.03,-0.10001l8.62999,15.8l-17.39999,0l8.77,-15.7l0,0l0.03,0z"});
-        grupoPiramideParteSup = s.group(fondoVerdeParteInterSup, bordeNegroParteInterSup);
+        grupoPiramideParteSup = s.group(fondoVerdeParteSup, bordeNegroParteSup, terceraLineaHorizontal);
+
+        grupoPiramide = s.group(grupoPiramideParteSup, grupoPiramideParteInterSup, grupoPiramideParteInterInf, grupoPiramideParteInf);
 
         bordeOjo = f.select("path[id='bordeOjo']").attr({d:"M 183.369,196.739 Q 154.669,196.739 125.437,196.739 Q 154.669,196.739 183.369,196.739", fill:"none"});
         rellonoOjo = f.select("path[id='rellonoOjo']").attr({d:"M 183.369,196.739 Q 154.669,196.739 125.437,196.739 Q 154.669,196.739 183.369,196.739", fill:"none"});
@@ -489,19 +491,81 @@ var attitude = function() {
         grupoMano = f.select("g[id='grupoMano']");
 
         //s.append(grupoPiramide);
-        s.append(bloqueOcultaPiramide2);
-        s.append(bloqueOcultaPiramide);
-        //s.append(grupoPestanas);
-        //s.append(mascaraPiramide);
+        //s.append(bloqueOcultaPiramide2);
+        //s.append(bloqueOcultaPiramide);
+        s.append(grupoPestanas);
+        s.append(mascaraPiramide);
+
+        //terceraLineaHorizontal.attr({transform:"t0,115"});
+/*
+        fondoVerdeParteInf.animate({transform:"t0,0"},500); 
+        bordeNegroParteInf.animate({transform:"t0,0"},500);
+        primeraLineaHorizontal.animate({transform:"t0,0"},500);
+        lineaCentalInferior.animate({transform:"t0,0"},500);
+        lineaIzqInferior.animate({transform:"t0,0"},500);
+        lineaDerInferior.animate({transform:"t0,0"},500, function(){
+
+            fondoVerdeParteInterInf.animate({transform:"t0,0"},500); 
+            bordeNegroParteInterInf.animate({transform:"t0,0"},500); 
+            //primeraLineaHorizontal.animate({transform:"t0,0"},500); 
+            segundaLineaHorizontal.animate({transform:"t0,0"},500); 
+            lineaIzqMedio.animate({transform:"t0,0"},500); 
+            lineaDerMedio.animate({transform:"t0,0"},500, function(){
+
+                grupoPiramideParteInf.after(grupoPiramideParteInterInf);
+
+                fondoVerdeParteInterSup.animate({transform:"t0,0"},500); 
+                bordeNegroParteInterSup.animate({transform:"t0,0"},500); 
+                //segundaLineaHorizontal.attr({transform:"t0,87"});
+                terceraLineaHorizontal.animate({transform:"t0,0"},500); 
+                lineaCentalSuperior.animate({transform:"t0,0"},500, function(){
+
+                    grupoPiramideParteInterInf.after(grupoPiramideParteInterSup);
+
+                    fondoVerdeParteSup.animate({transform:"t0,0"},500); 
+                    bordeNegroParteSup.animate({transform:"t0,0"},500, function(){
+                        grupoPiramideParteInterSup.after(grupoPiramideParteSup);
+                    }); 
+                    //terceraLineaHorizontal.attr({transform:"t0,115"});
+                });
+            }); 
+        });
+*/
+ 
+        
 
         anim.play = function() {
+            grupoPiramide.attr({ mask : mascaraPiramide });
+
+            fondoVerdeParteInf.attr({transform:"t0,35"}); 
+            bordeNegroParteInf.attr({transform:"t0,35"});
+            primeraLineaHorizontal.attr({transform:"t0,35"});
+            lineaCentalInferior.attr({transform:"t0,35"});
+            lineaIzqInferior.attr({transform:"t0,35"});
+            lineaDerInferior.attr({transform:"t0,35"});
+
+            fondoVerdeParteInterInf.attr({transform:"t0,59"});
+            bordeNegroParteInterInf.attr({transform:"t0,59"});
+            //primeraLineaHorizontal.attr({transform:"t0,59"});
+            segundaLineaHorizontal.attr({transform:"t0,59"});
+            lineaIzqMedio.attr({transform:"t0,59"});
+            lineaDerMedio.attr({transform:"t0,59"});
+
+            fondoVerdeParteInterSup.attr({transform:"t0,87"});
+            bordeNegroParteInterSup.attr({transform:"t0,87"});
+            //segundaLineaHorizontal.attr({transform:"t0,87"});
+            terceraLineaHorizontal.attr({transform:"t0,87"});
+            lineaCentalSuperior.attr({transform:"t0,87"});
+            
+            fondoVerdeParteSup.attr({transform:"t0,115"});
+            bordeNegroParteSup.attr({transform:"t0,115"});
 
             this.timestapInit = new Date().getTime();
             this.timeConsumed = 0;
 
             //bloqueOcultaPiramide.attr({ mask : mascaraPiramide});
 
-            //animacionPiramidePrimeraParte(150);
+            animacionPiramidePrimeraParte(150);
         }
 
         anim.pause = function() {
@@ -512,8 +576,25 @@ var attitude = function() {
             this.timeConsumed = this.timeConsumed + diff;
             console.log(this.timeConsumed);
 
-            anim.pause.grupoPiramide = grupoPiramide.stop();
-            anim.pause.bloqueOcultaPiramide = bloqueOcultaPiramide.stop();
+            anim.pause.fondoVerdeParteInf = fondoVerdeParteInf.stop(); 
+            anim.pause.bordeNegroParteInf = bordeNegroParteInf.stop();
+            anim.pause.primeraLineaHorizontal = primeraLineaHorizontal.stop();
+            anim.pause.lineaCentalInferior = lineaCentalInferior.stop();
+            anim.pause.lineaIzqInferior = lineaIzqInferior.stop();
+            anim.pause.lineaDerInferior = lineaDerInferior.stop();
+            anim.pause.fondoVerdeParteInterInf = fondoVerdeParteInterInf.stop();
+            anim.pause.bordeNegroParteInterInf = bordeNegroParteInterInf.stop();
+            anim.pause.segundaLineaHorizontal = segundaLineaHorizontal.stop();
+            anim.pause.lineaIzqMedio = lineaIzqMedio.stop();
+            anim.pause.lineaDerMedio = lineaDerMedio.stop();
+            anim.pause.fondoVerdeParteInterSup = fondoVerdeParteInterSup.stop();
+            anim.pause.bordeNegroParteInterSup = bordeNegroParteInterSup.stop();
+            anim.pause.terceraLineaHorizontal = terceraLineaHorizontal.stop();
+            anim.pause.lineaCentalSuperior = lineaCentalSuperior.stop();
+            anim.pause.fondoVerdeParteSup = fondoVerdeParteSup.stop();
+            anim.pause.bordeNegroParteSup = bordeNegroParteSup.stop();
+            //anim.pause.grupoPiramide = grupoPiramide.stop();
+            //anim.pause.bloqueOcultaPiramide = bloqueOcultaPiramide.stop();
             anim.pause.bordeOjo = bordeOjo.stop();
             anim.pause.rellonoOjo = rellonoOjo.stop();
             anim.pause.grupoOjoInt = grupoOjoInt.stop();
@@ -599,7 +680,13 @@ var attitude = function() {
 
          function animacionPiramidePrimeraParte (ms){
             if(ms>1){
-                bloqueOcultaPiramide.animate({transform:"t0,-31"}, ms, function(){
+                fondoVerdeParteInf.animate({transform:"t0,0"},ms); 
+                bordeNegroParteInf.animate({transform:"t0,0"},ms);
+                primeraLineaHorizontal.animate({transform:"t0,0"},ms);
+                lineaCentalInferior.animate({transform:"t0,0"},ms);
+                lineaIzqInferior.animate({transform:"t0,0"},ms);
+                lineaDerInferior.animate({transform:"t0,0"},ms, function(){
+                //bloqueOcultaPiramide.animate({transform:"t0,-31"}, ms, function(){
                     intervalPrimeraParte = setInterval(function(){
                         animacionPiramideSegundaParte(150);
                     },300);
@@ -610,7 +697,14 @@ var attitude = function() {
         function animacionPiramideSegundaParte (ms){
             clearInterval(intervalPrimeraParte);
             if(ms>1){
-                bloqueOcultaPiramide.animate({transform:"t0,-59"}, ms, function(){
+                fondoVerdeParteInterInf.animate({transform:"t0,0"},ms); 
+                bordeNegroParteInterInf.animate({transform:"t0,0"},ms); 
+                //primeraLineaHorizontal.animate({transform:"t0,0"},ms); 
+                segundaLineaHorizontal.animate({transform:"t0,0"},ms); 
+                lineaIzqMedio.animate({transform:"t0,0"},ms); 
+                lineaDerMedio.animate({transform:"t0,0"}, ms, function(){
+                //bloqueOcultaPiramide.animate({transform:"t0,-59"}, ms, function(){
+                    grupoPiramideParteInf.after(grupoPiramideParteInterInf);
                     intervalSegundaParte = setInterval(function(){
                         animacionPiramideTerceraParte(150);
                     },300);
@@ -621,7 +715,13 @@ var attitude = function() {
         function animacionPiramideTerceraParte (ms){
             clearInterval(intervalSegundaParte);
             if(ms>1){
-                bloqueOcultaPiramide.animate({transform:"t0,-87"}, ms, function(){
+                fondoVerdeParteInterSup.animate({transform:"t0,0"},ms); 
+                bordeNegroParteInterSup.animate({transform:"t0,0"},ms); 
+                //segundaLineaHorizontal.attr({transform:"t0,87"});
+                terceraLineaHorizontal.animate({transform:"t0,0"},ms); 
+                lineaCentalSuperior.animate({transform:"t0,0"}, ms, function(){
+                //bloqueOcultaPiramide.animate({transform:"t0,-87"}, ms, function(){
+                    grupoPiramideParteInterInf.after(grupoPiramideParteInterSup);
                     intervalTerceraParte = setInterval(function(){
                         animacionPiramideCuartaParte(150);
                     },300);
@@ -632,7 +732,9 @@ var attitude = function() {
         function animacionPiramideCuartaParte (ms){
             clearInterval(intervalTerceraParte);
             if(ms>1){
-                bloqueOcultaPiramide.animate({transform:"t0,-115"}, ms, function(){
+                fondoVerdeParteSup.animate({transform:"t0,0"}, ms); 
+                bordeNegroParteSup.animate({transform:"t0,0"}, ms, function(){
+                    grupoPiramideParteInterSup.after(grupoPiramideParteSup);
                     animacionAperturaOjo(150,true);
                 });
             }
@@ -705,7 +807,11 @@ var attitude = function() {
 
         function animacionCierrePiramideCuartaParte (ms){
             if(ms>1){
-                bloqueOcultaPiramide.animate({transform:"t0,-87"}, ms, function(){
+                grupoPiramideParteSup.after(grupoPiramideParteInterSup);
+                grupoPiramideParteSup.after(grupoPiramideParteInterInf);
+                grupoPiramideParteSup.after(grupoPiramideParteInf);
+                fondoVerdeParteSup.animate({transform:"t0,115"}, ms); 
+                bordeNegroParteSup.animate({transform:"t0,115"}, ms, function(){
                     intervalCierreCuartaParte = setInterval(function(){
                         animacionCierrePiramideTerceraParte(150);
                     },300);
@@ -716,7 +822,13 @@ var attitude = function() {
         function animacionCierrePiramideTerceraParte (ms){
             clearInterval(intervalCierreCuartaParte);
             if(ms>1){
-                bloqueOcultaPiramide.animate({transform:"t0,-59"}, ms, function(){
+                grupoPiramideParteInterSup.after(grupoPiramideParteInterInf);
+                grupoPiramideParteInterSup.after(grupoPiramideParteInf);
+                fondoVerdeParteInterSup.animate({transform:"t0,87"},ms); 
+                bordeNegroParteInterSup.animate({transform:"t0,87"},ms); 
+                //segundaLineaHorizontal.attr({transform:"t0,87"});
+                terceraLineaHorizontal.animate({transform:"t0,87"},ms); 
+                lineaCentalSuperior.animate({transform:"t0,87"}, ms, function(){
                     intervalCierreTerceraParte = setInterval(function(){
                         animacionCierrePiramideSegundaParte(150);
                     },300);
@@ -727,7 +839,13 @@ var attitude = function() {
         function animacionCierrePiramideSegundaParte (ms){
             clearInterval(intervalCierreTerceraParte);
             if(ms>1){
-                bloqueOcultaPiramide.animate({transform:"t0,-31"}, ms, function(){
+                grupoPiramideParteInterInf.after(grupoPiramideParteInf);
+                fondoVerdeParteInterInf.animate({transform:"t0,59"},ms); 
+                bordeNegroParteInterInf.animate({transform:"t0,59"},ms); 
+                //primeraLineaHorizontal.animate({transform:"t0,0"},ms); 
+                segundaLineaHorizontal.animate({transform:"t0,59"},ms); 
+                lineaIzqMedio.animate({transform:"t0,59"},ms); 
+                lineaDerMedio.animate({transform:"t0,59"}, ms, function(){
                     intervalCierreSegundaParte = setInterval(function(){
                         animacionCierrePiramidePrimeraParte(150);
                     },300);
@@ -738,7 +856,12 @@ var attitude = function() {
         function animacionCierrePiramidePrimeraParte (ms){
             clearInterval(intervalCierreSegundaParte);
             if(ms>1){
-                bloqueOcultaPiramide.animate({transform:"t0,0"}, ms, function(){
+                fondoVerdeParteInf.animate({transform:"t0,35"},ms); 
+                bordeNegroParteInf.animate({transform:"t0,35"},ms);
+                primeraLineaHorizontal.animate({transform:"t0,35"},ms);
+                lineaCentalInferior.animate({transform:"t0,35"},ms);
+                lineaIzqInferior.animate({transform:"t0,35"},ms);
+                lineaDerInferior.animate({transform:"t0,35"},ms, function(){
                 });
             }
         }
